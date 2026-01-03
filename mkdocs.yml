@@ -1,0 +1,34 @@
+site_name: my Wiki
+site_url: https://yourname.github.io/my-wiki/
+
+# 启用 Material 主题
+theme:
+  name: material
+  language: zh # 设为中文
+  palette: 
+    # 切换日间/夜间模式的按钮
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate # 这就是那个炫酷的深色模式
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs # 顶部导航栏
+    - navigation.sections # 侧边栏分组
+    - navigation.top # 返回顶部按钮
+    - content.code.copy # 代码块复制按钮
+
+markdown_extensions:
+  - admonition # 提示块
+  - pymdownx.details # 折叠详情
+  - pymdownx.superfences # 代码块高亮
+  - pymdownx.arithmatex: # 开启 LaTeX 公式
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
