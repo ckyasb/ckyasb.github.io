@@ -26,7 +26,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
+      - run: pip install mkdocs-material mkdocs-awesome-pages-plugin
       # 如果你用了 mathjax 或其他插件，确保这里自动安装了
       # - run: pip install mkdocs-material[imaging] 
       - run: mkdocs gh-deploy --force
