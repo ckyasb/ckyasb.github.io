@@ -1,5 +1,5 @@
-site_name: my Wiki
-site_url: https://yourname.github.io/my-wiki/
+site_name: ckyasb's notes
+site_url: https://ckyasb.github.io/
 
 # 启用 Material 主题
 theme:
@@ -16,19 +16,26 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
-    - navigation.tabs # 顶部导航栏
-    - navigation.sections # 侧边栏分组
-    - navigation.top # 返回顶部按钮
-    - content.code.copy # 代码块复制按钮
+    - navigation.tabs        # 顶部导航栏
+    - navigation.top         # 返回顶部按钮
+    - content.code.copy      # 代码块复制按钮
+    - navigation.indexes     # 【左侧导航】显示所有页面的索引
+    - toc.follow             # 【右侧导航】滚动时右侧目录自动跟随
 
 markdown_extensions:
-  - admonition # 提示块
-  - pymdownx.details # 折叠详情
-  - pymdownx.superfences # 代码块高亮
-  - pymdownx.arithmatex: # 开启 LaTeX 公式
+  - attr_list             # 允许给图片加属性（大小、对齐）
+  - admonition            # 开启提示块 (!!! note)
+  - pymdownx.details      # 开启折叠 (???)
+  - pymdownx.superfences  # 允许代码块/列表嵌套
+  - pymdownx.tabbed:      # 【关键】开启选项卡
+      alternate_style: true 
+  - pymdownx.arithmatex:  # 【关键】开启数学公式
       generic: true
 
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - awesome-pages  # 启用插件
