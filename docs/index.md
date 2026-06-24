@@ -1,17 +1,29 @@
-# Welcome to MkDocs
+# 课程笔记
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+本站收录浙江大学本科课程笔记，涵盖物理、计算机科学、思想政治理论、人文等方向。左侧导航按学科分类，点击进入各课程目录查看章节。
 
-## Commands
+## 物理 Physics
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- [广义相对论](Physics/广义相对论/index.md) — 张欣宇 · 8 章 + 黎曼几何数学补充 + 期末考试重点
+- [电动力学](Physics/电动力学/index.md) — 袁野 · 18 章 + 张量/微分形式数学补充 + 考试重点
+- [数理方法Ⅱ](Physics/数理方法Ⅱ/index.md) — 复变函数、Fourier、Legendre、Bessel 等特殊函数
+- [光学](Physics/光学/index.md)
+- [原子物理](Physics/原子物理/01原子及结构.md)
 
-## Project layout
+## 计算机 CS
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- [数据结构基础](CS/数据结构基础/index.md) — 算法分析、树/堆、排序、散列(Robin Hood)、并查集、图算法
+- [信息理论](CS/信息理论/index.md) — 香农信息论三大定理
+- [人工智能前沿](CS/人工智能前沿/index.md)
+
+## 思政 / 人文 / 其他
+
+- [毛泽东思想和中国特色社会主义理论体系概论](思政/毛泽东思想和中国特色社会主义理论体系概论/index.md)
+- [马原](思政/马原/01%20导论.md)
+- [文学与人生](人文/文学与人生/index.md)
+- [控制的哲学与方法](控制/控制的哲学与方法/index.md)
+- [口译](英语/口译/技巧.md)
+
+---
+
+> 笔记参考 [jiepeng.tech](https://note.jiepeng.tech/) 风格，结合课堂语音转写、PPT、板书与作业整理，含每章知识点、题型例题与课堂重点。
