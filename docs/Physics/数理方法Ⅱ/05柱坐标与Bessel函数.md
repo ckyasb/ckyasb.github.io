@@ -138,6 +138,78 @@ $$
 
 ---
 
+## 6. 课堂典型例题（来自转写）
+
+### 6.1 例题（03-30 课堂）：柱坐标分离变量导出 Bessel 方程
+
+**题目**：在柱坐标 $(r,\varphi,z)$ 下对 Laplace/Helmholtz 方程分离变量，导出径向方程。
+
+??? note "答案要点（板书推导）"
+    Laplace 方程 $\nabla^2 u=0$ 在柱坐标展开为
+
+    $$
+    \frac{1}{r}\frac{\partial}{\partial r}\!\left(r\frac{\partial u}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2 u}{\partial\varphi^2}+\frac{\partial^2 u}{\partial z^2}=0
+    $$
+
+    设 $u(r,\varphi,z)=R(r)\Phi(\varphi)Z(z)$，分离变量：
+    - $\Phi''+m^2\Phi=0$ → $\Phi=e^{im\varphi}$（周期性要求 $m$ 整数）
+    - $Z''-\mu^2 Z=0$（或 $Z''+k^2 Z=0$）→ $Z=e^{\pm\mu z}$ 或 $e^{\pm ikz}$
+    - 径向方程（**Bessel 方程**）：
+
+      $$
+      \frac{1}{r}\frac{d}{dr}\!\left(r\frac{dR}{dr}\right)+\!\left(k^2-\frac{m^2}{r^2}\right)R=0
+      $$
+
+      即 $r^2 R''+rR'+(k^2 r^2-m^2)R=0$，令 $x=kr$ 得标准 Bessel 方程 $x^2 y''+xy'+(x^2-m^2)y=0$。
+
+    解 $J_m(kr)$（第一类，$r=0$ 有限）、$Y_m(kr)$（第二类，$r=0$ 发散，圆柱内部问题弃之）。
+
+### 6.2 例题（03-25 课堂）：圆形膜的横振动
+
+**题目**：半径 $a$ 的圆形膜边缘固定，求其本征振动模式。
+
+??? note "答案要点"
+    波动方程 $\nabla^2 u=\frac{1}{v^2}\frac{\partial^2 u}{\partial t^2}$。分离时间 $u=T(t)u_0(r,\varphi)$ 得 $T=e^{-i\omega t}$，空间满足 **Helmholtz 方程** $\nabla^2 u_0+k^2 u_0=0$（$k=\omega/v$）。
+
+    柱坐标分离变量（如 §6.1），径向 Bessel 函数 $J_m(kr)$。边缘固定边界条件 $u(a,\varphi)=0$ 要求 $J_m(ka)=0$，即 $ka$ 是 $J_m$ 的第 $n$ 个零点 $\alpha_{mn}$：
+
+    $$
+    k_{mn}=\frac{\alpha_{mn}}{a},\qquad \omega_{mn}=v\frac{\alpha_{mn}}{a}
+    $$
+
+    本征模式 $u_{mn}\propto J_m(k_{mn}r)\cos(m\varphi)$（或 $\sin$）。振动频率由 Bessel 函数零点决定——这是 Bessel 函数最典型的物理应用。
+
+    **考点**：边界条件 → Bessel 零点 → 本征值，与 Sturm-Liouville 理论一致。
+
+### 6.3 例题（04-01 课堂）：Bessel 函数的递推公式
+
+**题目**：推导并应用 Bessel 函数的递推关系。
+
+??? note "答案要点"
+    由 Bessel 函数的积分/级数表示可推得：
+
+    $$
+    \frac{d}{dx}[x^\nu J_\nu(x)]=x^\nu J_{\nu-1}(x),\qquad \frac{d}{dx}[x^{-\nu}J_\nu(x)]=-x^{-\nu}J_{\nu+1}(x)
+    $$
+
+    展开：
+
+    $$
+    xJ_\nu'(x)+\nu J_\nu(x)=xJ_{\nu-1}(x),\qquad xJ_\nu'(x)-\nu J_\nu(x)=-xJ_{\nu+1}(x)
+    $$
+
+    两式相加/减得：
+
+    $$
+    J_{\nu-1}(x)+J_{\nu+1}(x)=\frac{2\nu}{x}J_\nu(x),\qquad J_{\nu-1}(x)-J_{\nu+1}(x)=2J_\nu'(x)
+    $$
+
+    **应用**：(1) 用 $J_0$、$J_1$ 生成所有整数阶 $J_m$；(2) 计算含 $J$ 的积分，如 $\int x^{\nu+1}J_\nu(x)\,dx=x^{\nu+1}J_{\nu+1}(x)+C$。
+
+    **考点**：递推公式是 Bessel 函数计算的基础，避免每次都查表。
+
+---
+
 ## 本章小结
 
 | 概念 | 公式 / 说明 |
