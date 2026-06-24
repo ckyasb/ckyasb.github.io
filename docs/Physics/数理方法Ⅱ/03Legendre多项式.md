@@ -188,6 +188,54 @@ $$
 
     $m\neq0$ 对应物理量随方位角变化的问题（如非轴对称电荷分布、量子力学角动量 $z$ 分量）。
 
+### 6.4 例题（03-09 课堂完整）：金属纳米颗粒的等离激元共振——Legendre 展开的完整应用
+
+**题目**：古罗马 Lycurgus 杯在反射光与透射光下呈现不同颜色。电子显微镜显示含几十~100nm 金属颗粒。求真空中半径 $a$ 的球形金属颗粒在匀强外场 $E_0$ 中的电势，并解释变色。
+
+??? note "完整板书答案"
+    **建模**：$a\ll\lambda$（颗粒尺寸远小于光波长），颗粒内场近似均匀，球内外电势满足 Laplace 方程 $\nabla^2 u=0$。定解条件：(1) $r\to0$ 有限；(2) $r\to\infty$ 对应匀强场 $u\to-E_0 r\cos\theta$。
+
+    **分离变量**（球坐标，轴对称 $m=0$）：
+    - $r$ 方向 Euler 型：$R=A r^l+B r^{-(l+1)}$
+    - $\theta$ 方向：Legendre 方程，端点有限要求 $l$ 整数 → $P_l(\cos\theta)$
+
+    **一般解**：$u=\sum_l[A_l r^l+B_l r^{-(l+1)}]P_l(\cos\theta)$
+
+    **边界条件定系数**：
+    - 球内（$r\to0$ 有限，去 $r^{-(l+1)}$）：$u_{\text{in}}=\sum A_l r^l P_l(\cos\theta)$
+    - 球外（$r\to\infty$ 匹配匀强场 $-E_0 r\cos\theta=-E_0 r P_1$，只有 $l=0,1$ 存活）：
+
+      $$
+      u_{\text{out}}=C+(-E_0 r+D/r^2)\cos\theta
+      $$
+
+    **界面边界条件**（$r=a$ 处）：
+    - 电势连续：$A\cdot a=-E_0\cdot a+D/a^2$
+    - 电位移法向连续：$\varepsilon\,\partial_r u_{\text{in}}|_a=\varepsilon_0\,\partial_r u_{\text{out}}|_a$（金属视为电介质，$\varepsilon=\varepsilon_0\varepsilon_r$）
+
+    解出：
+
+    $$
+    A=-\frac{3E_0}{\varepsilon_r+2},\qquad D=a^3 E_0\frac{\varepsilon_r-1}{\varepsilon_r+2}
+    $$
+
+    球外偶极项 $\propto1/r^2$ 对应等效偶极矩 $p=4\pi\varepsilon_0 D=4\pi\varepsilon_0 a^3 E_0\frac{\varepsilon_r-1}{\varepsilon_r+2}$。
+
+    **金属介电函数（Drude 模型）**：自由电子 $m\ddot{x}=-eE_0 e^{-i\omega t}$，解 $x_0=eE_0/(m\omega^2)$。极化 $P=-nex=-\frac{ne^2}{m\omega^2}E$，故
+
+    $$
+    \varepsilon(\omega)=1-\frac{\omega_p^2}{\omega^2},\qquad \omega_p^2=\frac{ne^2}{m\varepsilon_0}\text{（等离子体频率）}
+    $$
+
+    **等离激元共振**：偶极系数 $\frac{\varepsilon_r-1}{\varepsilon_r+2}$ 在 $\varepsilon_r=-2$ 时发散 → 共振。代入 $\varepsilon(\omega)=-2$ 得 $\omega=\omega_p/\sqrt{3}$（**局域表面等离激元共振**）。
+
+    **变色机制**：对金，共振频率对应波长 $\approx550$ nm（绿光）。白光入射 → 绿光被强烈散射 → 反射方向见绿色；透射光中绿光被消耗，剩红光 → 透射方向见红色。
+
+    **课堂原话**：
+    > "我们就猜想这个杯子的变色秘密可能跟这些金属颗粒对我们电磁波的散射有关系……因为物理上要求我们的电势本身在球心处应该是有限的，这给了我们第一个边界条件。"
+
+    **考点**：这是分离变量法 + Legendre 展开的**完整闭环**应用——从物理建模到 Drude 介电函数到等离激元共振，串起整章知识点。
+
 ---
 
 ## 本章小结
