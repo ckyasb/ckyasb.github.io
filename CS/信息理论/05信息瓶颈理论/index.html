@@ -1,0 +1,7134 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ckyasb.github.io/CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/05%E4%BF%A1%E6%81%AF%E7%93%B6%E9%A2%88%E7%90%86%E8%AE%BA/">
+      
+      
+        <link rel="prev" href="../04%E7%8E%87%E5%A4%B1%E7%9C%9F%E7%90%86%E8%AE%BA/">
+      
+      
+        <link rel="next" href="../%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>05 信息瓶颈理论（Information Bottleneck） 🟢 非考试范围 - ckyasb's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#05-information-bottleneck" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ckyasb&#39;s notes" class="md-header__button md-logo" aria-label="ckyasb's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ckyasb's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              05 信息瓶颈理论（Information Bottleneck） 🟢 非考试范围
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Physics/%E5%85%89%E5%AD%A6/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Physics
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人文
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%80%9D%E6%94%BF/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  思政
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  控制
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  英语
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ckyasb&#39;s notes" class="md-nav__button md-logo" aria-label="ckyasb's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ckyasb's notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能前沿
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能前沿
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/01%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 人工智能前沿综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/02%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 大模型与基础模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/03%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 计算机视觉前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/04%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 自然语言处理前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/05%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%86%B3%E7%AD%96%E6%99%BA%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 强化学习与决策智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/06AI%20for%20Science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 AI for Science
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/07%E5%89%8D%E6%B2%BF%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 前沿总结与展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    信息理论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%E4%BF%A1%E6%81%AF%E5%BA%A6%E9%87%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 信息度量 🔴 考试核心（~40%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%E6%97%A0%E6%8D%9F%E5%8E%8B%E7%BC%A9%E4%B8%8E%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 无损压缩与信源编码（Lossless Compression &amp; Source Coding） 🔴 考试核心（~30%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%E4%BF%A1%E9%81%93%E5%AE%B9%E9%87%8F%E4%B8%8E%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 信道容量与信道编码（Channel Capacity &amp; Channel Coding） 🔴 考试核心（~30%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%E7%8E%87%E5%A4%B1%E7%9C%9F%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 率失真理论（Rate-Distortion Theory） 🟢 非考试范围
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 信息瓶颈理论（Information Bottleneck） 🟢 非考试范围
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 信息瓶颈理论（Information Bottleneck） 🟢 非考试范围
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 知识框架
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心概念与定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心概念与定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 问题设定 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ib-lagrangian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 IB Lagrangian 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 最优解的结构 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 IB 与率失真的对比 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-pareto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 信息平面与 Pareto 前沿 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 神经网络中的信息瓶颈 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 信息瓶颈理论的局限性与批评 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-strong-dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 强数据处理不等式（Strong DPI）简介 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 典型例题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 典型例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 1：计算 IB 目标函数值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 2：\(\beta\) 参数的极限行为
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 3：IB 与率失真的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 常见题型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 常见题型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ib-lagrangian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：IB Lagrangian 解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：\(\beta\) 参数意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：IB 与率失真对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 📖 教材扩展阅读
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 📖 教材扩展阅读">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#54-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教材 §5.4（率失真函数的充要条件）与 IB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教材 §3.3.6（通用信源编码）与表示学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#119" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教材 §11.9（相关信源的无损编码）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 📝 按题型精选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 📝 按题型精选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ib-lagrangian_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：IB Lagrangian 解释 — 压缩项与预测项的计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beta_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：\(\beta\) 参数意义 — 极限行为分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ib_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：IB 与率失真对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 公式速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 课堂拓展专题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 课堂拓展专题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 IB 迭代算法的详细步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 IB 在表示学习中的角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 IB 与信息论其它分支的联系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 附录：课堂板书与关键讨论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 附录：课堂板书与关键讨论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 关于两阶段现象的争论
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 讲者个人观点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论 — 作业汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论 — 课程笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/01%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 算法分析（Algorithm Analysis）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/02%E7%BA%BF%E6%80%A7%E8%A1%A8%E6%A0%88%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 线性表、栈与队列（Lists, Stacks, Queues）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/03%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 树与搜索树（Trees &amp; Search Trees）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/04%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%A0%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 优先队列与堆（Priority Queues &amp; Heaps）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/05%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 排序（Sorting）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/06%E6%95%A3%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 散列（Hashing）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/07%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 并查集（Union-Find / Disjoint Set）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/08%E5%9B%BE%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 图算法（Graph Algorithms）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E5%BA%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构基础 (FDS) 历年卷题库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E9%A2%98%E5%BA%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDS 题库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDS 高频考点与历年卷分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E5%85%89%E5%AD%A6/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    光学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%85%89%E5%AD%A6/01%20%E5%85%89%E4%B8%8E%E5%85%89%E7%9A%84%E4%BC%A0%E6%92%AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01光与光的传播
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%85%89%E5%AD%A6/06%20%E5%81%8F%E6%8C%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 偏振
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原子物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原子物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/01%E5%8E%9F%E5%AD%90%E5%8F%8A%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01原子及结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/02%E6%B3%A2%E5%B0%94-%E7%B4%A2%E6%9C%AB%E8%8F%B2%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02玻尔-索末菲模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/03%E7%94%B5%E5%AD%90%E8%87%AA%E6%97%8B%E5%8F%8A%E5%8E%9F%E5%AD%90%E7%A3%81%E7%9F%A9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03电子自旋及原子磁矩
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/04%E5%85%83%E7%B4%A0%E5%91%A8%E6%9C%9F%E5%BE%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04多电子原子及元素周期律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/05X%E5%B0%84%E7%BA%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05X射线
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/06%E5%8E%9F%E5%AD%90%E6%A0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06原子核物理概论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实验
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%AE%9E%E9%AA%8C/%E5%AE%9E%E9%AA%8C%E4%B8%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验三
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%AE%9E%E9%AA%8C/%E7%89%A9%E7%90%86%E7%8E%B0%E8%B1%A1%E4%B8%8E%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理现象与
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    广义相对论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    广义相对论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/01%E7%BB%AA%E8%AE%BA-%E5%BC%95%E5%8A%9B%E4%B8%8E%E6%97%B6%E7%A9%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 绪论：引力与时空
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/02%E5%BC%A0%E9%87%8F%E5%88%86%E6%9E%90%E4%B8%8E%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 张量分析与微分几何基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/03%E6%B5%8B%E5%9C%B0%E7%BA%BF%E4%B8%8E%E5%BC%AF%E6%9B%B2%E6%97%B6%E7%A9%BA%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 测地线与弯曲时空中的物理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/04Einstein%E5%9C%BA%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Einstein 场方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/05Schwarzschild%E8%A7%A3%E4%B8%8E%E7%BB%8F%E5%85%B8%E6%A3%80%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Schwarzschild 解与经典检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/06%E9%BB%91%E6%B4%9E%E7%89%A9%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 黑洞物理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/07%E5%BC%95%E5%8A%9B%E6%B3%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 引力波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/08%E5%AE%87%E5%AE%99%E5%AD%A6%E5%88%9D%E6%AD%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 宇宙学初步
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/%E6%95%B0%E5%AD%A6%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学补充：作业用到的数学工具索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/%E8%80%83%E8%AF%95%E9%87%8D%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期末考试重点汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理方法Ⅱ
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理方法Ⅱ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/01%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E5%9B%9E%E9%A1%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 复变函数回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/02Fourier%E7%BA%A7%E6%95%B0%E4%B8%8E%E7%A7%AF%E5%88%86%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 Fourier 级数与积分变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/03Legendre%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 Legendre 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/04%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 球谐函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/05%E6%9F%B1%E5%9D%90%E6%A0%87%E4%B8%8EBessel%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 柱坐标与 Bessel 函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/06%E5%85%B6%E4%BB%96%E7%89%B9%E6%AE%8A%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 其他特殊函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/07Bessel%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Bessel 函数应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电动力学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电动力学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/01%E7%BB%AA%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/02%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E5%85%A8%E5%B1%80%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 静电场的全局性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/03%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E5%B1%80%E5%9F%9F%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 静电场的局域性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/04%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%88%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电场的模式分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/05%E7%82%B9%E6%BA%90%E4%B8%8E%E5%A4%9A%E6%9E%81%E5%B1%95%E5%BC%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 点源与静电场的多极展开
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/06%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E8%BE%B9%E7%95%8C%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 静电场的边界问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/07%E9%9D%99%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 静磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/08%E9%9D%99%E7%94%B5%E4%B8%8E%E9%9D%99%E7%A3%81%E8%A7%84%E5%BE%8B%E6%AF%94%E8%BE%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 静电与静磁规律的比较
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/09%E4%BB%8E%E9%9D%99%E7%94%B5%E7%A3%81%E5%9C%BA%E5%88%B0%E4%B8%80%E8%88%AC%E7%94%B5%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 从静电磁场到一般电磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/10%E7%94%B5%E7%A3%81%E5%9C%BA%E7%9A%84%E4%B8%80%E8%88%AC%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 电磁场的一般动力学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/11%E7%9C%9F%E7%A9%BA%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E6%B3%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 真空中的电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/12%E7%94%B5%E7%A3%81%E8%BE%90%E5%B0%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电磁辐射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/13%E5%AE%8F%E8%A7%82%E7%89%A9%E8%B4%A8%E4%B8%AD%E7%9A%84%E9%9D%99%E7%94%B5%E5%92%8C%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 宏观物质中的静电/磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/14%E5%AE%8F%E8%A7%82%E7%89%A9%E8%B4%A8%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 宏观物质中的电磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/15%E7%94%B5%E7%A3%81%E5%9C%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%BE%B9%E7%95%8C%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15 电磁场动力学的边界问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/16%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E6%95%A3%E5%B0%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16 电磁波的散射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/17%E5%8A%A8%E4%BD%93%E7%9A%84%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17 动体的电动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/18%E7%94%B5%E7%A3%81%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18 电磁系统的拉格朗日力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E6%95%B0%E5%AD%A6%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学补充：作业用到的数学工具索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E8%80%83%E8%AF%95%E9%87%8D%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期末考试重点汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%87%8D%E8%A6%81%E5%85%AC%E5%BC%8F%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电动力学重要公式汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    选修
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    选修
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E9%80%89%E4%BF%AE/%E6%A0%B8%E5%8F%8D%E5%BA%94%E5%A0%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    反应堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人文
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人文
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文学与人生
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    文学与人生
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/01%E7%8E%B0%E4%BB%A3%E5%B0%8F%E8%AF%B4%E9%80%89%E8%AF%BB%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 现代小说选读（一）：文学与爱情
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/02%E7%8E%B0%E4%BB%A3%E5%B0%8F%E8%AF%B4%E9%80%89%E8%AF%BB%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 现代小说选读（二）：文学与亲情·文学与羞耻
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/03%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E6%96%87%E5%AD%A6%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 中国现代文学（一）：文学与羞耻·文学与现实
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/04%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E6%96%87%E5%AD%A6%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 中国现代文学（二）：文学与现实（续）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/05%E4%B8%96%E7%95%8C%E6%96%87%E5%AD%A6%E7%BB%8F%E5%85%B8%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 世界文学经典（一）：文学与美食
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/06%E4%B8%96%E7%95%8C%E6%96%87%E5%AD%A6%E7%BB%8F%E5%85%B8%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 世界文学经典（二）：革命·战争·伤痕
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/07%E6%96%87%E5%AD%A6%E6%89%B9%E8%AF%84%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 文学批评与人生：声音·良知·在路上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/08%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 文学与人生总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%80%9D%E6%94%BF/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    思政
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    思政
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    毛泽东思想和中国特色社会主义理论体系概论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    毛泽东思想和中国特色社会主义理论体系概论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%80-%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E4%B8%AD%E5%9B%BD%E5%8C%96%E7%9A%84%E5%8E%86%E5%8F%B2%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%90%86%E8%AE%BA%E6%88%90%E6%9E%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题一：马克思主义中国化的历史进程与理论成果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%83-%E4%B8%89%E4%B8%AA%E4%BB%A3%E8%A1%A8%E9%87%8D%E8%A6%81%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题七："三个代表"重要思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%89-%E6%96%B0%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E9%9D%A9%E5%91%BD%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题三：新民主主义革命理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%BA%8C-%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E5%8E%86%E5%8F%B2%E5%9C%B0%E4%BD%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题二：毛泽东思想及其历史地位
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%BA%94-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E5%BB%BA%E8%AE%BE%E9%81%93%E8%B7%AF%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A2%E7%9A%84%E7%90%86%E8%AE%BA%E6%88%90%E6%9E%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题五：社会主义建设道路初步探索的理论成果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%85%AB-%E7%A7%91%E5%AD%A6%E5%8F%91%E5%B1%95%E8%A7%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题八：科学发展观
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%85%AD-%E9%82%93%E5%B0%8F%E5%B9%B3%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题六：邓小平理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%9B%9B-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%94%B9%E9%80%A0%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题四：社会主义改造理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    毛概高频考点与历年卷分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    马原
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    马原
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E9%A9%AC%E5%8E%9F/01%20%E5%AF%BC%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E9%A9%AC%E5%8E%9F/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    马原选择
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制的哲学与方法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制的哲学与方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/01%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%80%9D%E7%BB%B4%E5%AF%BC%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 控制论与系统思维导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/02%E5%9B%A0%E6%9E%9C%E5%8F%8D%E9%A6%88%E4%B8%8E%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 因果反馈与闭环控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/03%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 经典控制系统分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/04%E6%8E%A7%E5%88%B6%E8%AE%BA%E6%80%9D%E6%83%B3%E5%8F%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 控制论思想史
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/05%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A%E6%B2%BB%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 控制论与社会治理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/06%E5%AD%A6%E7%A7%91%E4%BA%A4%E5%8F%89%E4%B8%8E%E5%B7%A5%E4%B8%9A%E6%8E%A7%E5%88%B6%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 学科交叉与工业控制前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/07%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B0%83%E6%8E%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 不确定性与动态调控
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    英语
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    英语
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    口译
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    口译
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    口译技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E8%AF%BE%E7%A8%8B%E8%AF%AD%E6%96%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    语料
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 知识框架
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心概念与定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心概念与定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 问题设定 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ib-lagrangian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 IB Lagrangian 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 最优解的结构 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 IB 与率失真的对比 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-pareto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 信息平面与 Pareto 前沿 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 神经网络中的信息瓶颈 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 信息瓶颈理论的局限性与批评 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-strong-dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 强数据处理不等式（Strong DPI）简介 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 典型例题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 典型例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 1：计算 IB 目标函数值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 2：\(\beta\) 参数的极限行为
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 3：IB 与率失真的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 常见题型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 常见题型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ib-lagrangian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：IB Lagrangian 解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：\(\beta\) 参数意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：IB 与率失真对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 📖 教材扩展阅读
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 📖 教材扩展阅读">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#54-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教材 §5.4（率失真函数的充要条件）与 IB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教材 §3.3.6（通用信源编码）与表示学习
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#119" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教材 §11.9（相关信源的无损编码）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 📝 按题型精选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 📝 按题型精选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ib-lagrangian_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：IB Lagrangian 解释 — 压缩项与预测项的计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beta_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：\(\beta\) 参数意义 — 极限行为分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ib_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：IB 与率失真对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 公式速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 课堂拓展专题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 课堂拓展专题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 IB 迭代算法的详细步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 IB 在表示学习中的角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-ib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 IB 与信息论其它分支的联系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 附录：课堂板书与关键讨论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 附录：课堂板书与关键讨论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 关于两阶段现象的争论
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 讲者个人观点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="05-information-bottleneck">05 信息瓶颈理论（Information Bottleneck） 🟢 非考试范围</h1>
+<p><strong>博士生客座（余官定组） | 2026-06-07（1 讲） | 不考</strong></p>
+<blockquote>
+<p>从 <span class="arithmatex">\(X\)</span> 中提取一个压缩表示 <span class="arithmatex">\(T\)</span>，使得 <span class="arithmatex">\(T\)</span> 对目标变量 <span class="arithmatex">\(Y\)</span> 保留尽可能多的信息。
+率失真理论的"有监督"推广——率失真只关心 <span class="arithmatex">\(X\)</span> 的保真度，IB 关心 <span class="arithmatex">\(T\)</span> 对 <span class="arithmatex">\(Y\)</span> 的保真度。</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 知识框架</h2>
+<p>信息瓶颈理论的核心权衡：<strong>压缩 vs. 预测</strong></p>
+<div class="highlight"><pre><span></span><code>率失真理论:
+ min I(X; X̂)  s.t. E[d(X, X̂)] ≤ D   （失真由预定义函数 d 衡量）
+
+信息瓶颈理论:
+ min I(X; T) − β·I(T; Y)         （失真由KL散度自适应衡量）
+    ↑ 压缩项     ↑ 相关性项
+
+Markov 结构:  Y → X → T
+        (Y 生成 X, X 压缩为 T)
+
+β → 0 : 更重视压缩 → T 趋于常数（完全丢弃信息）
+β → ∞ : 更重视预测 → T 趋于 X 的充分统计量
+</code></pre></div>
+<p><strong>与神经网络的联系</strong>：深度网络的逐层表示可视为 IB 过程——每层压缩输入、保留任务相关信息。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>从第一讲者（余官定组博士生）的介绍中可知：</p>
+<ul>
+<li><strong>提出背景</strong>：Information Bottleneck 由 Tishby, Pereira 和 Bialek 于 1999 年提出，最初发表在 arXiv:physics/9904054</li>
+<li><strong>动机</strong>：传统信息论只关心"如何高效传输 01 比特"，不管这些比特的"语义"——IB 试图回答"什么样的信息是重要的"，去除冗余信息</li>
+<li><strong>核心延伸</strong>：IB 对传统率失真理论的延伸在于引入了"任务"（task）的概念。传统压缩只关心"X → X̂"的保真度，IB 关心"X → T → Y"的任务相关保真度</li>
+<li><strong>历史评价</strong>：IB 最初被认为能完美解释神经网络的信息处理过程（2015 年左右轰动一时），后来发现它并不能完全解释所有现象（尤其是深层网络和现代架构），但仍是一个经典的理论框架</li>
+<li><strong>讲者调侃</strong>："它并不那么那么有用……大家还是会把它当作神经网络里的一个可解释性理论框架去用"</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<ol>
+<li>（判断题）在 IB 框架中，Markov 链 X → Y → T 是允许的。</li>
+<li>（选择题）以下哪项最准确地描述了 IB 与率失真理论的核心区别？
+    A. IB 使用欧氏距离作为失真度量，率失真使用 KL 散度
+    B. IB 引入了目标变量 Y，率失真只关心 X 本身的重建
+    C. IB 只需要无监督数据，率失真需要标签
+    D. 两者在数学形式上没有本质区别</li>
+<li>（简答题）为什么说 IB 是率失真理论的"有监督"推广？</li>
+</ol>
+<p>??? note "答案"
+    1. <strong>错误</strong>。IB 中 Markov 链必须是 Y → X → T（标签生成观测数据，观测再被压缩）。如果 X → Y → T，则 T 在 Y 的指导下编码，失去"无监督压缩"的意义。
+    2. <strong>B</strong>。IB 的核心创新就是引入了目标变量 Y 作为"监督信号"，使得压缩过程有方向——只保留与 Y 相关的信息。率失真无此监督信号。
+    3. 率失真理论中的失真函数 d(x,x̂) 由人工指定（如平方误差），不需要标签数据；IB 中的"失真"由 KL 散度 D_KL[p(y|x) || p(y|t)] 衡量，这需要知道条件分布 p(y|x)（即标签与数据的关系），因此是"有监督"的。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>IB 不是"压缩"和"预测"两阶段独立优化，而是两者在 Lagrangian 中的联合权衡</li>
+<li>Markov 链 Y → X → T 的方向常被搞反：Y 是"原因"（生成标签），X 是"观测数据"，T 是"压缩表示"</li>
+<li>β 前的符号是负号（-），这意味着 Lagrangian 同时最小化 I(X;T) 和最大化 I(T;Y)</li>
+</ul>
+<hr />
+<h2 id="2">2. 核心概念与定理</h2>
+<h3 id="21">2.1 问题设定 🟢了解</h3>
+<p>给定联合分布 <span class="arithmatex">\(p(x, y)\)</span>，寻找一个压缩表示 <span class="arithmatex">\(T\)</span>，使得：</p>
+<ul>
+<li><span class="arithmatex">\(T\)</span> 尽可能压缩 <span class="arithmatex">\(X\)</span>（<span class="arithmatex">\(I(X; T)\)</span> 小）</li>
+<li><span class="arithmatex">\(T\)</span> 尽可能保留关于 <span class="arithmatex">\(Y\)</span> 的信息（<span class="arithmatex">\(I(T; Y)\)</span> 大）</li>
+</ul>
+<p><strong>Markov 链结构</strong>：</p>
+<div class="arithmatex">\[Y \to X \to T \quad\Leftrightarrow\quad p(t|x,y) = p(t|x)\]</div>
+<p>即 <span class="arithmatex">\(T\)</span> 仅通过 <span class="arithmatex">\(X\)</span> 间接依赖 <span class="arithmatex">\(Y\)</span>——<span class="arithmatex">\(T\)</span> 是 <span class="arithmatex">\(X\)</span> 的一个（随机）函数。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者对"瓶颈"的比喻和细节：</p>
+<ul>
+<li><strong>瓶颈的"窄"才有意义</strong>：如果 T 比 X 还大（即压缩表示比原始数据还复杂），那在系统中就没有作用。T 必须"小"才能称为瓶颈</li>
+<li><strong>两个互信息</strong>：I(X;T) 衡量"压缩了多少"（越小说明压缩越狠），I(T;Y) 衡量"保留了任务的多少信息"（越大越好）</li>
+<li><strong>DPI 的应用</strong>：因为 Markov 链 Y → X → T，由数据处理不等式可知 I(T;Y) ≤ I(X;Y)。因此可以用 I(X;Y) 作为 I(T;Y) 的上界估计——在实际中常用来间接衡量下游任务的信息保留</li>
+<li><strong>实际困难</strong>：I(T;Y) 很难直接计算（T 的分布是高维的），所以常用 I(X;Y) 来间接估计</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>设随机变量 X 表示 MRI 脑部扫描图像，Y 表示诊断结果（健康/患病），T 表示压缩后的特征表示。
+  1. 写出对应的 Markov 链。
+  2. 如果医生直接根据 T 做诊断（不看原始 X），这个诊断的准确率理论上限由什么决定？
+  3. 如果我们希望 T 在保留诊断信息的同时尽可能小，应该优化什么目标？</p>
+<p>??? note "答案"
+    1. Y → X → T：健康状况（Y）决定了脑部扫描图像（X）的特征，图像被压缩为特征表示（T）。
+    2. 理论上限由 I(X;Y) 决定。由 DPI，I(T;Y) ≤ I(X;Y)，T 中最多只能包含 I(X;Y) 比特关于 Y 的信息。
+    3. 优化 IB Lagrangian：L = I(X;T) - β I(T;Y)。最小化 I(X;T)（压缩），最大化 I(T;Y)（保留诊断信息）。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>Markov 链 Y → X → T 中，T 仅通过 X 依赖 Y。这意味着 p(t|x,y) = p(t|x)，即 T 的分布不直接受 Y 影响——它只"看到"X</li>
+<li>这并不意味着 X 和 Y 独立（通常 X 和 Y 高度相关）</li>
+<li>也不意味着 T 和 Y 独立（我们希望 T 和 Y 高度相关——这正是优化的目标）</li>
+</ul>
+<h3 id="22-ib-lagrangian">2.2 IB Lagrangian 🟢了解</h3>
+<div class="arithmatex">\[\boxed{\mathcal{L} = I(X; T) - \beta \, I(T; Y)}\]</div>
+<p>其中 <span class="arithmatex">\(\beta &gt; 0\)</span> 是权衡参数：</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\beta\)</span> 取值</th>
+<th>行为</th>
+<th>物理意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\beta \to 0\)</span></td>
+<td><span class="arithmatex">\(\min I(X; T)\)</span></td>
+<td>极端压缩，<span class="arithmatex">\(T\)</span> 退化为常数</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\beta \to \infty\)</span></td>
+<td><span class="arithmatex">\(\max I(T; Y)\)</span></td>
+<td>极端保真，<span class="arithmatex">\(T\)</span> 趋于充分统计量</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\beta = 1\)</span></td>
+<td>自然权衡</td>
+<td>压缩和预测的"等权"折中</td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<ul>
+<li><strong>构造思路</strong>：IB 优化问题可以写为带约束的优化：min I(X;T) s.t. I(T;Y) ≥ I_c。等价地写成 Lagrangian 形式即为 L = I(X;T) - β I(T;Y)</li>
+<li><strong>β 的物理意义</strong>：β 可以理解为"每单位 I(T;Y) 的边际价值"。β 越大，每增加一比特 I(T;Y) 的价值越高，因此更愿意牺牲压缩（增大 I(X;T)）来换取预测性能</li>
+<li><strong>与率失真的对应</strong>：率失真 Lagrangian 为 L_RD = I(X;X̂) + λ·E[d]，其中 λ ≥ 0 是乘子；IB Lagrangian 中 β 的角色类似于 λ 的倒数</li>
+<li><strong>讲者强调</strong>："这个目标函数非常简单，就是两项互信息通过 β 连接起来"</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>设已知 I(X;T) = 0.4 bit，I(T;Y) = 0.25 bit。
+  1. 计算 β = 0.5, 1.0, 2.0, 5.0 时的 L 值。
+  2. 当 β 取何值时，L 中的两项贡献（压缩项和预测项）的绝对值相等？
+  3. 继续增大 β，L 会趋于正值还是负值？为什么？</p>
+<p>??? note "答案"
+    1. β=0.5: L = 0.4 - 0.5×0.25 = 0.275；β=1: L = 0.4 - 0.25 = 0.15；β=2: L = 0.4 - 0.5 = -0.1；β=5: L = 0.4 - 1.25 = -0.85
+    2. I(X;T) = β·I(T;Y) ⇒ β = I(X;T)/I(T;Y) = 0.4/0.25 = 1.6
+    3. L 会趋于负无穷（注意 L 是我们要最小化的目标）。当 β → ∞ 时，-βI(T;Y) → -∞，尽管 I(X;T) 也在增大，但受限于 H(X)（上界），所以 L → -∞</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>Lagrangian 是 <strong>最小化</strong> 目标（min L），不是最大化</li>
+<li>β 乘在 <strong>-</strong> I(T;Y) 前面：β 越大，<strong>越重视预测</strong>（L 更负意味着优化更强调 I(T;Y) 的贡献）</li>
+<li>不要与率失真的 Lagrangian L_RD = I(X;X̂) + λ·E[d] 混淆——率失真中是加号，IB 中是减号</li>
+<li>β = 1 不一定代表"最优"权衡，只是"自然"权衡——具体的最佳 β 取决于应用需求</li>
+</ul>
+<h3 id="23">2.3 最优解的结构 🟢了解</h3>
+<p>IB 最优解的解析形式为（Blahut-Arimoto 型）：</p>
+<div class="arithmatex">\[\boxed{p(t|x) = \frac{p(t)} {Z(x,\beta)} \exp\!\big(-\beta \cdot D_{\mathrm{KL}}[p(y|x) \,\|\, p(y|t)]\big)}\]</div>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\(p(t) = \sum_x p(x) p(t|x)\)</span>，<span class="arithmatex">\(p(y|t) = \sum_x p(y|x) p(x|t)\)</span></li>
+<li><span class="arithmatex">\(Z(x,\beta)\)</span> 是归一化因子</li>
+<li><span class="arithmatex">\(D_{\mathrm{KL}}[p(y|x) \,\|\, p(y|t)]\)</span> 衡量将 <span class="arithmatex">\(x\)</span> 归入聚类 <span class="arithmatex">\(t\)</span> 时，<span class="arithmatex">\(y\)</span> 分布的改变程度</li>
+</ul>
+<p><strong>迭代算法</strong>（与 EM 类似）：</p>
+<ol>
+<li>固定 <span class="arithmatex">\(p(t|x)\)</span>，计算 <span class="arithmatex">\(p(t)\)</span> 和 <span class="arithmatex">\(p(y|t)\)</span></li>
+<li>固定 <span class="arithmatex">\(p(t)\)</span> 和 <span class="arithmatex">\(p(y|t)\)</span>，更新 <span class="arithmatex">\(p(t|x)\)</span></li>
+<li>交替迭代直至收敛</li>
+</ol>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者详细介绍了迭代求解过程（本质上与 Blahut-Arimoto 算法相同）：</p>
+<ul>
+<li><strong>初始化</strong>：先初始化 p(y|t)（例如均匀分布或者高斯分布）</li>
+<li><strong>Step 1</strong>：用最优解公式计算 p(t|x) —— 注意这里需要用到 p(t) 和 p(y|t)</li>
+<li><strong>Step 2</strong>：由 p(t|x) 和已知的 p(x) 计算新的 p(t) = Σ_x p(x) p(t|x)</li>
+<li><strong>Step 3</strong>：由 p(t) 和 p(t|x) 更新 p(y|t) = [Σ_x p(y|x) p(x) p(t|x)] / p(t)</li>
+<li><strong>重复</strong> Step 1-3 直至收敛</li>
+<li><strong>收敛判据</strong>：两次迭代之间 L 的变化小于阈值，或 p(t|x) 的变化小于阈值</li>
+</ul>
+<p>讲者特别指出：这个求解方式与率失真理论中的 Blahut-Arimoto 算法高度一致——唯一的区别是失真度量从预设函数 d(x,x̂) 变成了 KL 散度 D_KL[p(y|x) || p(y|t)]。</p>
+<p>最优解的解析形式可以直观理解为：<strong>如果 x 分配到 t 后，y 的条件分布变化很大（KL 散度大），则 x 被分配到 t 的概率就小</strong>。这正是软聚类的思想。</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>在例题 1 的设定下，假设 p(t) 初始化为均匀分布 p(t_1)=p(t_2)=0.5，且 p(y|t) 初始化为 p(y_1|t)=0.5, p(y_2|t)=0.5 对所有 t 成立。
+  1. 计算第一次迭代后的 p(t_1|x_1)，取 β = 1。
+  2. 解释为什么需要多次迭代而不是一步到位。</p>
+<p>??? note "答案"
+    1. 当 p(y|t) = [0.5, 0.5] 对所有 t 成立时，D_KL[p(y|x_1) || p(y|t)] = 0.9 log(0.9/0.5) + 0.1 log(0.1/0.5) = 0.9 × 0.848 + 0.1 × (-1.609) = 0.763 - 0.161 = 0.602。由于对所有 t 的 KL 散度相等，p(t_1|x_1) = p(t_2|x_1) = 0.5。一次迭代后还没有"区分"不同的 t，需要多次迭代让 p(y|t) 从数据中学习出差异。
+    2. p(t|x) 的表达式依赖于 p(t) 和 p(y|t)，而 p(t) 和 p(y|t) 又依赖于 p(t|x)，形成<strong>循环依赖</strong>。因此需要通过迭代达到自洽（self-consistent）的解。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>最优解是指数（Gibbs）形式，不是线性形式。不要误以为 p(t|x) 是 p(t) 和 KL 散度的线性组合</li>
+<li>归一化因子 Z(x,β) = Σ_t p(t) exp(-β·D_KL[p(y|x) || p(y|t)]) 对每个 x 和 β 都要重新计算</li>
+<li>KL 散度 D_KL[p(y|x) || p(y|t)] 是非对称的：D_KL[p||q] ≠ D_KL[q||p]。这里的顺序是固定的——以 p(y|x) 为参考，衡量 p(y|t) 的偏离</li>
+<li>迭代算法不保证收敛到全局最优——与 EM 算法类似，可能陷入局部最优</li>
+</ul>
+<h3 id="24-ib">2.4 IB 与率失真的对比 🟢了解</h3>
+<table>
+<thead>
+<tr>
+<th>角度</th>
+<th>率失真理论</th>
+<th>信息瓶颈理论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优化目标</td>
+<td><span class="arithmatex">\(\min I(X;\hat{X})\)</span></td>
+<td><span class="arithmatex">\(\min I(X;T) - \beta I(T;Y)\)</span></td>
+</tr>
+<tr>
+<td>失真度量</td>
+<td>预定义 <span class="arithmatex">\(d(x,\hat{x})\)</span>（如 Hamming 平方误差）</td>
+<td>KL 散度 $D_{\mathrm{KL}}[p(y</td>
+</tr>
+<tr>
+<td>监督信号</td>
+<td>无（仅 <span class="arithmatex">\(X\)</span> 本身）</td>
+<td>有（目标变量 <span class="arithmatex">\(Y\)</span>）</td>
+</tr>
+<tr>
+<td>应用场景</td>
+<td>图像/音频压缩</td>
+<td>表示学习、神经网络分析</td>
+</tr>
+<tr>
+<td>信息平面</td>
+<td><span class="arithmatex">\((I(X;\hat{X}), D)\)</span></td>
+<td><span class="arithmatex">\((I(X;T), I(T;Y))\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📅 课堂："IB 是率失真理论的'有监督'推广——率失真只关心 <span class="arithmatex">\(X\)</span> 的保真度，IB 关心 <span class="arithmatex">\(T\)</span> 对 <span class="arithmatex">\(Y\)</span> 的保真度。"</p>
+</blockquote>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者反复强调两者的联系与区别：</p>
+<ul>
+<li><strong>统一视角</strong>：两者都是在做"信息压缩的权衡"——压缩率 vs 保真度。区别在于"保真度"的定义不同</li>
+<li><strong>率失真</strong>：保真度由预设的 d(x,x̂) 定义（如 L2 距离），这是人工指定的，不考虑语义</li>
+<li><strong>IB</strong>：保真度由 KL 散度 D_KL[p(y|x) || p(y|t)] 定义，这是数据驱动的，自动保留与 Y 相关的结构</li>
+<li><strong>求解框架一致</strong>：两者的最优解都是 Gibbs 分布形式：<ul>
+<li>率失真：p(x̂|x) ∝ p(x̂) · exp(-β·d(x,x̂))</li>
+<li>IB：p(t|x) ∝ p(t) · exp(-β·D_KL[p(y|x) || p(y|t)])</li>
+</ul>
+</li>
+<li><strong>数学结构相同</strong>：都是一个指数族分布，归一化因子类似配分函数</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<ol>
+<li>将率失真 Lagrangian L_RD = I(X;X̂) + λ·E[d(X,X̂)] 改写为与 IB Lagrangian 类似的形式（即用减号连接两项）。</li>
+<li>若令 d(x,x̂) = D_KL[p(y|x) || p(y|x̂)]，此时率失真和 IB 是什么关系？</li>
+<li>举一个"率失真最优但 IB 并非最优"的例子。</li>
+</ol>
+<p>??? note "答案"
+    1. 令 β' = 1/λ，则 L_RD = I(X;X̂) - β'·(-E[d])。但 -E[d] 不是互信息，所以这只是形式上的改写，物理意义不同。
+    2. 此时 IB 等价于"以 Y 为目标的率失真"——两者都试图在压缩的同时保留 Y 的信息。但率失真中 X̂ 直接近似 X（通过 d），而 IB 中 T 通过 p(y|t) 间接保留 Y 信息。
+    3. 例如：X 是 MNIST 手写数字图像（784 像素），Y 是数字标签（0-9）。率失真最优的 X̂ 会保留所有像素信息（包括背景噪声），而 IB 最优的 T 只保留与数字分类相关的特征（丢弃背景变化）。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>率失真的 Lagrangian 是 I(X;X̂) + λ·E[d]（加号），IB 的是 I(X;T) - β·I(T;Y)（减号）。这不是符号约定差异，而是因为两项的优化方向不同（率失真两项都最小化，IB 中一项最小化一项最大化）</li>
+<li>IB 不使用预设的失真函数——它的"失真"是由数据驱动的 KL 散度，这既是优势（自适应）也是劣势（需要知道 p(y|x)）</li>
+<li>不要误以为 IB"优于"率失真——两者的目标不同：率失真解决无监督压缩问题，IB 解决有监督表示学习问题</li>
+</ul>
+<h3 id="25-pareto">2.5 信息平面与 Pareto 前沿 🟢了解</h3>
+<p>在二维信息平面 <span class="arithmatex">\((I(X;T), I(T;Y))\)</span> 上：</p>
+<ul>
+<li>每个可行的 <span class="arithmatex">\(p(t|x)\)</span> 对应一个点</li>
+<li>所有可行点的凸包构成可达区域</li>
+<li>区域的<strong>上边界</strong>是 Pareto 前沿：给定压缩程度下的最大 <span class="arithmatex">\(I(T;Y)\)</span></li>
+<li>不同 <span class="arithmatex">\(\beta\)</span> 对应 Pareto 前沿上的不同切点</li>
+</ul>
+<blockquote>
+<p>📅 课堂："这就像沿着 Pareto 前沿做遍历——<span class="arithmatex">\(\beta\)</span> 是在两头之间找平衡。"</p>
+</blockquote>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<ul>
+<li><strong>可行点的集合</strong>：所有可能的 p(t|x)（满足归一化和 Markov 条件）都对应信息平面上的一个点</li>
+<li><strong>可达区域</strong>：这些点的凸包（convex hull）构成可达区域。注意不是所有点都可达——只有凸包内的点才是</li>
+<li><strong>Pareto 前沿的数学意义</strong>：在给定 I(X;T) 的条件下，I(T;Y) 的最大值曲面。这对应 Lagrangian 的最优解族</li>
+<li><strong>β 的几何意义</strong>：β 是 Pareto 前沿在对应点的切线的斜率<ul>
+<li>β = 0：切线水平（垂直方向的边际收益为 0）→ 极限点 (0,0)</li>
+<li>β → ∞：切线垂直（水平方向的边际成本为 0）→ 极限点 (H(X), I(X;Y))</li>
+</ul>
+</li>
+<li><strong>实际计算</strong>：要得到整条 Pareto 前沿，需要遍历 β 从 0 到 ∞，对每个 β 求解最优的 p(t|x)</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>在信息平面上标出以下特殊点，并说明每个点的物理意义：
+  1. T 为常数（与 X 独立）时
+  2. T = X（无压缩）时
+  3. T 是 X 关于 Y 的充分统计量（但不是 X 本身）时
+  4. 任意一个次优的聚类方案会落在什么区域？</p>
+<p>??? note "答案"
+    1. <strong>(0, 0)</strong>：T 与 X 独立，没有包含 X 的任何信息，因此也不可能包含 Y 的信息。这是"极端压缩"点。
+    2. <strong>(H(X), I(X;Y))</strong>：T = X 保留了 X 的全部信息，因此 I(X;T) = H(X)；由 DPI，I(T;Y) = I(X;Y) 是理论上限。这是"极端保真"点。
+    3. <strong>(I(X;T_suff), I(X;Y))</strong>：充分统计量满足 I(T;Y) = I(X;Y)（保留了全部 Y 相关信息），但 I(X;T_suff) 可能小于 H(X)（丢弃了 X 中与 Y 无关的部分）。这是 Pareto 前沿左上角附近的点。
+    4. 次优方案会落在可达区域内部（低于 Pareto 前沿），说明给定相同的压缩程度时，它保留了更少的 Y 相关信息。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>Pareto 前沿上的点不一定都可以通过某个 p(t|x) 实现——只有凸包内的点可达</li>
+<li>β 与 Pareto 前沿上的点是一一对应的（双射），但这要求 Pareto 前沿是严格凸的</li>
+<li>信息平面上的坐标不独立：由 DPI 始终有 I(T;Y) ≤ I(X;Y) 且 I(X;T) ≥ I(T;Y)（由数据处理不等式的另一种形式）</li>
+<li>可达区域是一个凸集，Pareto 前沿是它的上边界——这类似于率失真理论中的率失真函数</li>
+</ul>
+<h3 id="26">2.6 神经网络中的信息瓶颈 🟢了解</h3>
+<p><strong>课堂专题内容</strong>（第一讲者重点讲解）：</p>
+<p>深度神经网络的处理过程可以自然地映射到 IB 框架：</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span>（输入数据）→ 隐藏层（瓶颈 <span class="arithmatex">\(T\)</span>）→ 输出层（预测 <span class="arithmatex">\(\hat{Y}\)</span>）</li>
+<li>训练过程中，网络的每一层都在执行"压缩 + 保留任务信息"的双重任务</li>
+</ul>
+<p><strong>结构对应关系</strong>：</p>
+<div class="highlight"><pre><span></span><code>信息瓶颈:  Y → X → T → (预测 Ŷ)
+神经网络:  标签 → 输入 → 隐藏层 → 输出层
+</code></pre></div>
+<ul>
+<li>从 <span class="arithmatex">\(X\)</span> 到隐藏层 <span class="arithmatex">\(T\)</span> 的过程对应 <strong>信息压缩</strong>（最小化 <span class="arithmatex">\(I(X;T)\)</span>）</li>
+<li>从 <span class="arithmatex">\(T\)</span> 到输出 <span class="arithmatex">\(\hat{Y}\)</span> 的过程对应 <strong>信息保留</strong>（最大化 <span class="arithmatex">\(I(T;Y)\)</span>）</li>
+</ul>
+<p><strong>训练过程中的两阶段现象</strong>（Tishby et al., 2015）：</p>
+<p>在信息平面 <span class="arithmatex">\((I(X;T), I(T;Y))\)</span> 上，训练过程呈现出两个阶段：</p>
+<ol>
+<li><strong>拟合阶段（Fitting Phase，A→C）</strong>：<span class="arithmatex">\(I(X;T)\)</span> 和 <span class="arithmatex">\(I(T;Y)\)</span> 同步增长。网络在学习数据中的模式，同时增加对输入和输出的信息。</li>
+<li><strong>压缩阶段（Compression Phase，C→E）</strong>：<span class="arithmatex">\(I(X;T)\)</span> 下降（压缩），同时 <span class="arithmatex">\(I(T;Y)\)</span> 继续上升（更好的预测）。网络在丢弃输入中的冗余信息，只保留与任务相关的特征。</li>
+</ol>
+<blockquote>
+<p>📅 课堂："他们发现尽管 Y 和 T 的互信息还在增大，X 和 T 的互信息却在变小。他们认为这是神经网络的一个压缩过程。"</p>
+</blockquote>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者展示了自己做的仿真实验来验证两阶段现象：</p>
+<ul>
+<li><strong>实验设定</strong>：简单 4 层全连接网络，随机数据集，分别用 SGD 和 Adam 优化器训练</li>
+<li><strong>SGD 结果</strong>：观察到一定程度的两阶段趋势——<span class="arithmatex">\(I(X;T)\)</span> 先增后减，<span class="arithmatex">\(I(T;Y)\)</span> 持续增长。但趋势远没有 Tishby 原始论文中的明显</li>
+<li><strong>Adam 结果</strong>：两阶段现象基本消失！<span class="arithmatex">\(I(X;T)\)</span> 在整个训练过程中持续下降，<span class="arithmatex">\(I(T;Y)\)</span> 持续上升，没有明显的阶段划分</li>
+<li><strong>讲者结论</strong>："所谓的两阶段趋势其实并不明显……Adam 优化器下完全没有了信息瓶颈论文里声称的性质"</li>
+</ul>
+<p>讲者还指出，两阶段现象的明显程度与以下因素有关：
+  - 优化器选择（SGD 可见，Adam 不可见）
+  - 非线性激活函数（tanh 可见，ReLU 基本不可见）
+  - 网络层数（浅层更明显，深层不明显）
+  - 数据集复杂度</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<ol>
+<li>在信息平面上，神经网络的训练轨迹如果呈现"先向右上、再向左上"的移动，这说明了什么？</li>
+<li>为什么说"压缩阶段"对神经网络的泛化能力至关重要？</li>
+<li>Adam 优化器下未观察到压缩阶段，这是否意味着 IB 理论不适用于神经网络？</li>
+</ol>
+<p>??? note "答案"
+    1. "先向右上"：<span class="arithmatex">\(I(X;T)\)</span> 和 <span class="arithmatex">\(I(T;Y)\)</span> 同时增长——网络在学习数据特征；"再向左上"：<span class="arithmatex">\(I(X;T)\)</span> 下降但 <span class="arithmatex">\(I(T;Y)\)</span> 继续增长——网络在丢弃与任务无关的信息（压缩）。这是 Tishby 提出的两阶段现象。
+    2. 压缩阶段丢弃了输入数据中与 Y 无关的噪声和冗余信息，使得网络关注真正的任务相关特征。这通常能提高泛化能力，减少过拟合。
+    3. 不一定。IB 理论提供了一个理解神经网络的有用视角，但两阶段现象是否出现取决于具体实现（激活函数、优化器等）。IB 的核心思想——"保留任务相关信息，丢弃冗余"——仍然是深度学习的基本原理之一，只是实现方式可能不同。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>不要认为 IB 能<strong>完全解释</strong>神经网络——讲者的实验表明两阶段现象并非普遍存在</li>
+<li>信息平面中的 <span class="arithmatex">\(I(X;T)\)</span> 计算在实际中非常困难（高维连续变量），通常需要使用估计方法</li>
+<li>T 在神经网络中可以对应<strong>任意一层</strong>的隐藏表示，不同层的压缩程度不同</li>
+<li>输入层附近的层 <span class="arithmatex">\(I(X;T)\)</span> 大（保留信息多），输出层附近的层 <span class="arithmatex">\(I(X;T)\)</span> 小（压缩程度大）</li>
+</ul>
+<h3 id="27">2.7 信息瓶颈理论的局限性与批评 🟢了解</h3>
+<p><strong>课堂专题内容</strong>（第一讲者的重要提醒）：</p>
+<p>尽管 IB 提供了一个优雅的理论框架，但它存在以下局限性：</p>
+<ol>
+<li><strong>两阶段现象不稳健</strong>：</li>
+<li>依赖于非线性激活函数（tanh 有明显两阶段，ReLU 基本没有）</li>
+<li>
+<p>依赖于优化器选择（SGD 下可见，Adam 下消失）</p>
+</li>
+<li>
+<p><strong>现代架构难以分析</strong>：</p>
+</li>
+<li><strong>ResNet</strong>：跳接（skip connection）引入了"回路"，如何定义"瓶颈"变得模糊</li>
+<li><strong>Transformer</strong>：自注意力机制使信息流动路径更加复杂</li>
+<li>
+<p><strong>深度生成模型</strong>：难以在 IB 框架下建模</p>
+</li>
+<li>
+<p><strong>理论假设与实际差距</strong>：</p>
+</li>
+<li>IB 假设我们知道 <span class="arithmatex">\(p(y|x)\)</span>，但在实际中我们只有有限样本</li>
+<li>IB 最优解要求遍历所有 <span class="arithmatex">\(\beta\)</span> 值，计算开销大</li>
+<li>高维情况下的互信息估计仍然是一个开放问题</li>
+</ol>
+<blockquote>
+<p>📅 课堂："Information bottleneck 其实还是有非常多的局限性的……但它毕竟是一个非常简单且直观的结果，至今还是有很多人利用这个框架。"</p>
+</blockquote>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者的具体批评：</p>
+<ul>
+<li><strong>关于两阶段现象的成因</strong>：后续研究发现，Tishby 原始论文中漂亮的两阶段曲线很大程度上是由于使用了 tanh 激活函数。当更换为 ReLU 后，"神经网络根本不存在什么两个阶段"</li>
+<li><strong>讲者的实验</strong>：<ul>
+<li>SGD + tanh：勉强可见两阶段趋势</li>
+<li>Adam + tanh：两阶段基本消失</li>
+<li>SGD/Adam + ReLU：完全不显示两阶段</li>
+</ul>
+</li>
+<li><strong>ResNet 的问题</strong>："在 ResNet 里面，加了一个回路，这个时候它这个 bottleneck 指的是什么？比较难说，不好去刻画"</li>
+<li><strong>Transformer 和大型模型</strong>："新的这些多层的 Transformer 模型里面，它是否还有我们 information bottleneck 里面那两个阶段的性质……不好说，因为它会非常复杂"</li>
+<li><strong>正面评价</strong>：尽管如此，IB 仍为神经网络的<strong>正则化</strong>提供了理论基础——通过信息论约束来设计新的正则化目标</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<ol>
+<li>为什么说 ResNet 的跳接结构给 IB 分析带来了困难？此时原来的 Markov 链 Y → X → T 还成立吗？</li>
+<li>如果 IB 不能完全解释神经网络，那么我们还能从中得到什么有价值的见解？</li>
+</ol>
+<p>??? note "答案"
+    1. ResNet 的跳接使得信息可以从输入层直接传递到后面的层，绕过了中间的"瓶颈"。此时 T 的马尔可夫性质 p(t|x,y) = p(t|x) 不再成立——T 不仅包含当前层的压缩信息，还包含了来自跳接的原始信息。无法简单地将某个中间层映射为 IB 中的瓶颈 T。
+    2. IB 的<strong>核心见解</strong>仍然有价值：①好的表示应该压缩输入的同时保留任务相关信息；②信息平面提供了一个分析表示质量的框架；③可以在损失函数中添加信息约束来实现正则化。只是具体的两阶段现象不是普遍规律。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>不要迷信 IB 对神经网络的"完美解释"——这已经被实验证伪</li>
+<li>不能将任何隐藏层都称为"信息瓶颈"——瓶颈需要有"窄"的特性（压缩）</li>
+<li>IB 理论本身是严谨的信息论结果，但将其应用于神经网络时需要谨慎——神经网络训练不直接优化 IB Lagrangian</li>
+</ul>
+<h3 id="28-strong-dpi">2.8 强数据处理不等式（Strong DPI）简介 🟢了解</h3>
+<p><strong>课堂专题内容</strong>（第二讲者，信息论方向博士生）：</p>
+<p>强数据处理不等式（SDPI）是传统 DPI 的精细化版本：</p>
+<ul>
+<li><strong>传统 DPI</strong>：对于 Markov 链 <span class="arithmatex">\(U \to X \to Y\)</span>，有 <span class="arithmatex">\(I(U;Y) \leq I(U;X)\)</span></li>
+<li><strong>SDPI</strong>：引入一个收缩系数 <span class="arithmatex">\(\eta \in [0,1]\)</span>，使得 <span class="arithmatex">\(I(U;Y) \leq \eta \cdot I(U;X)\)</span>，其中 <span class="arithmatex">\(\eta\)</span> 取决于信道 <span class="arithmatex">\(p(y|x)\)</span></li>
+</ul>
+<p><strong>与 IB 的联系</strong>：</p>
+<ul>
+<li>IB 中 <span class="arithmatex">\(I(T;Y) \leq I(X;Y)\)</span> 就是 DPI 的直接应用</li>
+<li>SDPI 给出了更紧的上界：<span class="arithmatex">\(I(T;Y) \leq \eta \cdot I(X;Y)\)</span>，其中 <span class="arithmatex">\(\eta\)</span> 由信道 <span class="arithmatex">\(p(t|x)\)</span> 和 <span class="arithmatex">\(p(y|x)\)</span> 共同决定</li>
+<li>SDPI 在贝叶斯网络的信息传播分析、采样理论中有重要应用</li>
+</ul>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>第二讲者的主要观点：</p>
+<ul>
+<li><strong>SDPI 的核心思想</strong>：传统 DPI 只告诉我们信息"不增"，SDPI 告诉我们"减少多少"——用一个收缩系数 <span class="arithmatex">\(\eta\)</span> 来刻画</li>
+<li><strong><span class="arithmatex">\(\eta\)</span> 的含义</strong>：如果把信道 <span class="arithmatex">\(p(y|x)\)</span> 看作一个信息瓶颈，<span class="arithmatex">\(\eta\)</span> 衡量了这个瓶颈的"收缩能力"。<span class="arithmatex">\(\eta = 1\)</span> 表示无收缩（完美信道），<span class="arithmatex">\(\eta = 0\)</span> 表示完全收缩（信道输出与输入无关）</li>
+<li><strong>在 IB 中的角色</strong>：当 <span class="arithmatex">\(T\)</span> 是 <span class="arithmatex">\(X\)</span> 的压缩表示时，SDPI 给出了 <span class="arithmatex">\(I(T;Y)\)</span> 的一个更紧的上界——这有助于理解压缩和预测的权衡边界</li>
+<li><strong>更广泛的框架</strong>：SDPI 可以推广到 <span class="arithmatex">\(\phi\)</span>-散度族、贝叶斯网络、Fokker-Planck 信道（扩散过程）</li>
+<li><strong>应用</strong>：采样理论中的收敛性分析、神经网络中的信息传播分析</li>
+</ul>
+<p>注意：SDPI 是独立的专题，与 IB 有概念联系但并不等同于 IB。这里仅作延伸了解。</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<ol>
+<li>传统 DPI 说 <span class="arithmatex">\(I(U;Y) \leq I(U;X)\)</span>，SDPI 说 <span class="arithmatex">\(I(U;Y) \leq \eta \cdot I(U;X)\)</span>。<span class="arithmatex">\(\eta\)</span> 的取值范围是什么？</li>
+<li>如果 <span class="arithmatex">\(\eta = 0.5\)</span>，信道 <span class="arithmatex">\(p(y|x)\)</span> 将输入信息"收缩"了多少？</li>
+</ol>
+<p>??? note "答案"
+    1. <span class="arithmatex">\(\eta \in [0,1]\)</span>。<span class="arithmatex">\(\eta = 1\)</span> 对应"无收缩"（确定性的一一映射信道），<span class="arithmatex">\(\eta = 0\)</span> 对应"完全收缩"（输出独立于输入的信道）。
+    2. 输入中的每 1 bit 关于 U 的信息，经过信道后最多只剩下 0.5 bit。相当于信道"吃掉"了一半的信息。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>SDPI 不是 IB 的一部分，而是信息论中的一个独立分支。这里仅作为扩展知识介绍</li>
+<li><span class="arithmatex">\(\eta\)</span> 的值依赖于信道 <span class="arithmatex">\(p(y|x)\)</span> 和参考分布，不同度量下 <span class="arithmatex">\(\eta\)</span> 的取值不同（KL 散度、TV 距离、<span class="arithmatex">\(\chi^2\)</span> 散度各有不同的 <span class="arithmatex">\(\eta\)</span>）</li>
+<li>SDPI 给出的是<strong>上界</strong>（信息不会超过这个值），不保证信息能<em>达到</em>这个值</li>
+</ul>
+<hr />
+<h2 id="3">3. 典型例题</h2>
+<h3 id="1-ib">例题 1：计算 IB 目标函数值</h3>
+<p><strong>问题</strong>：给定以下联合分布 <span class="arithmatex">\(p(x,y)\)</span> 和聚类映射 <span class="arithmatex">\(p(t|x)\)</span>，计算 <span class="arithmatex">\(I(X;T)\)</span>、<span class="arithmatex">\(I(T;Y)\)</span> 和 <span class="arithmatex">\(\mathcal{L} = I(X;T) - \beta I(T;Y)\)</span>（<span class="arithmatex">\(\beta = 1\)</span>）。</p>
+<p><span class="arithmatex">\(X \in \{x_1, x_2, x_3\}\)</span>，<span class="arithmatex">\(Y \in \{y_1, y_2\}\)</span>，<span class="arithmatex">\(T \in \{t_1, t_2\}\)</span>。</p>
+<p>先验 <span class="arithmatex">\(p(x)\)</span> 和条件分布 <span class="arithmatex">\(p(y|x)\)</span>：</p>
+<p>| <span class="arithmatex">\(x\)</span> | <span class="arithmatex">\(p(x)\)</span> | <span class="arithmatex">\(p(y_1|x)\)</span> | <span class="arithmatex">\(p(y_2|x)\)</span> |
+|-----|--------|-----------|-----------|
+| <span class="arithmatex">\(x_1\)</span> | 0.5 | 0.9 | 0.1 |
+| <span class="arithmatex">\(x_2\)</span> | 0.25 | 0.5 | 0.5 |
+| <span class="arithmatex">\(x_3\)</span> | 0.25 | 0.1 | 0.9 |</p>
+<p>聚类映射 <span class="arithmatex">\(p(t|x)\)</span>（软聚类）：</p>
+<p>| <span class="arithmatex">\(x\)</span> | <span class="arithmatex">\(p(t_1|x)\)</span> | <span class="arithmatex">\(p(t_2|x)\)</span> |
+|-----|-----------|-----------|
+| <span class="arithmatex">\(x_1\)</span> | 0.8 | 0.2 |
+| <span class="arithmatex">\(x_2\)</span> | 0.5 | 0.5 |
+| <span class="arithmatex">\(x_3\)</span> | 0.2 | 0.8 |</p>
+<p><strong>解</strong>：</p>
+<p><strong>Step 1</strong>：计算 <span class="arithmatex">\(p(t)\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+p(t_1) &amp;= \sum_x p(x) p(t_1|x) = 0.5 \times 0.8 + 0.25 \times 0.5 + 0.25 \times 0.2 = 0.4 + 0.125 + 0.05 = 0.575 \\
+p(t_2) &amp;= 1 - 0.575 = 0.425
+\end{aligned}
+\]</div>
+<p><strong>Step 2</strong>：计算 <span class="arithmatex">\(I(X;T)\)</span></p>
+<div class="arithmatex">\[I(X;T) = \sum_{x,t} p(x,t) \log_2 \frac{p(x,t)}{p(x)p(t)} = \sum_{x,t} p(x) p(t|x) \log_2 \frac{p(t|x)}{p(t)}\]</div>
+<p>逐项计算联合概率 <span class="arithmatex">\(p(x,t) = p(x)p(t|x)\)</span>：</p>
+<p>| <span class="arithmatex">\((x,t)\)</span> | <span class="arithmatex">\(p(x,t)\)</span> | <span class="arithmatex">\(p(x)p(t)\)</span> | <span class="arithmatex">\(\log_2\frac{p(t|x)}{p(t)}\)</span> | 贡献 |
+|---------|----------|-----------|----------------------------|------|
+| <span class="arithmatex">\((x_1,t_1)\)</span> | 0.400 | <span class="arithmatex">\(0.5\times0.575=0.2875\)</span> | <span class="arithmatex">\(\log_2\frac{0.8}{0.575}=0.476\)</span> | <span class="arithmatex">\(0.400\times0.476=0.190\)</span> |
+| <span class="arithmatex">\((x_1,t_2)\)</span> | 0.100 | <span class="arithmatex">\(0.5\times0.425=0.2125\)</span> | <span class="arithmatex">\(\log_2\frac{0.2}{0.425}=-1.087\)</span> | <span class="arithmatex">\(0.100\times(-1.087)=-0.109\)</span> |
+| <span class="arithmatex">\((x_2,t_1)\)</span> | 0.125 | <span class="arithmatex">\(0.25\times0.575=0.1438\)</span> | <span class="arithmatex">\(\log_2\frac{0.5}{0.575}=-0.202\)</span> | <span class="arithmatex">\(0.125\times(-0.202)=-0.025\)</span> |
+| <span class="arithmatex">\((x_2,t_2)\)</span> | 0.125 | <span class="arithmatex">\(0.25\times0.425=0.1063\)</span> | <span class="arithmatex">\(\log_2\frac{0.5}{0.425}=0.235\)</span> | <span class="arithmatex">\(0.125\times0.235=0.029\)</span> |
+| <span class="arithmatex">\((x_3,t_1)\)</span> | 0.050 | <span class="arithmatex">\(0.25\times0.575=0.1438\)</span> | <span class="arithmatex">\(\log_2\frac{0.2}{0.575}=-1.524\)</span> | <span class="arithmatex">\(0.050\times(-1.524)=-0.076\)</span> |
+| <span class="arithmatex">\((x_3,t_2)\)</span> | 0.200 | <span class="arithmatex">\(0.25\times0.425=0.1063\)</span> | <span class="arithmatex">\(\log_2\frac{0.8}{0.425}=0.913\)</span> | <span class="arithmatex">\(0.200\times0.913=0.183\)</span> |</p>
+<p>求和得：</p>
+<div class="arithmatex">\[\boxed{I(X;T)}  = 0.190 - 0.109 - 0.025 + 0.029 - 0.076 + 0.183 = \boxed{0.192\ \text{bit} }\]</div>
+<p><strong>Step 3</strong>：计算 <span class="arithmatex">\(p(y|t)\)</span></p>
+<p>先求后验 <span class="arithmatex">\(p(x|t) = \dfrac{p(t|x)p(x)}{p(t)}\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+p(x_1|t_1) &amp;= \frac{0.8 \times 0.5}{0.575} = 0.696, \quad
+p(x_2|t_1) = \frac{0.5 \times 0.25}{0.575} = 0.217, \quad
+p(x_3|t_1) = \frac{0.2 \times 0.25}{0.575} = 0.087 \\[4pt]
+p(x_1|t_2) &amp;= \frac{0.2 \times 0.5}{0.425} = 0.235, \quad
+p(x_2|t_2) = \frac{0.5 \times 0.25}{0.425} = 0.294, \quad
+p(x_3|t_2) = \frac{0.8 \times 0.25}{0.425} = 0.471
+\end{aligned}
+\]</div>
+<p>再求 <span class="arithmatex">\(p(y|t) = \sum_x p(y|x) p(x|t)\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+p(y_1|t_1) &amp;= 0.9 \times 0.696 + 0.5 \times 0.217 + 0.1 \times 0.087 = 0.626 + 0.109 + 0.009 = 0.744 \\
+p(y_2|t_1) &amp;= 1 - 0.744 = 0.256 \\[4pt]
+p(y_1|t_2) &amp;= 0.9 \times 0.235 + 0.5 \times 0.294 + 0.1 \times 0.471 = 0.212 + 0.147 + 0.047 = 0.406 \\
+p(y_2|t_2) &amp;= 1 - 0.406 = 0.594
+\end{aligned}
+\]</div>
+<p><strong>Step 4</strong>：计算 <span class="arithmatex">\(I(T;Y)\)</span></p>
+<p>先求 <span class="arithmatex">\(p(y)\)</span>：</p>
+<div class="arithmatex">\[
+p(y_1) = \sum_x p(x)p(y_1|x) = 0.5\times0.9 + 0.25\times0.5 + 0.25\times0.1 = 0.45 + 0.125 + 0.025 = 0.6 \\
+p(y_2) = 1 - 0.6 = 0.4
+\]</div>
+<p>联合分布 <span class="arithmatex">\(p(t,y) = p(t)p(y|t)\)</span>：</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\((t,y)\)</span></th>
+<th><span class="arithmatex">\(p(t,y)\)</span></th>
+<th><span class="arithmatex">\(p(t)p(y)\)</span></th>
+<th><span class="arithmatex">\(\log_2\frac{p(t,y)}{p(t)p(y)}\)</span></th>
+<th>贡献</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\((t_1,y_1)\)</span></td>
+<td><span class="arithmatex">\(0.575\times0.744=0.428\)</span></td>
+<td><span class="arithmatex">\(0.575\times0.6=0.345\)</span></td>
+<td><span class="arithmatex">\(\log_2\frac{0.428}{0.345}=0.309\)</span></td>
+<td><span class="arithmatex">\(0.428\times0.309=0.132\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((t_1,y_2)\)</span></td>
+<td><span class="arithmatex">\(0.575\times0.256=0.147\)</span></td>
+<td><span class="arithmatex">\(0.575\times0.4=0.230\)</span></td>
+<td><span class="arithmatex">\(\log_2\frac{0.147}{0.230}=-0.641\)</span></td>
+<td><span class="arithmatex">\(0.147\times(-0.641)=-0.094\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((t_2,y_1)\)</span></td>
+<td><span class="arithmatex">\(0.425\times0.406=0.173\)</span></td>
+<td><span class="arithmatex">\(0.425\times0.6=0.255\)</span></td>
+<td><span class="arithmatex">\(\log_2\frac{0.173}{0.255}=-0.564\)</span></td>
+<td><span class="arithmatex">\(0.173\times(-0.564)=-0.097\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((t_2,y_2)\)</span></td>
+<td><span class="arithmatex">\(0.425\times0.594=0.252\)</span></td>
+<td><span class="arithmatex">\(0.425\times0.4=0.170\)</span></td>
+<td><span class="arithmatex">\(\log_2\frac{0.252}{0.170}=0.571\)</span></td>
+<td><span class="arithmatex">\(0.252\times0.571=0.144\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>求和得：</p>
+<div class="arithmatex">\[\boxed{I(T;Y)}  = 0.132 - 0.094 - 0.097 + 0.144 = \boxed{0.085\ \text{bit} }\]</div>
+<p><strong>Step 5</strong>：计算 <span class="arithmatex">\(\beta = 1\)</span> 时的 Lagrangian</p>
+<div class="arithmatex">\[\boxed{\mathcal{L} = I(X;T) - 1 \cdot I(T;Y) = 0.192 - 0.085 = 0.107\ \text{bit}}\]</div>
+<p><strong>参考</strong>：原始 <span class="arithmatex">\(X\)</span> 与 <span class="arithmatex">\(Y\)</span> 的互信息 <span class="arithmatex">\(I(X;Y) = 0.369\)</span> bit，即 <span class="arithmatex">\(Y\)</span> 中关于 <span class="arithmatex">\(X\)</span> 的总信息。当前聚类 <span class="arithmatex">\(T\)</span> 保留了 <span class="arithmatex">\(0.085/0.369 \approx 23\%\)</span> 的 <span class="arithmatex">\(Y\)</span>-相关信息，同时将 <span class="arithmatex">\(X\)</span> 压缩至 <span class="arithmatex">\(0.192\)</span> bit（原始熵 <span class="arithmatex">\(H(X)=1.5\)</span> bit，压缩比约 <span class="arithmatex">\(7.8\times\)</span>）。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>计算过程中的一些实用技巧：</p>
+<ul>
+<li><strong>数值精度</strong>：中间步骤保留 3-4 位有效数字即可，但建议使用分数形式避免舍入误差</li>
+<li><strong>验算方法</strong>：检查 <span class="arithmatex">\(p(t)\)</span> 是否归一化（和为 1），<span class="arithmatex">\(p(y|t)\)</span> 对每个 t 是否归一化</li>
+<li><strong>理解计算结果</strong>：I(X;T) = 0.192 bit 远小于 H(X) = 1.5 bit，说明 T 对 X 做了大量压缩；I(T;Y) = 0.085 bit 只有 I(X;Y) = 0.369 bit 的 23%，说明还有大量 Y 相关信息没有被 T 捕获</li>
+<li><strong>参考意义</strong>：这个例题展示了 IB 框架下的"信息会计"——我们可以精确追踪信息的压缩和保留情况</li>
+<li>可以用 <span class="arithmatex">\(I(T;Y)/I(X;Y)\)</span> 来度量 T 的"效率"——这里为 23%</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>在例题 1 的基础上，假设我们改变聚类映射为硬聚类（hard clustering）：
+  p(t_1|x_1)=1, p(t_1|x_2)=1, p(t_2|x_3)=1，即 x_1 和 x_2 归为 t_1，x_3 归为 t_2。
+  重新计算 I(X;T)、I(T;Y) 和 L（β=1）。</p>
+<p>??? note "答案"
+    <strong>Step 1</strong>: p(t_1) = 0.5+0.25 = 0.75, p(t_2) = 0.25
+    <strong>Step 2</strong>: I(X;T) = H(T) - H(T|X) = H(T) = H(0.75) = 0.811 bit（因为给定 X 时 T 确定，H(T|X)=0）
+    <strong>Step 3</strong>: p(y|t_1) = (0.5/0.75)×[0.9,0.1] + (0.25/0.75)×[0.5,0.5] = [0.6+0.167, 0.067+0.167] = [0.767, 0.233]；p(y|t_2) = [0.1, 0.9]
+    <strong>Step 4</strong>: I(T;Y) = Σ p(t,y) log(p(t,y)/(p(t)p(y))) ≈ 0.139 bit
+    <strong>Step 5</strong>: L = 0.811 - 0.139 = 0.672 bit
+    对比：硬聚类保留了更多 Y 的信息（0.139 vs 0.085），但压缩效果更差（0.811 vs 0.192）。这是压缩-预测权衡的具体体现。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>计算 I(X;T) 时不要忘了求和范围：遍历所有 (x,t) 对</li>
+<li><span class="arithmatex">\(p(x,t) = p(x)p(t|x)\)</span>，不要误写成 <span class="arithmatex">\(p(t)p(x|t)\)</span>——后者需要先知道 p(t) 和 p(x|t)</li>
+<li>计算 p(y|t) 时要用 p(x|t) 来加权求和，不是直接用 p(t|x)</li>
+<li>计算 I(T;Y) 时要用 p(t,y) = p(t)p(y|t)，而不是 p(t|y)p(y)</li>
+<li>对数的底是 2，结果单位为 bit。如果用自然对数，单位为 nat</li>
+</ul>
+<hr />
+<h3 id="2beta">例题 2：<span class="arithmatex">\(\beta\)</span> 参数的极限行为</h3>
+<p><strong>问题</strong>：沿用例题 1 的数据，分析 <span class="arithmatex">\(\beta \to 0\)</span> 和 <span class="arithmatex">\(\beta \to \infty\)</span> 时最优 <span class="arithmatex">\(T\)</span> 的行为。</p>
+<p><strong>解</strong>：</p>
+<p><strong>情形 A：<span class="arithmatex">\(\beta \to 0\)</span>（极端压缩）</strong></p>
+<div class="arithmatex">\[\mathcal{L} = I(X;T) - \beta I(T;Y) \xrightarrow{\beta \to 0} I(X;T)\]</div>
+<p>当 <span class="arithmatex">\(\beta=0\)</span> 时，IB 退化为<strong>最小化 <span class="arithmatex">\(I(X;T)\)</span></strong>，即让 <span class="arithmatex">\(T\)</span> 尽可能独立于 <span class="arithmatex">\(X\)</span>。</p>
+<p>最优解：<span class="arithmatex">\(T\)</span> 退化为一个<strong>常数</strong>（如 <span class="arithmatex">\(p(t|x)\)</span> 与 <span class="arithmatex">\(x\)</span> 无关），此时：</p>
+<div class="arithmatex">\[I(X;T) = 0, \quad I(T;Y) = 0, \quad \mathcal{L} = 0\]</div>
+<p><strong>物理意义</strong>：完全不关心 <span class="arithmatex">\(Y\)</span>，直接丢弃所有信息。</p>
+<p><strong>情形 B：<span class="arithmatex">\(\beta \to \infty\)</span>（极端保真）</strong></p>
+<div class="arithmatex">\[\mathcal{L} = I(X;T) - \beta I(T;Y) \xrightarrow{\beta \to \infty} -\beta I(T;Y)\]</div>
+<p>需要最大化 <span class="arithmatex">\(I(T;Y)\)</span>。由数据处理不等式（DPI）：</p>
+<div class="arithmatex">\[I(T;Y) \leq I(X;Y)\]</div>
+<p>等式成立的充要条件是 <span class="arithmatex">\(T\)</span> 是 <span class="arithmatex">\(X\)</span> 关于 <span class="arithmatex">\(Y\)</span> 的<strong>充分统计量</strong>，即：</p>
+<div class="arithmatex">\[p(y|x) = p(y|t) \quad\Leftrightarrow\quad Y \perp X \mid T\]</div>
+<p><strong>最优解</strong>：取 <span class="arithmatex">\(T\)</span> 为 <span class="arithmatex">\(X\)</span> 本身（<span class="arithmatex">\(p(t|x) = \mathbf{1}\{t=x\}\)</span>），此时：</p>
+<div class="arithmatex">\[I(X;T) = H(X), \quad I(T;Y) = I(X;Y), \quad \mathcal{L} = H(X) - \beta I(X;Y) \to -\infty\]</div>
+<p><strong>物理意义</strong>：完全保留 <span class="arithmatex">\(Y\)</span> 相关信息，不做任何压缩。</p>
+<p><strong>总结</strong>：</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\beta\)</span></th>
+<th>压缩程度</th>
+<th><span class="arithmatex">\(I(X;T)\)</span></th>
+<th><span class="arithmatex">\(I(T;Y)\)</span></th>
+<th>极限 <span class="arithmatex">\(T\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td>最大压缩</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td>常数（无信息）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td>自然权衡</td>
+<td><span class="arithmatex">\(0.192\)</span></td>
+<td><span class="arithmatex">\(0.085\)</span></td>
+<td>软聚类（例1）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td>不压缩</td>
+<td><span class="arithmatex">\(H(X)\)</span></td>
+<td><span class="arithmatex">\(I(X;Y)\)</span></td>
+<td><span class="arithmatex">\(X\)</span> 自身</td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者的补充：</p>
+<ul>
+<li><strong>β 的连续变化</strong>：β 不需要取极端值。在实际应用中，我们通常选择中间的 β 值来获得适当的压缩-预测权衡</li>
+<li><strong>β = 1 的特殊性</strong>：没有理由认为 β = 1 是"最优"的——它只是让两项的系数相等。实际的"最优" β 取决于具体任务对压缩和预测的相对重视程度</li>
+<li><strong>L 的符号变化</strong>：从 β=0 的 L=0 到 β=∞ 的 L→-∞，L 的符号没有本质意义——因为 Lagrangian 只是优化工具，不是最终评价指标</li>
+<li><strong>实际使用</strong>：通常的做法是计算整条 Pareto 前沿（遍历不同 β），然后根据任务需求选择最合适的 T</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>对于例题 1 的设定，如果 β = 2：
+  1. 上界 I(T;Y) 能否达到 I(X;Y) = 0.369 bit？为什么？
+  2. 如果 I(X;T) = 0.192 bit 不变，β = 2 时 L 是多少？
+  3. 要使 L = 0（即压缩项和预测项平衡），β 应取何值？</p>
+<p>??? note "答案"
+    1. 不能。由 DPI，I(T;Y) ≤ I(X;Y) = 0.369，但这是理论上界。实际中还要受限于 T 的容量（I(X;T)）。只有 T 包含足够多关于 X 的信息时，才能接近这个上界。
+    2. L = 0.192 - 2 × 0.085 = 0.192 - 0.170 = 0.022 bit
+    3. 设 β_0 使得 I(X;T) = β_0·I(T;Y)，即 β_0 = 0.192/0.085 ≈ 2.26。此时压缩项和预测项的贡献在 L 中抵消（L = 0）。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>I(T;Y) ≤ I(X;Y) 是 DPI 的直接结果，不需要额外条件——任何通过 X 派生出的 T 都满足</li>
+<li>等式成立需要 T 是充分统计量，即 p(y|x) = p(y|t) 对所有 x,t 成立</li>
+<li>T = X 一定是充分统计量，但充分统计量不一定等于 X（例如"平均值"是高斯分布均值的充分统计量，但远小于原始数据）</li>
+<li>β = 0 时 L = 0 并非巧合——常数 T 的 I(X;T) = 0, I(T;Y) = 0</li>
+</ul>
+<hr />
+<h3 id="3ib">例题 3：IB 与率失真的比较</h3>
+<p><strong>问题</strong>：比较 IB Lagrangian 与率失真 Lagrangian 的数学形式，解释二者的区别和联系。</p>
+<p><strong>解</strong>：</p>
+<p><strong>Step 1</strong>：写出两个 Lagrangian</p>
+<p>率失真理论（给定失真函数 <span class="arithmatex">\(d\)</span>）：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{RD}} = I(X;\hat{X}) + \lambda \cdot \mathbb{E}[d(X,\hat{X})]\]</div>
+<p>其中 <span class="arithmatex">\(\lambda \geq 0\)</span> 是 Lagrange 乘子，<span class="arithmatex">\(\mathbb{E}[d] \leq D\)</span> 是失真约束。</p>
+<p>信息瓶颈理论：</p>
+<div class="arithmatex">\[\mathcal{L}_{\mathrm{IB}} = I(X;T) - \beta \cdot I(T;Y)\]</div>
+<p>其中 <span class="arithmatex">\(\beta \geq 0\)</span> 是权衡参数。</p>
+<p><strong>Step 2</strong>：形式对比</p>
+<p>两个 Lagrangian 都包含压缩项 <span class="arithmatex">\(I(X;\cdot)\)</span>，但失真项不同：</p>
+<ul>
+<li><strong>率失真</strong>：失真由<strong>人工预设</strong>的函数 <span class="arithmatex">\(d(x,\hat{x})\)</span> 衡量（如 Hamming、平方误差）</li>
+<li><strong>IB</strong>：失真由<strong>数据驱动</strong>的 <span class="arithmatex">\(D_{\mathrm{KL}}[p(y|x) \,\|\, p(y|t)]\)</span> 衡量——保留与 <span class="arithmatex">\(Y\)</span> 相关的结构</li>
+</ul>
+<p><strong>Step 3</strong>：统一视角</p>
+<p>若将率失真的重建目标从"恢复 <span class="arithmatex">\(X\)</span>"改为"恢复 <span class="arithmatex">\(Y\)</span>"，则可建立联系：</p>
+<ul>
+<li>率失真：<span class="arithmatex">\(\hat{X}\)</span> 应接近 <span class="arithmatex">\(X\)</span>（<span class="arithmatex">\(d(x,\hat{x})\)</span> 小）</li>
+<li>IB：<span class="arithmatex">\(T\)</span> 应保留 <span class="arithmatex">\(Y\)</span> 的信息（<span class="arithmatex">\(I(T;Y)\)</span> 大）</li>
+</ul>
+<p>事实上，若失真函数取为 <span class="arithmatex">\(d(x,\hat{x}) = D_{\mathrm{KL}}[p(y|x) \,\|\, p(y|\hat{x})]\)</span>，则 IB 可视为一种<strong>有监督的率失真理论</strong>。</p>
+<p><strong>结论</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>率失真</th>
+<th>IB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>失真定义</td>
+<td>用户指定 <span class="arithmatex">\(d(x,\hat{x})\)</span></td>
+<td>自动由 $p(y</td>
+</tr>
+<tr>
+<td>监督信号</td>
+<td><span class="arithmatex">\(\times\)</span>（无监督）</td>
+<td><span class="arithmatex">\(\checkmark\)</span>（有监督）</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>信号压缩</td>
+<td>表示学习、聚类</td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者的深入分析：</p>
+<ul>
+<li><strong>结构一致性</strong>：两个理论的最优解都是 Gibbs 形式<ul>
+<li>率失真：<span class="arithmatex">\(p(\hat{x}|x) \propto p(\hat{x}) \exp(-\beta \cdot d(x,\hat{x}))\)</span></li>
+<li>IB：<span class="arithmatex">\(p(t|x) \propto p(t) \exp(-\beta \cdot D_{\mathrm{KL}}[p(y|x) \,\|\, p(y|t)])\)</span></li>
+</ul>
+</li>
+<li><strong>"距离"度量的变化</strong>：率失真中 d(x,x̂) 满足对称性（通常），而 KL 散度<strong>不满足</strong>对称性——D_KL[p||q] ≠ D_KL[q||p]</li>
+<li><strong>物理意义</strong>：<ul>
+<li>率失真：寻找一个"看起来像 X"的表示</li>
+<li>IB：寻找一个"对 Y 有用"的表示</li>
+</ul>
+</li>
+<li><strong>讲者总结</strong>："它其实就是我这个衡量压缩失真的标准稍微有点不一样……IB 更多考虑了特征跟我任务相关的信息，而不是单纯 X 和 X̂ 之间的差异"</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<ol>
+<li>将 IB Lagrangian 改写成率失真 Lagrangian 的形式（即用加号连接两项），并给出对应的"失真"定义。</li>
+<li>率失真理论中的重建变量 X̂ 和 IB 中的压缩表示 T，在角色上有什么本质区别？</li>
+</ol>
+<p>??? note "答案"
+    1. 令 λ = β，定义失真 d'(x,t) = -I(T;Y)/β，则 L_IB = I(X;T) + λ·d'(x,t)。但这个 d' 不是点对点的失真（它依赖于全局分布），所以这个类比仅形式有效。
+    2. 率失真的 X̂ 是 X 的<strong>重建/近似</strong>，目标是在给定失真约束下尽可能"像"X。IB 的 T 是 X 的<strong>压缩表示</strong>，目标不是像 X，而是对下游任务 Y 有用。X̂ 直接与 X 比较（保真度），T 通过 Y 间接评价（任务效用）。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>率失真中的 λ ≥ 0 是约束 E[d] ≤ D 的 Lagrange 乘子，IB 中的 β &gt; 0 是人为设定的权衡参数——两者的来源不同</li>
+<li>不要混淆"失真最小化"和"信息最大化"：率失真最小化 d(x,x̂)，IB 最大化 I(T;Y)</li>
+<li>IB 不是率失真的"升级版"——它们解决不同的问题。率失真适合压缩场景，IB 适合表示学习场景</li>
+</ul>
+<hr />
+<h2 id="4">4. 常见题型</h2>
+<h3 id="ib-lagrangian">题型一：IB Lagrangian 解释</h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\mathcal{L} = I(X;T) - \beta I(T;Y)\)</span> 各项含义</td>
+<td><span class="arithmatex">\(I(X;T)\)</span> 压缩程度（越大保留 <span class="arithmatex">\(X\)</span> 信息越多），<span class="arithmatex">\(I(T;Y)\)</span> 预测能力（越大对 <span class="arithmatex">\(Y\)</span> 越有用），<span class="arithmatex">\(\beta\)</span> 权衡系数</td>
+</tr>
+<tr>
+<td>压缩项为何要最小化？</td>
+<td>希望 <span class="arithmatex">\(T\)</span> 只保留 <span class="arithmatex">\(Y\)</span>-相关信息，丢弃 <span class="arithmatex">\(X\)</span> 中的无关冗余</td>
+</tr>
+<tr>
+<td>相关性项为何要最大化？</td>
+<td>希望 <span class="arithmatex">\(T\)</span> 能准确预测 <span class="arithmatex">\(Y\)</span>，保留所有任务相关信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="beta">题型二：<span class="arithmatex">\(\beta\)</span> 参数意义</h3>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\beta\)</span></th>
+<th>行为</th>
+<th>对应 <span class="arithmatex">\(T\)</span></th>
+<th>实际例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\beta \to 0\)</span></td>
+<td>只压缩、不管预测</td>
+<td><span class="arithmatex">\(T\)</span> 趋于常数</td>
+<td>极度有损压缩</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\beta = 1\)</span></td>
+<td>压缩与预测等权</td>
+<td>软聚类</td>
+<td>表示学习中的典型设置</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\beta \to \infty\)</span></td>
+<td>只预测、不管压缩</td>
+<td><span class="arithmatex">\(T = X\)</span></td>
+<td>过拟合（记忆所有数据）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ib">题型三：IB 与率失真对比</h3>
+<table>
+<thead>
+<tr>
+<th>比较维度</th>
+<th>率失真</th>
+<th>IB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>恢复 <span class="arithmatex">\(X\)</span></td>
+<td>预测 <span class="arithmatex">\(Y\)</span></td>
+</tr>
+<tr>
+<td>失真度量</td>
+<td>用户指定</td>
+<td>KL 散度（数据驱动）</td>
+</tr>
+<tr>
+<td>是否需 $p(y</td>
+<td>x)$</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>典型输出</td>
+<td>重建 <span class="arithmatex">\(\hat{X}\)</span></td>
+<td>表示 <span class="arithmatex">\(T\)</span></td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>题型对应考试中的常见考法：</p>
+<ul>
+<li><strong>题型一</strong>通常以简答题形式出现，要求解释 Lagrangian 中各项的物理意义</li>
+<li><strong>题型二</strong>常与"极限行为分析"结合，要求讨论 β 趋近边界时 T 的变化</li>
+<li><strong>题型三</strong>可能以对比表格或论述题形式出现</li>
+<li>这些题型的统一特征是：<strong>不需要复杂计算，但需要清晰的概念理解</strong></li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>快速自测：
+  1. 如果 β = 0，IB 退化为什么问题？
+  2. IB 中的"失真"由什么衡量？
+  3. 信息平面上的 Pareto 前沿对应 Lagrangian 的什么？</p>
+<p>??? note "答案"
+    1. 退化为"最小化 I(X;T)"——纯粹的数据压缩问题。
+    2. 由 KL 散度 D_KL[p(y|x) || p(y|t)] 衡量——在 IB 框架中，PL 散度充当了"失真"的角色。
+    3. Pareto 前沿对应 Lagrangian 在不同 β 下的最优解集合。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>Lagrangian 中 β 前的符号是负号（-），不是正号——这与很多其他优化问题不同</li>
+<li>I(T;Y) 不是"预测准确率"，而是"互信息"——它衡量的是 T 包含的关于 Y 的信息量，不是具体分类准确率</li>
+</ul>
+<hr />
+<h2 id="5">5. 📖 教材扩展阅读</h2>
+<blockquote>
+<p><strong>说明</strong>：信息瓶颈理论由 Tishby, Pereira 和 Bialek 于 1999 年提出，仇佩亮《信息论与编码》（2003）未设专门章节。但教材中以下内容与 IB 有密切联系，可作为扩展阅读。</p>
+</blockquote>
+<h3 id="54-ib">教材 §5.4（率失真函数的充要条件）与 IB</h3>
+<p>教材 §5.4 给出了率失真函数最优解的充要条件（定理 5.4.3），其证明框架与 IB 最优解的推导高度相似：</p>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>率失真理论</th>
+<th>信息瓶颈</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优化目标</td>
+<td><span class="arithmatex">\(\min I(X;\hat{X})\)</span></td>
+<td><span class="arithmatex">\(\min I(X;T) - \beta I(T;Y)\)</span></td>
+</tr>
+<tr>
+<td>最优解形式</td>
+<td>$p(\hat{x}</td>
+<td>x) \propto \lambda(x)p(\hat{x})e^{s\cdot d}$</td>
+</tr>
+<tr>
+<td>求解算法</td>
+<td>Blahut-Arimoto</td>
+<td>类似 Blahut-Arimoto 的迭代算法</td>
+</tr>
+</tbody>
+</table>
+<h3 id="336">教材 §3.3.6（通用信源编码）与表示学习</h3>
+<p>教材 §3.3.6 讨论的 LZ 通用编码算法从序列结构中自动发现模式——这与 IB 从数据中发现"最优表示"的思想一脉相承。</p>
+<h3 id="119">教材 §11.9（相关信源的无损编码）</h3>
+<p>教材 §11.9 讨论的相关信源编码（Slepian-Wolf 定理）涉及到多个信源间的信息交互，与 IB 中多个变量间的信息关系有相通之处。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者的参考文献推荐：</p>
+<ul>
+<li><strong>原始论文</strong>：Tishby, Pereira, Bialek (1999). "The Information Bottleneck Method". arXiv:physics/9904054</li>
+<li><strong>神经网络应用</strong>：Tishby &amp; Zaslavsky (2015). "Deep Learning and the Information Bottleneck Principle". IEEE ITW</li>
+<li><strong>后续讨论</strong>：Saxe et al. (2018). "On the Information Bottleneck Theory of Deep Learning"——这篇文章对两阶段现象提出了质疑</li>
+<li><strong>讲者建议</strong>："大家感兴趣的话，其实可以搜一下 Tishby 这个人名，基本上就可以出来"</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>参考"教材 §5.4"中率失真最优解的形式，写出与 IB 最优解的逐项对比。</p>
+<p>??? note "答案"
+    率失真最优解：p(x̂|x) = p(x̂) / Z(x,λ) · exp(-λ·d(x,x̂))
+    IB 最优解：p(t|x) = p(t) / Z(x,β) · exp(-β·D_KL[p(y|x) || p(y|t)])
+    逐项对比：
+    - p(x̂) ↔ p(t)：先验分布
+    - λ ↔ β：权衡参数
+    - d(x,x̂) ↔ D_KL[p(y|x) || p(y|t)]：失真度量
+    - Z(x,λ) ↔ Z(x,β)：归一化因子
+    两者的数学结构完全一致，只是失真度量的定义不同。</p>
+<hr />
+<h2 id="6">6. 📝 按题型精选</h2>
+<h3 id="ib-lagrangian_1">题型一：IB Lagrangian 解释 — 压缩项与预测项的计算</h3>
+<p><strong>题目</strong>（典型例题 1）：给定联合分布 <span class="arithmatex">\(p(x,y)\)</span> 和软聚类 <span class="arithmatex">\(p(t|x)\)</span>，计算 <span class="arithmatex">\(I(X;T)\)</span> 和 <span class="arithmatex">\(I(T;Y)\)</span>，以及 <span class="arithmatex">\(\beta=1\)</span> 时的 <span class="arithmatex">\(\mathcal{L}=I(X;T)-\beta I(T;Y)\)</span>。</p>
+<p><span class="arithmatex">\(X\in\{x_1,x_2,x_3\}\)</span>，<span class="arithmatex">\(Y\in\{y_1,y_2\}\)</span>，<span class="arithmatex">\(p(x)=[0.5,0.25,0.25]\)</span>，条件分布 <span class="arithmatex">\(p(y|x)=[0.9,0.1;0.5,0.5;0.1,0.9]\)</span>，聚类映射 <span class="arithmatex">\(p(t|x)=[0.8,0.2;0.5,0.5;0.2,0.8]\)</span>。</p>
+<p><strong>解答要点</strong>：①<span class="arithmatex">\(p(t)=(0.575,0.425)\)</span> ②<span class="arithmatex">\(I(X;T)=\sum p(x)p(t|x)\log\frac{p(t|x)}{p(t)}\approx 0.192\)</span> bit ③算 <span class="arithmatex">\(p(y|t)\)</span> 和 <span class="arithmatex">\(p(t,y)\)</span> ④<span class="arithmatex">\(I(T;Y)=\sum p(t,y)\log\frac{p(t,y)}{p(t)p(y)}\approx 0.085\)</span> bit ⑤<span class="arithmatex">\(\mathcal{L}=0.192-0.085=0.107\)</span> bit。</p>
+<h3 id="beta_1">题型二：<span class="arithmatex">\(\beta\)</span> 参数意义 — 极限行为分析</h3>
+<p><strong>题目</strong>（典型例题 2）：分析 <span class="arithmatex">\(\beta\to0\)</span> 和 <span class="arithmatex">\(\beta\to\infty\)</span> 时最优 <span class="arithmatex">\(T\)</span> 的行为。</p>
+<p><strong>解答要点</strong>：①<span class="arithmatex">\(\beta\to0\)</span>：<span class="arithmatex">\(\mathcal{L}\to I(X;T)\)</span>，最小化压缩项，<span class="arithmatex">\(T\)</span> 退化为常数，<span class="arithmatex">\(I(X;T)=I(T;Y)=0\)</span> ②<span class="arithmatex">\(\beta\to\infty\)</span>：<span class="arithmatex">\(\mathcal{L}\to -\beta I(T;Y)\)</span>，最大化预测项，由 DPI 知 <span class="arithmatex">\(I(T;Y)\leq I(X;Y)\)</span>，<span class="arithmatex">\(T\)</span> 趋于 <span class="arithmatex">\(X\)</span> 关于 <span class="arithmatex">\(Y\)</span> 的充分统计量（极端情况 <span class="arithmatex">\(T=X\)</span>）③<span class="arithmatex">\(\beta=1\)</span> 时两者自然权衡。</p>
+<h3 id="ib_1">题型三：IB 与率失真对比</h3>
+<p><strong>题目</strong>（典型例题 3）：比较 IB Lagrangian 与率失真 Lagrangian 的数学形式，说明二者的本质区别。</p>
+<p><strong>解答要点</strong>：①<span class="arithmatex">\(\mathcal{L}_{\mathrm{RD}}=I(X;\hat{X})+\lambda\cdot\mathbb{E}[d(X,\hat{X})]\)</span>，失真由预设函数 <span class="arithmatex">\(d\)</span> 衡量，无监督 ②<span class="arithmatex">\(\mathcal{L}_{\mathrm{IB}}=I(X;T)-\beta I(T;Y)\)</span>，"失真"由 KL 散度 <span class="arithmatex">\(D_{\mathrm{KL}}[p(y|x)\|p(y|t)]\)</span> 自动确定，有监督 ③联系：当失真取 <span class="arithmatex">\(d(x,\hat{x})=D_{\mathrm{KL}}[p(y|x)\|p(y|\hat{x})]\)</span> 时，IB 退化为率失真的有监督版本。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>这三种题型覆盖了 IB 考察的核心能力：
+  - <strong>题型一</strong>：计算能力——能够根据给定分布进行互信息计算
+  - <strong>题型二</strong>：极限思维——理解参数边界对最优解的影响
+  - <strong>题型三</strong>：对比分析——理解 IB 与率失真理论的异同
+  考试中可能以其中一种或组合形式出现。</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>自行出题：改变例题 1 中的 p(t|x) 映射，重新计算 I(X;T)、I(T;Y) 和 L，观察映射变化对结果的影响。</p>
+<p>??? note "答案"
+    提示：可以尝试以下变化：
+    - 使映射更"确定"（如 p(t|x) 接近 0 或 1）→ I(X;T) 增大（更少压缩），I(T;Y) 可能增大或减小
+    - 使映射更"均匀"（如所有 p(t|x) ≈ 0.5）→ I(X;T) 减小（更多压缩），I(T;Y) 减小
+    - 尝试让映射"对齐" p(y|x) 的结构（如将 y_1 偏好的 x 映射到同一个 t）→ I(T;Y) 可能会增大</p>
+<hr />
+<h2 id="7">7. 公式速查</h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>公式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IB Lagrangian</td>
+<td><span class="arithmatex">\(\mathcal{L} = I(X;T) - \beta I(T;Y)\)</span></td>
+<td>压缩与预测的权衡</td>
+</tr>
+<tr>
+<td>Markov 链</td>
+<td><span class="arithmatex">\(Y \to X \to T\)</span></td>
+<td>$p(t</td>
+</tr>
+<tr>
+<td>最优解</td>
+<td>$p(t</td>
+<td>x) \propto p(t) e^{-\beta D_{\mathrm{KL}}[p(y</td>
+</tr>
+<tr>
+<td>信息平面</td>
+<td><span class="arithmatex">\((I(X;T), I(T;Y))\)</span></td>
+<td>横轴压缩，纵轴预测</td>
+</tr>
+<tr>
+<td>Pareto 前沿</td>
+<td>给定 <span class="arithmatex">\(I(X;T)\)</span> 的最大 <span class="arithmatex">\(I(T;Y)\)</span></td>
+<td>可达区域上边界</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\beta \to 0\)</span></td>
+<td><span class="arithmatex">\(T\)</span> 趋于常数</td>
+<td><span class="arithmatex">\(I(X;T) = I(T;Y) = 0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\beta \to \infty\)</span></td>
+<td><span class="arithmatex">\(T\)</span> 趋于充分统计量</td>
+<td><span class="arithmatex">\(I(T;Y) \to I(X;Y)\)</span></td>
+</tr>
+<tr>
+<td>DPI 约束</td>
+<td><span class="arithmatex">\(I(T;Y) \leq I(X;Y)\)</span></td>
+<td>任何 <span class="arithmatex">\(T\)</span> 的信息不增</td>
+</tr>
+<tr>
+<td>与率失真关系</td>
+<td>率失真：<span class="arithmatex">\(\min I(X;\hat{X})\)</span> 约束 <span class="arithmatex">\(\mathbb{E}[d] \leq D\)</span></td>
+<td>IB：<span class="arithmatex">\(\min I(X;T) - \beta I(T;Y)\)</span></td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>核心公式记忆技巧：</p>
+<ul>
+<li>Lagrangian 中两项的符号<strong>相反</strong>：压缩项正号（要最小化），预测项负号（实际上是最大化，通过负号转为最小化问题）</li>
+<li>最优解的指数形式类似物理学中的 Boltzmann 分布——<span class="arithmatex">\(p(t|x)\)</span> 由"能量"（KL 散度）和"温度"（1/β）决定</li>
+<li>Markov 链的方向记住"因果顺序"：Y（因）→ X（果）→ T（压缩）</li>
+<li>DPI 约束是最直观的：任何数据处理步骤都不能增加信息量</li>
+</ul>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>不看上表，默写：
+  1. IB Lagrangian
+  2. IB 最优解公式
+  3. 信息平面坐标
+  4. DPI 约束在 IB 中的形式</p>
+<p>??? note "答案"
+    1. ℒ = I(X;T) - β·I(T;Y)
+    2. p(t|x) ∝ p(t)·exp(-β·D_KL[p(y|x) || p(y|t)])
+    3. (I(X;T), I(T;Y))
+    4. I(T;Y) ≤ I(X;Y)</p>
+<hr />
+<h2 id="8">8. 课堂拓展专题</h2>
+<h3 id="81-ib">8.1 IB 迭代算法的详细步骤</h3>
+<p>讲者在课堂上详细介绍了 IB 的迭代求解过程，与 Blahut-Arimoto 算法几乎相同：</p>
+<p><strong>算法输入</strong>：联合分布 <span class="arithmatex">\(p(x,y)\)</span>，参数 <span class="arithmatex">\(\beta\)</span>，聚类数 <span class="arithmatex">\(|T|\)</span></p>
+<ol>
+<li>初始化 <span class="arithmatex">\(p(y|t)\)</span>（如均匀分布）和 <span class="arithmatex">\(p(t)\)</span>（如均匀分布）</li>
+<li>迭代直到收敛：
+  a. 计算 <span class="arithmatex">\(p(t|x) \propto p(t) \exp\!\big(-\beta \cdot D_{\mathrm{KL}}[p(y|x) \| p(y|t)]\big)\)</span>，归一化
+  b. 更新 <span class="arithmatex">\(p(t) = \sum_x p(x) p(t|x)\)</span>
+  c. 更新 <span class="arithmatex">\(p(y|t) = \frac{\sum_x p(y|x) p(x) p(t|x)}{p(t)}\)</span></li>
+<li>输出最优的 <span class="arithmatex">\(p(t|x)\)</span>，以及对应的 <span class="arithmatex">\(I(X;T)\)</span> 和 <span class="arithmatex">\(I(T;Y)\)</span></li>
+</ol>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<ul>
+<li>这个算法保证 Lagrangian 单调递减（类似 EM 算法的性质）</li>
+<li>初始化对收敛速度有影响，但通常不影响最终结果（对凸问题而言）</li>
+<li>实际中常用<strong>随机初始化</strong>多次运行，选取 L 最小的结果</li>
+<li>聚类数 <span class="arithmatex">\(|T|\)</span> 需要预先指定——可以通过比较不同 <span class="arithmatex">\(|T|\)</span> 下的 Pareto 曲线来选择</li>
+</ul>
+<h3 id="82-ib">8.2 IB 在表示学习中的角色</h3>
+<p>IB 为表示学习提供了理论基础：</p>
+<ul>
+<li><strong>好的表示</strong> = 对输入充分压缩 + 对任务充分有效</li>
+<li>IB Lagrangian 直接形式化了这一直觉</li>
+<li>变分自编码器（VAE）和 IB 有密切联系：</li>
+<li>VAE 的 ELBO 可以分解为重构项和 KL 正则项</li>
+<li>β-VAE 显式引入了权衡参数 β，与 IB 的 β 角色相似</li>
+<li>区别：VAE 的重构目标是对 X 的保真度，IB 的目标是对 Y 的保真度</li>
+</ul>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者提到 IB 可以用于设计新的神经网络正则化方法：</p>
+<ul>
+<li>通过在损失函数中加入信息约束（I(X;T) 的正则项），可以鼓励网络学习更简洁的表示</li>
+<li>这种正则化的实现通常需要变分估计技术</li>
+<li>常用的做法：用 VIB (Variational Information Bottleneck) 方法，即 IB 的变分近似版本</li>
+<li>讲者的评价："他为我们做各种的正则化提供了一定的理论基础"</li>
+</ul>
+<h3 id="83-ib">8.3 IB 与信息论其它分支的联系</h3>
+<table>
+<thead>
+<tr>
+<th>分支</th>
+<th>与 IB 的联系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>率失真理论</td>
+<td>最密切——IB 是率失真的有监督推广</td>
+</tr>
+<tr>
+<td>信道编码</td>
+<td>信道编码中"编码"可视为一种"任务相关压缩"</td>
+</tr>
+<tr>
+<td>网络信息论</td>
+<td>多用户信息论中涉及多个信源的信息交互</td>
+</tr>
+<tr>
+<td>通用信源编码</td>
+<td>LZ 算法的模式发现与 IB 的表示学习一脉相承</td>
+</tr>
+<tr>
+<td>SDPI</td>
+<td>给出了信息在信道中收缩的更紧致上界</td>
+</tr>
+</tbody>
+</table>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>讲者强调 IB 与信息论其他分支的联系不是因为它们等同，而是因为它们共享相似的<strong>数学框架</strong>——互信息的优化。理解 IB 有助于深化对整个信息论体系的把握。</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p>思考题：如果你要设计一个"以 IB 为理论基础"的图像分类模型，你会如何设计损失函数？</p>
+<p>??? note "答案"
+    一个可能的方案：
+    1. 编码器（Encoder）将图像 X 映射到表示 T
+    2. 分类器（Classifier）从 T 预测标签 Y
+    3. 损失函数 = I(X;T) - β·I(T;Y)
+    实际中，I(X;T) 和 I(T;Y) 难以直接计算，可以用变分近似：
+    - I(X;T) 用 KL 散度近似（类似 VAE 中的正则项）
+    - I(T;Y) 用交叉熵损失近似（分类损失）
+    这就是 VIB (Variational Information Bottleneck) 方法的基本思路。</p>
+<hr />
+<h2 id="9">9. 附录：课堂板书与关键讨论</h2>
+<h3 id="91">9.1 关于两阶段现象的争论</h3>
+<p>课堂中讨论的一个重要话题是 Tishby 2015 年论文中观察到的"先拟合、后压缩"两阶段现象是否真实存在。</p>
+<p><strong>支持证据</strong>：
+- Tishby 的原始实验（tanh 激活函数 + SGD 优化器）显示了清晰的两阶段
+- 其他研究者在类似设定下复现了该现象</p>
+<p><strong>反对证据</strong>：
+- 讲者自己的仿真表明，使用 Adam 优化器后两阶段消失
+- 使用 ReLU 激活函数后两阶段基本不可见
+- Saxe et al. (2018) 的论文从理论上质疑了两阶段与泛化能力的关系</p>
+<p><strong>课堂共识</strong>：
+- 两阶段现象是特定条件下的观察结果，不是普遍规律
+- IB 框架的核心价值不在于"两阶段"这个具体现象，而在于提供了"压缩-预测权衡"的视角
+- 神经网络的信息处理确实涉及压缩和保留的权衡，但具体实现方式可能比 IB 模型更复杂</p>
+<h3 id="92">9.2 讲者个人观点</h3>
+<ul>
+<li>"IB 也许不能完全解释神经网络，但它提供了一个非常有用的思考框架"</li>
+<li>"我们可以用一个简单框架对神经网络做一定的正则化"</li>
+<li>"IB 的核心思想——保留任务相关信息丢弃冗余——是深度学习中非常重要的原则"</li>
+<li>讲者认为 IB 更适合作为<strong>理解工具</strong>而非<strong>预测工具</strong></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>本讲总结</strong>：信息瓶颈理论是率失真理论的有监督推广，核心是压缩表示 <span class="arithmatex">\(T\)</span> 在保留 <span class="arithmatex">\(Y\)</span> 相关信息的同时丢弃 <span class="arithmatex">\(X\)</span> 中的冗余。IB 与神经网络有结构性的相似，但其两阶段现象的可观测性取决于激活函数和优化器的选择。作为理论框架，IB 为表示学习和神经网络正则化提供了信息论的视角。</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "navigation.indexes", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

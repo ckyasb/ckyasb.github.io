@@ -1,0 +1,6873 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ckyasb.github.io/Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/12%E7%94%B5%E7%A3%81%E8%BE%90%E5%B0%84/">
+      
+      
+        <link rel="prev" href="../11%E7%9C%9F%E7%A9%BA%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E6%B3%A2/">
+      
+      
+        <link rel="next" href="../13%E5%AE%8F%E8%A7%82%E7%89%A9%E8%B4%A8%E4%B8%AD%E7%9A%84%E9%9D%99%E7%94%B5%E5%92%8C%E7%A3%81%E5%9C%BA/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>12 电磁辐射 - ckyasb's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ckyasb&#39;s notes" class="md-header__button md-logo" aria-label="ckyasb's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ckyasb's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12 电磁辐射
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../%E5%85%89%E5%AD%A6/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Physics
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人文
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%80%9D%E6%94%BF/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  思政
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  控制
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  英语
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ckyasb&#39;s notes" class="md-nav__button md-logo" aria-label="ckyasb's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ckyasb's notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能前沿
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能前沿
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/01%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 人工智能前沿综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/02%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 大模型与基础模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/03%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 计算机视觉前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/04%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 自然语言处理前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/05%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%86%B3%E7%AD%96%E6%99%BA%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 强化学习与决策智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/06AI%20for%20Science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 AI for Science
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/07%E5%89%8D%E6%B2%BF%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 前沿总结与展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    信息理论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/01%E4%BF%A1%E6%81%AF%E5%BA%A6%E9%87%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 信息度量 🔴 考试核心（~40%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/02%E6%97%A0%E6%8D%9F%E5%8E%8B%E7%BC%A9%E4%B8%8E%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 无损压缩与信源编码（Lossless Compression &amp; Source Coding） 🔴 考试核心（~30%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/03%E4%BF%A1%E9%81%93%E5%AE%B9%E9%87%8F%E4%B8%8E%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 信道容量与信道编码（Channel Capacity &amp; Channel Coding） 🔴 考试核心（~30%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/04%E7%8E%87%E5%A4%B1%E7%9C%9F%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 率失真理论（Rate-Distortion Theory） 🟢 非考试范围
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/05%E4%BF%A1%E6%81%AF%E7%93%B6%E9%A2%88%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 信息瓶颈理论（Information Bottleneck） 🟢 非考试范围
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论 — 作业汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论 — 课程笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/01%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 算法分析（Algorithm Analysis）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/02%E7%BA%BF%E6%80%A7%E8%A1%A8%E6%A0%88%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 线性表、栈与队列（Lists, Stacks, Queues）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/03%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 树与搜索树（Trees &amp; Search Trees）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/04%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%A0%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 优先队列与堆（Priority Queues &amp; Heaps）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/05%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 排序（Sorting）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/06%E6%95%A3%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 散列（Hashing）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/07%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 并查集（Union-Find / Disjoint Set）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/08%E5%9B%BE%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 图算法（Graph Algorithms）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E5%BA%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构基础 (FDS) 历年卷题库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E9%A2%98%E5%BA%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDS 题库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDS 高频考点与历年卷分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E5%85%89%E5%AD%A6/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    光学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%89%E5%AD%A6/01%20%E5%85%89%E4%B8%8E%E5%85%89%E7%9A%84%E4%BC%A0%E6%92%AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01光与光的传播
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%89%E5%AD%A6/06%20%E5%81%8F%E6%8C%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 偏振
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原子物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原子物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/01%E5%8E%9F%E5%AD%90%E5%8F%8A%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01原子及结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/02%E6%B3%A2%E5%B0%94-%E7%B4%A2%E6%9C%AB%E8%8F%B2%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02玻尔-索末菲模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/03%E7%94%B5%E5%AD%90%E8%87%AA%E6%97%8B%E5%8F%8A%E5%8E%9F%E5%AD%90%E7%A3%81%E7%9F%A9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03电子自旋及原子磁矩
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/04%E5%85%83%E7%B4%A0%E5%91%A8%E6%9C%9F%E5%BE%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04多电子原子及元素周期律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/05X%E5%B0%84%E7%BA%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05X射线
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/06%E5%8E%9F%E5%AD%90%E6%A0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06原子核物理概论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实验
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%9E%E9%AA%8C/%E5%AE%9E%E9%AA%8C%E4%B8%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验三
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%9E%E9%AA%8C/%E7%89%A9%E7%90%86%E7%8E%B0%E8%B1%A1%E4%B8%8E%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理现象与
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    广义相对论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    广义相对论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/01%E7%BB%AA%E8%AE%BA-%E5%BC%95%E5%8A%9B%E4%B8%8E%E6%97%B6%E7%A9%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 绪论：引力与时空
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/02%E5%BC%A0%E9%87%8F%E5%88%86%E6%9E%90%E4%B8%8E%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 张量分析与微分几何基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/03%E6%B5%8B%E5%9C%B0%E7%BA%BF%E4%B8%8E%E5%BC%AF%E6%9B%B2%E6%97%B6%E7%A9%BA%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 测地线与弯曲时空中的物理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/04Einstein%E5%9C%BA%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Einstein 场方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/05Schwarzschild%E8%A7%A3%E4%B8%8E%E7%BB%8F%E5%85%B8%E6%A3%80%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Schwarzschild 解与经典检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/06%E9%BB%91%E6%B4%9E%E7%89%A9%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 黑洞物理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/07%E5%BC%95%E5%8A%9B%E6%B3%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 引力波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/08%E5%AE%87%E5%AE%99%E5%AD%A6%E5%88%9D%E6%AD%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 宇宙学初步
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/%E6%95%B0%E5%AD%A6%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学补充：作业用到的数学工具索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/%E8%80%83%E8%AF%95%E9%87%8D%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期末考试重点汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理方法Ⅱ
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理方法Ⅱ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/01%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E5%9B%9E%E9%A1%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 复变函数回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/02Fourier%E7%BA%A7%E6%95%B0%E4%B8%8E%E7%A7%AF%E5%88%86%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 Fourier 级数与积分变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/03Legendre%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 Legendre 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/04%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 球谐函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/05%E6%9F%B1%E5%9D%90%E6%A0%87%E4%B8%8EBessel%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 柱坐标与 Bessel 函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/06%E5%85%B6%E4%BB%96%E7%89%B9%E6%AE%8A%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 其他特殊函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/07Bessel%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Bessel 函数应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电动力学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电动力学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%E7%BB%AA%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E5%85%A8%E5%B1%80%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 静电场的全局性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E5%B1%80%E5%9F%9F%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 静电场的局域性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%88%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电场的模式分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%E7%82%B9%E6%BA%90%E4%B8%8E%E5%A4%9A%E6%9E%81%E5%B1%95%E5%BC%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 点源与静电场的多极展开
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E8%BE%B9%E7%95%8C%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 静电场的边界问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07%E9%9D%99%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 静磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08%E9%9D%99%E7%94%B5%E4%B8%8E%E9%9D%99%E7%A3%81%E8%A7%84%E5%BE%8B%E6%AF%94%E8%BE%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 静电与静磁规律的比较
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09%E4%BB%8E%E9%9D%99%E7%94%B5%E7%A3%81%E5%9C%BA%E5%88%B0%E4%B8%80%E8%88%AC%E7%94%B5%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 从静电磁场到一般电磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10%E7%94%B5%E7%A3%81%E5%9C%BA%E7%9A%84%E4%B8%80%E8%88%AC%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 电磁场的一般动力学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11%E7%9C%9F%E7%A9%BA%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E6%B3%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 真空中的电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电磁辐射
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电磁辐射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 推迟势
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 推迟势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 达朗贝尔方程的格林函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 极点选择与因果性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 推迟势的最终表达式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 局域谐振电荷系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 局域谐振电荷系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 傅里叶分解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 多极展开的动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 电偶极辐射
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 电偶极辐射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 零阶近似与电偶极矩
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 辐射场
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 近场区 vs 远场区
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 辐射功率
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 磁偶极辐射与电四极辐射
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 磁偶极辐射与电四极辐射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 一阶展开的一般结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 磁偶极辐射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 电四极辐射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 各阶辐射的典型能级
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 一般多极辐射
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 一般多极辐射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 多极级数展开
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 电多极与磁多极
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 多极展开的意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 李纳-维谢尔势
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 李纳-维谢尔势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 单运动点电荷的推迟势
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 李纳-维谢尔势的物理图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 加速电荷的辐射场
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 加速电荷的辐射场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 场的一般结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-velocity-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 速度场 (Velocity Fields)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-acceleration-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 加速度场 (Acceleration Fields)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 低速近似：拉莫尔公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 相对论推广：李纳公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 能量输运与辐射阻尼
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 能量输运与辐射阻尼">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 辐射能量输运的物理图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 辐射阻尼
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 典型例题（来自课堂与作业）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 典型例题（来自课堂与作业）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-hw13-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 例题（HW13-2，必考）：匀速圆周运动点电荷的多极矩与辐射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-hw12-3l0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 例题（HW12-3）：\(l=0\) 球面电磁波的能量守恒验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-hw13-1eperp-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 例题（HW13-1）：\(E\perp B\) 的球面电磁波构形
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13%E5%AE%8F%E8%A7%82%E7%89%A9%E8%B4%A8%E4%B8%AD%E7%9A%84%E9%9D%99%E7%94%B5%E5%92%8C%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 宏观物质中的静电/磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14%E5%AE%8F%E8%A7%82%E7%89%A9%E8%B4%A8%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 宏观物质中的电磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15%E7%94%B5%E7%A3%81%E5%9C%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%BE%B9%E7%95%8C%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15 电磁场动力学的边界问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E6%95%A3%E5%B0%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16 电磁波的散射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17%E5%8A%A8%E4%BD%93%E7%9A%84%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17 动体的电动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18%E7%94%B5%E7%A3%81%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18 电磁系统的拉格朗日力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学补充：作业用到的数学工具索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%80%83%E8%AF%95%E9%87%8D%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期末考试重点汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%87%8D%E8%A6%81%E5%85%AC%E5%BC%8F%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电动力学重要公式汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    选修
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    选修
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%80%89%E4%BF%AE/%E6%A0%B8%E5%8F%8D%E5%BA%94%E5%A0%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    反应堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人文
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人文
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文学与人生
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    文学与人生
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/01%E7%8E%B0%E4%BB%A3%E5%B0%8F%E8%AF%B4%E9%80%89%E8%AF%BB%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 现代小说选读（一）：文学与爱情
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/02%E7%8E%B0%E4%BB%A3%E5%B0%8F%E8%AF%B4%E9%80%89%E8%AF%BB%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 现代小说选读（二）：文学与亲情·文学与羞耻
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/03%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E6%96%87%E5%AD%A6%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 中国现代文学（一）：文学与羞耻·文学与现实
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/04%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E6%96%87%E5%AD%A6%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 中国现代文学（二）：文学与现实（续）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/05%E4%B8%96%E7%95%8C%E6%96%87%E5%AD%A6%E7%BB%8F%E5%85%B8%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 世界文学经典（一）：文学与美食
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/06%E4%B8%96%E7%95%8C%E6%96%87%E5%AD%A6%E7%BB%8F%E5%85%B8%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 世界文学经典（二）：革命·战争·伤痕
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/07%E6%96%87%E5%AD%A6%E6%89%B9%E8%AF%84%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 文学批评与人生：声音·良知·在路上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/08%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 文学与人生总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%80%9D%E6%94%BF/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    思政
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    思政
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    毛泽东思想和中国特色社会主义理论体系概论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    毛泽东思想和中国特色社会主义理论体系概论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%80-%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E4%B8%AD%E5%9B%BD%E5%8C%96%E7%9A%84%E5%8E%86%E5%8F%B2%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%90%86%E8%AE%BA%E6%88%90%E6%9E%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题一：马克思主义中国化的历史进程与理论成果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%83-%E4%B8%89%E4%B8%AA%E4%BB%A3%E8%A1%A8%E9%87%8D%E8%A6%81%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题七："三个代表"重要思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%89-%E6%96%B0%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E9%9D%A9%E5%91%BD%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题三：新民主主义革命理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%BA%8C-%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E5%8E%86%E5%8F%B2%E5%9C%B0%E4%BD%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题二：毛泽东思想及其历史地位
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%BA%94-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E5%BB%BA%E8%AE%BE%E9%81%93%E8%B7%AF%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A2%E7%9A%84%E7%90%86%E8%AE%BA%E6%88%90%E6%9E%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题五：社会主义建设道路初步探索的理论成果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%85%AB-%E7%A7%91%E5%AD%A6%E5%8F%91%E5%B1%95%E8%A7%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题八：科学发展观
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%85%AD-%E9%82%93%E5%B0%8F%E5%B9%B3%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题六：邓小平理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%9B%9B-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%94%B9%E9%80%A0%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题四：社会主义改造理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    毛概高频考点与历年卷分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    马原
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    马原
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E9%A9%AC%E5%8E%9F/01%20%E5%AF%BC%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E9%A9%AC%E5%8E%9F/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    马原选择
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制的哲学与方法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制的哲学与方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/01%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%80%9D%E7%BB%B4%E5%AF%BC%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 控制论与系统思维导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/02%E5%9B%A0%E6%9E%9C%E5%8F%8D%E9%A6%88%E4%B8%8E%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 因果反馈与闭环控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/03%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 经典控制系统分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/04%E6%8E%A7%E5%88%B6%E8%AE%BA%E6%80%9D%E6%83%B3%E5%8F%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 控制论思想史
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/05%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A%E6%B2%BB%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 控制论与社会治理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/06%E5%AD%A6%E7%A7%91%E4%BA%A4%E5%8F%89%E4%B8%8E%E5%B7%A5%E4%B8%9A%E6%8E%A7%E5%88%B6%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 学科交叉与工业控制前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/07%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B0%83%E6%8E%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 不确定性与动态调控
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    英语
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    英语
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    口译
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    口译
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    口译技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E8%AF%BE%E7%A8%8B%E8%AF%AD%E6%96%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    语料
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 推迟势
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 推迟势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 达朗贝尔方程的格林函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 极点选择与因果性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 推迟势的最终表达式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 局域谐振电荷系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 局域谐振电荷系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 傅里叶分解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 多极展开的动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 电偶极辐射
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 电偶极辐射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 零阶近似与电偶极矩
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 辐射场
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 近场区 vs 远场区
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 辐射功率
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 磁偶极辐射与电四极辐射
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 磁偶极辐射与电四极辐射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 一阶展开的一般结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 磁偶极辐射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 电四极辐射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 各阶辐射的典型能级
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 一般多极辐射
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 一般多极辐射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 多极级数展开
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 电多极与磁多极
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 多极展开的意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 李纳-维谢尔势
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 李纳-维谢尔势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 单运动点电荷的推迟势
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 李纳-维谢尔势的物理图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 加速电荷的辐射场
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 加速电荷的辐射场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 场的一般结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-velocity-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 速度场 (Velocity Fields)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-acceleration-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 加速度场 (Acceleration Fields)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 低速近似：拉莫尔公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 相对论推广：李纳公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 能量输运与辐射阻尼
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 能量输运与辐射阻尼">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 辐射能量输运的物理图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 辐射阻尼
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 典型例题（来自课堂与作业）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 典型例题（来自课堂与作业）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-hw13-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 例题（HW13-2，必考）：匀速圆周运动点电荷的多极矩与辐射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-hw12-3l0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 例题（HW12-3）：\(l=0\) 球面电磁波的能量守恒验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-hw13-1eperp-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 例题（HW13-1）：\(E\perp B\) 的球面电磁波构形
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="12">12 电磁辐射</h1>
+<p><strong>电磁辐射</strong> (electromagnetic radiation) 是加速电荷或时变电流系统向无穷远处释放电磁能量的过程。本章从推迟势出发，系统建立辐射场的多极展开理论，并讨论运动点电荷的辐射问题。</p>
+<hr />
+<h2 id="1">1. 推迟势</h2>
+<h3 id="11">1.1 达朗贝尔方程的格林函数</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 达朗贝尔方程的格林函数满足什么方程？为什么需要它？</p>
+<details class="note">
+<summary>答案</summary>
+<p>满足 <span class="arithmatex">\(\Box_x G(x,x')=\delta^{(4)}(x-x')\)</span>。它是非齐次方程的基本解，任意源分布的解可通过源与 <span class="arithmatex">\(G\)</span> 的卷积得到。</p>
+</details>
+</details>
+<p>在洛伦兹规范下，电磁势满足达朗贝尔方程 (d'Alembert equation)：</p>
+<div class="arithmatex">\[
+\Box \phi \equiv \left(\nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right) \phi = -\frac{\rho}{\epsilon_0}
+\]</div>
+<div class="arithmatex">\[
+\Box \mathbf{A} = -\mu_0 \mathbf{J} \tag{1.1}
+\]</div>
+<p>为求解该方程，需先求其格林函数 <span class="arithmatex">\(G(x, x')\)</span>，满足：</p>
+<div class="arithmatex">\[
+\Box_x G(x, x') = \delta^{(4)}(x - x') \tag{1.2}
+\]</div>
+<p>其中 <span class="arithmatex">\(\delta^{(4)}(x - x') = \delta(t - t')\delta^{(3)}(\mathbf{x} - \mathbf{x}')\)</span> 为四维狄拉克 <span class="arithmatex">\(\delta\)</span> 函数。</p>
+<p style="border-left: 4px solid #4CAF50; padding: 8px 16px; background: #f9f9f9;">
+📅 05-21 & 教材 p.275-277
+</p>
+
+<p>对 (1.2) 做四维傅里叶变换，得到动量空间中的代数方程：</p>
+<div class="arithmatex">\[
+(-k^2 + k_0^2) \tilde{G}(k) = 1 \quad \Longrightarrow \quad \tilde{G}(k) = -\frac{1}{k^2 - k_0^2} \tag{1.3}
+\]</div>
+<p>其中 <span class="arithmatex">\(k_0 = \omega/c\)</span>。逆傅里叶变换涉及复平面上的奇异积分：</p>
+<div class="arithmatex">\[
+G(x) = -\int \frac{d^4k}{(2\pi)^4} \frac{e^{ik \cdot x}}{k^2 - k_0^2} \tag{1.4}
+\]</div>
+<p>这里 <span class="arithmatex">\(k \cdot x = k_0 c t - \mathbf{k} \cdot \mathbf{x}\)</span>。</p>
+<h3 id="12_1">1.2 极点选择与因果性</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 为什么物理上必须选择推迟格林函数而非超前格林函数？</p>
+<details class="note">
+<summary>答案</summary>
+<p>因果性要求：源对场的影响只能发生在源变化之后（<span class="arithmatex">\(t&gt;t'\)</span>）。推迟格林函数仅在 <span class="arithmatex">\(t&gt;t'\)</span> 非零，符合因果律；超前解则违反因果律。</p>
+</details>
+</details>
+<p>(1.4) 的被积函数在 <span class="arithmatex">\(k_0 = \pm |\mathbf{k}|\)</span> 处有两个一阶极点。选择不同的围道积分路径对应不同的边界条件：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">围道选择</th>
+<th style="text-align: left;">对应格林函数</th>
+<th style="text-align: left;">物理含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">两个极点均在上半平面</td>
+<td style="text-align: left;"><strong>推迟格林函数</strong> (retarded) <span class="arithmatex">\(G_{\text{ret}}\)</span></td>
+<td style="text-align: left;">仅 <span class="arithmatex">\(t &gt; t'\)</span> 非零，符合因果律</td>
+</tr>
+<tr>
+<td style="text-align: left;">两个极点均在下半平面</td>
+<td style="text-align: left;"><strong>超前格林函数</strong> (advanced) <span class="arithmatex">\(G_{\text{adv}}\)</span></td>
+<td style="text-align: left;">仅 <span class="arithmatex">\(t &lt; t'\)</span> 非零，违反因果律</td>
+</tr>
+<tr>
+<td style="text-align: left;">一个在上、一个在下（特定组合）</td>
+<td style="text-align: left;">费曼传播子 (Feynman propagator)</td>
+<td style="text-align: left;">常用于量子场论</td>
+</tr>
+</tbody>
+</table>
+<p><strong>因果性要求推迟格林函数</strong>：源对场的影响只能发生在源变化之后。数学上，这等价于 <span class="arithmatex">\(k_0\)</span> 积分路径从两个极点的<strong>上方</strong>绕过，使得 <span class="arithmatex">\(t &lt; 0\)</span> 时围道在上半平面闭合且不包围极点，从而积分为零。</p>
+<details class="note">
+<summary>推迟格林函数的严格推导</summary>
+<p>沿实轴从 <span class="arithmatex">\(-\infty\)</span> 到 <span class="arithmatex">\(+\infty\)</span> 积分，向上绕过 <span class="arithmatex">\(k_0 = -|\mathbf{k}|\)</span> 极点、向下绕过 <span class="arithmatex">\(k_0 = +|\mathbf{k}|\)</span> 极点（等价于两个极点均在上半平面）。当 <span class="arithmatex">\(t - t' &gt; 0\)</span> 时在下半平面闭合，包围两个极点；当 <span class="arithmatex">\(t - t' &lt; 0\)</span> 时在上半平面闭合，不包围极点。计算围道积分可得：</p>
+<div class="arithmatex">\[
+G_{\text{ret}}(x - x') = \frac{1}{4\pi |\mathbf{x} - \mathbf{x}'|} \delta\left(|\mathbf{x} - \mathbf{x}'| - c(t - t')\right) \Theta(t - t')
+\]</div>
+<p>其中 <span class="arithmatex">\(\Theta\)</span> 为阶跃函数 (Heaviside step function)，<span class="arithmatex">\(\delta\)</span> 函数确保信号以光速传播。</p>
+</details>
+<h3 id="13">1.3 推迟势的最终表达式</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 推迟势中"推迟时间" <span class="arithmatex">\(t_r\)</span> 的物理含义是什么？</p>
+<details class="note">
+<summary>答案</summary>
+<p><span class="arithmatex">\(t_r = t - |\mathbf{x}-\mathbf{x}'|/c\)</span>，表示观测点 <span class="arithmatex">\(\mathbf{x}\)</span> 在 <span class="arithmatex">\(t\)</span> 时刻看到的场由源在更早时刻 <span class="arithmatex">\(t_r\)</span> 的状态决定，体现光速有限传播的因果性。</p>
+</details>
+</details>
+<p>利用推迟格林函数，(1.1) 的解为：</p>
+<div class="arithmatex">\[
+\phi(t, \mathbf{x}) = \frac{1}{4\pi\epsilon_0} \int \frac{\rho\left(t - \dfrac{|\mathbf{x} - \mathbf{x}'|}{c},\, \mathbf{x}'\right)}{|\mathbf{x} - \mathbf{x}'|} \, d^3x'
+\]</div>
+<div class="arithmatex">\[
+\mathbf{A}(t, \mathbf{x}) = \frac{\mu_0}{4\pi} \int \frac{\mathbf{J}\left(t - \dfrac{|\mathbf{x} - \mathbf{x}'|}{c},\, \mathbf{x}'\right)}{|\mathbf{x} - \mathbf{x}'|} \, d^3x' \tag{1.5}
+\]</div>
+<p>这一对表达式称为<strong>推迟势</strong> (retarded potentials)。其物理图像清晰：<span class="arithmatex">\(t\)</span> 时刻在 <span class="arithmatex">\(\mathbf{x}\)</span> 处观测到的场，由较早时刻 <span class="arithmatex">\(t_r = t - |\mathbf{x} - \mathbf{x}'|/c\)</span>（推迟时间）源的分布决定——正是光速传播的因果性体现。</p>
+<p>四维协变形式更为紧凑：</p>
+<div class="arithmatex">\[
+A_\mu(x) = \frac{1}{4\pi} \int d^3x' \, \frac{I_\mu(t - |\mathbf{x} - \mathbf{x}'|/c,\, \mathbf{x}')}{|\mathbf{x} - \mathbf{x}'|} \tag{1.6}
+\]</div>
+<p>其中 <span class="arithmatex">\(A_\mu = (\phi/c, \mathbf{A})\)</span>，<span class="arithmatex">\(I_\mu = (c\rho, \mathbf{J})\)</span>。</p>
+<hr />
+<h2 id="2">2. 局域谐振电荷系统</h2>
+<h3 id="21">2.1 傅里叶分解</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 时谐电流 <span class="arithmatex">\(\mathbf{J}(t,\mathbf{x})=\mathbf{J}_\omega(\mathbf{x})e^{-i\omega t}\)</span> 对应的矢势表达式是什么？</p>
+<details class="note">
+<summary>答案</summary>
+<p><span class="arithmatex">\(\mathbf{A}_\omega(\mathbf{x})=\frac{\mu_0}{4\pi}\int\frac{\mathbf{J}_\omega(\mathbf{x}')e^{ik|\mathbf{x}-\mathbf{x}'|}}{|\mathbf{x}-\mathbf{x}'|}d^3x'\)</span>，其中 <span class="arithmatex">\(k=\omega/c\)</span>。</p>
+</details>
+</details>
+<p>对于局域在原点附近、随时间谐变（简谐振荡）的电荷-电流分布，可作傅里叶分析。将电流密度写为各频率模式的叠加：</p>
+<div class="arithmatex">\[
+\mathbf{J}(t, \mathbf{x}) = \int_{-\infty}^{\infty} \mathbf{J}_\omega(\mathbf{x}) e^{-i\omega t} \, d\omega \tag{2.1}
+\]</div>
+<p>频率为 <span class="arithmatex">\(\omega\)</span> 的单一模式（时谐因子 <span class="arithmatex">\(e^{-i\omega t}\)</span>）对应的矢势为：</p>
+<div class="arithmatex">\[
+\mathbf{A}_\omega(\mathbf{x}) = \frac{\mu_0}{4\pi} \int \frac{\mathbf{J}_\omega(\mathbf{x}') e^{ik|\mathbf{x} - \mathbf{x}'|}}{|\mathbf{x} - \mathbf{x}'|} \, d^3x' \tag{2.2}
+\]</div>
+<p>其中 <span class="arithmatex">\(k = \omega/c\)</span> 为波数。这一表达式是本章所有辐射理论的出发点。</p>
+<p style="border-left: 4px solid #2196F3; padding: 8px 16px; background: #f9f9f9;">
+📅 05-21 & 教材 p.277-279
+</p>
+
+<h3 id="22">2.2 多极展开的动机</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 辐射区（远场区）需满足什么条件？为什么相位展开中要保留 <span class="arithmatex">\(\mathbf{n}\cdot\mathbf{x}'\)</span> 项而分母只取 <span class="arithmatex">\(r\)</span>？</p>
+<details class="note">
+<summary>答案</summary>
+<p>辐射区条件 <span class="arithmatex">\(r\gg\lambda\gg d\)</span>。相位 <span class="arithmatex">\(kr\)</span> 中 <span class="arithmatex">\(\mathbf{n}\cdot\mathbf{x}'\)</span> 项乘以 <span class="arithmatex">\(k\)</span> 后可与 <span class="arithmatex">\(\lambda\)</span> 相比，影响干涉；而分母 <span class="arithmatex">\(r\)</span> 的相对修正 <span class="arithmatex">\(\sim d^2/r^2\)</span> 可略。</p>
+</details>
+</details>
+<p>设源区的特征尺度为 <span class="arithmatex">\(d\)</span>，观测点距离为 <span class="arithmatex">\(r = |\mathbf{x}|\)</span>，辐射波长为 <span class="arithmatex">\(\lambda = 2\pi/k\)</span>。在<strong>辐射区</strong>（远场区，<span class="arithmatex">\(r \gg \lambda \gg d\)</span>），<span class="arithmatex">\(|\mathbf{x} - \mathbf{x}'|\)</span> 可在相位和分母中分别展开：</p>
+<div class="arithmatex">\[
+|\mathbf{x} - \mathbf{x}'| = r - \mathbf{n} \cdot \mathbf{x}' + \mathcal{O}\left(\frac{x'^2}{r}\right) \tag{2.3}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{n} = \mathbf{x}/r\)</span> 为观测方向的单位矢量。分母中取最低阶近似 <span class="arithmatex">\(|\mathbf{x} - \mathbf{x}'| \approx r\)</span>，但相位中需保留至 <span class="arithmatex">\(\mathbf{n} \cdot \mathbf{x}'\)</span> 项（其变化可与波长相比较），即：</p>
+<div class="arithmatex">\[
+e^{ik|\mathbf{x} - \mathbf{x}'|} \approx e^{ikr} e^{-ik\mathbf{n} \cdot \mathbf{x}'} \tag{2.4}
+\]</div>
+<p>对 <span class="arithmatex">\(e^{-ik\mathbf{n} \cdot \mathbf{x}'}\)</span> 进一步做泰勒展开得到各级多极矩。</p>
+<hr />
+<h2 id="3">3. 电偶极辐射</h2>
+<h3 id="31">3.1 零阶近似与电偶极矩</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 零阶矢势的电流积分 <span class="arithmatex">\(\int\mathbf{J}_\omega d^3x'\)</span> 与电偶极矩 <span class="arithmatex">\(\mathbf{p}_\omega\)</span> 的关系是什么？</p>
+<details class="note">
+<summary>答案</summary>
+<p>利用连续性方程 <span class="arithmatex">\(\nabla\cdot\mathbf{J}=i\omega\rho\)</span> 及分部积分得 <span class="arithmatex">\(\int\mathbf{J}_\omega d^3x'=-i\omega\mathbf{p}_\omega\)</span>，其中 <span class="arithmatex">\(\mathbf{p}_\omega=\int\mathbf{x}'\rho_\omega d^3x'\)</span>。</p>
+</details>
+</details>
+<p>将 <span class="arithmatex">\(e^{-ik\mathbf{n} \cdot \mathbf{x}'}\)</span> 展开为 <span class="arithmatex">\(1 - ik\mathbf{n} \cdot \mathbf{x}' + \cdots\)</span>，零阶项（<span class="arithmatex">\(l=0\)</span>）对应<strong>电偶极辐射</strong> (electric dipole radiation)：</p>
+<div class="arithmatex">\[
+\mathbf{A}^{(0)}_\omega(\mathbf{x}) = \frac{\mu_0}{4\pi} \frac{e^{ikr}}{r} \int \mathbf{J}_\omega(\mathbf{x}') \, d^3x' \tag{3.1}
+\]</div>
+<p>利用连续性方程 <span class="arithmatex">\(\nabla \cdot \mathbf{J} = i\omega\rho\)</span> 和分部积分，可建立电流积分与电偶极矩的关系：</p>
+<div class="arithmatex">\[
+\int \mathbf{J}_\omega \, d^3x' = -i\omega \int \mathbf{x}' \rho_\omega(\mathbf{x}') \, d^3x' = -i\omega \mathbf{p}_\omega \tag{3.2}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{p}_\omega\)</span> 为系统的<strong>电偶极矩</strong> (electric dipole moment) 的傅里叶分量：</p>
+<div class="arithmatex">\[
+\mathbf{p}_\omega = \int \mathbf{x}' \rho_\omega(\mathbf{x}') \, d^3x' \tag{3.3}
+\]</div>
+<p>因此零阶矢势为：</p>
+<div class="arithmatex">\[
+\mathbf{A}^{(0)}_\omega(\mathbf{x}) = \frac{\mu_0}{4\pi} (-i\omega \mathbf{p}_\omega) \frac{e^{ikr}}{r} \tag{3.4}
+\]</div>
+<p>回到时域（恢复 <span class="arithmatex">\(e^{-i\omega t}\)</span> 因子）：</p>
+<div class="arithmatex">\[
+\mathbf{A}^{(0)}(t, \mathbf{x}) = \frac{\mu_0}{4\pi} \frac{-i\omega \mathbf{p}}{r} e^{-i\omega t + ikr} \tag{3.5}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{p} = \mathbf{p}_\omega\)</span>。</p>
+<p style="border-left: 4px solid #4CAF50; padding: 8px 16px; background: #f9f9f9;">
+📅 05-21 & 教材 p.279-282
+</p>
+
+<h3 id="32">3.2 辐射场</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 电偶极辐射的角分布 <span class="arithmatex">\(\propto\sin^2\theta\)</span> 说明了什么？沿哪个方向无辐射？</p>
+<details class="note">
+<summary>答案</summary>
+<p>沿偶极矩方向（<span class="arithmatex">\(\theta=0\)</span>）无辐射，垂直方向（<span class="arithmatex">\(\theta=\pi/2\)</span>）辐射最强，呈"甜甜圈"形分布。</p>
+</details>
+</details>
+<p>由 <span class="arithmatex">\(\mathbf{B} = \nabla \times \mathbf{A}\)</span> 和 <span class="arithmatex">\(\mathbf{E} = (ic/k)\nabla \times \mathbf{B}\)</span>（对单频场），在远场区 <span class="arithmatex">\(r \gg \lambda\)</span>（辐射区）计算电磁场。对 <span class="arithmatex">\(\mathbf{A}^{(0)}\)</span> 求旋度时，梯度算符作用于 <span class="arithmatex">\(e^{ikr}/r\)</span>，主导项来自 <span class="arithmatex">\(e^{ikr}\)</span> 的相位梯度（<span class="arithmatex">\(\nabla e^{ikr} \approx ik\mathbf{n} e^{ikr}\)</span>）：</p>
+<div class="arithmatex">\[
+\mathbf{B}^{(0)} = \nabla \times \mathbf{A}^{(0)} \approx \frac{\mu_0 c}{4\pi} k^2 (\mathbf{n} \times \mathbf{p}) \frac{e^{-i\omega t + ikr}}{r}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{E}^{(0)} = \frac{1}{4\pi\epsilon_0} k^2 (\mathbf{n} \times \mathbf{p}) \times \mathbf{n} \, \frac{e^{-i\omega t + ikr}}{r} \tag{3.6}
+\]</div>
+<p>辐射场的特性总结如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">性质</th>
+<th style="text-align: left;">表达式</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">磁场方向</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{B} \propto \mathbf{n} \times \mathbf{p}\)</span></td>
+<td style="text-align: left;">垂直于 <span class="arithmatex">\(\mathbf{n}\)</span> 和 <span class="arithmatex">\(\mathbf{p}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">电场方向</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{E} \propto (\mathbf{n} \times \mathbf{p}) \times \mathbf{n}\)</span></td>
+<td style="text-align: left;">垂直于 <span class="arithmatex">\(\mathbf{n}\)</span>，与 <span class="arithmatex">\(\mathbf{B}\)</span> 垂直</td>
+</tr>
+<tr>
+<td style="text-align: left;">横波性</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{n} \cdot \mathbf{E} = \mathbf{n} \cdot \mathbf{B} = 0\)</span></td>
+<td style="text-align: left;">辐射场为横波 (TEM)</td>
+</tr>
+<tr>
+<td style="text-align: left;">振幅比</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">\mathbf{E}</td>
+</tr>
+<tr>
+<td style="text-align: left;">角分布</td>
+<td style="text-align: left;"><span class="arithmatex">\(\propto \sin^2\theta\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\theta\)</span> 为 <span class="arithmatex">\(\mathbf{n}\)</span> 与 <span class="arithmatex">\(\mathbf{p}\)</span> 的夹角</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-vs">3.3 近场区 vs 远场区</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 电偶极场中 <span class="arithmatex">\(1/r\)</span>、<span class="arithmatex">\(1/r^2\)</span>、<span class="arithmatex">\(1/r^3\)</span> 项分别在哪个区域主导？</p>
+<details class="note">
+<summary>答案</summary>
+<p>远场区（<span class="arithmatex">\(r\gg\lambda\)</span>）<span class="arithmatex">\(1/r\)</span> 主导即辐射场；近场区（<span class="arithmatex">\(r\ll\lambda\)</span>）<span class="arithmatex">\(1/r^3\)</span> 主导类准静态场；中间区各项相当。</p>
+</details>
+</details>
+<p style="border-left: 4px solid #FF9800; padding: 8px 16px; background: #f9f9f9;">
+📅 05-21 教材 p.282-283
+</p>
+
+<p>电偶极场的完整表达式包含随 <span class="arithmatex">\(1/r\)</span>、<span class="arithmatex">\(1/r^2\)</span>、<span class="arithmatex">\(1/r^3\)</span> 衰减的项。在不同区域主导项不同：</p>
+<ul>
+<li><strong>近场区（静区）</strong> (<span class="arithmatex">\(r \ll \lambda\)</span>)：<span class="arithmatex">\(1/r^3\)</span> 项主导，场的行为类似静电场（准静态），不携带辐射能量至无穷远。</li>
+<li><strong>中间区</strong> (<span class="arithmatex">\(r \sim \lambda\)</span>)：各项贡献相当，场结构复杂。</li>
+<li><strong>远场区（辐射区）</strong> (<span class="arithmatex">\(r \gg \lambda\)</span>)：<span class="arithmatex">\(1/r\)</span> 项主导，即辐射场。能量随 <span class="arithmatex">\(1/r^2\)</span> 衰减，能流在球面上积分有限。</li>
+</ul>
+<h3 id="34">3.4 辐射功率</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 电偶极辐射总功率 <span class="arithmatex">\(P\)</span> 与偶极矩振幅、频率的关系是什么？</p>
+<details class="note">
+<summary>答案</summary>
+<p><span class="arithmatex">\(P=\frac{\mu_0\omega^4|\mathbf{p}|^2}{12\pi c}\propto\omega^4|\mathbf{p}|^2\)</span>，或 <span class="arithmatex">\(P=\frac{\mu_0}{6\pi c}|\ddot{\mathbf{p}}|^2\)</span>。</p>
+</details>
+</details>
+<p>坡印廷矢量 (Poynting vector) 的<strong>时间平均值</strong>为：</p>
+<div class="arithmatex">\[
+\langle \mathbf{S} \rangle = \frac{1}{2\mu_0} \text{Re}(\mathbf{E}^* \times \mathbf{B}) \tag{3.7}
+\]</div>
+<p>代入 (3.6) 得：</p>
+<div class="arithmatex">\[
+\frac{dP}{d\Omega} = r^2 \langle \mathbf{S} \rangle \cdot \mathbf{n} = \frac{\mu_0 \omega^4 |\mathbf{p}|^2}{32\pi^2 c} \sin^2\theta \tag{3.8}
+\]</div>
+<p>其中 <span class="arithmatex">\(\theta\)</span> 为 <span class="arithmatex">\(\mathbf{n}\)</span> 与 <span class="arithmatex">\(\mathbf{p}\)</span> 之间的夹角。角分布呈 <span class="arithmatex">\(\sin^2\theta\)</span> 的甜甜圈形状——沿偶极矩方向无辐射，垂直方向辐射最强。</p>
+<p>对全空间积分得到总辐射功率：</p>
+<div class="arithmatex">\[
+P = \int \frac{dP}{d\Omega} \, d\Omega = \frac{\mu_0 \omega^4 |\mathbf{p}|^2}{12\pi c} \tag{3.9}
+\]</div>
+<details class="note">
+<summary>功率公式的另一种常见形式</summary>
+<p>若定义 <span class="arithmatex">\(\ddot{\mathbf{p}} = -\omega^2 \mathbf{p} e^{-i\omega t}\)</span>（简谐振荡），则：</p>
+<div class="arithmatex">\[
+P = \frac{\mu_0}{6\pi c} |\ddot{\mathbf{p}}|^2
+\]</div>
+<p>这是电偶极辐射功率的通用表达式，对于非简谐运动也成立（只需用 <span class="arithmatex">\(\ddot{\mathbf{p}}\)</span> 的瞬时代入）。</p>
+</details>
+<hr />
+<h2 id="4">4. 磁偶极辐射与电四极辐射</h2>
+<h3 id="41">4.1 一阶展开的一般结构</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 多极展开一阶项（<span class="arithmatex">\(l=1\)</span>）的积分可分解为哪两部分？分别对应什么辐射？</p>
+<details class="note">
+<summary>答案</summary>
+<p>反对称部分对应磁偶极辐射，对称部分对应电四极辐射。</p>
+</details>
+</details>
+<p>将 <span class="arithmatex">\(e^{-ik\mathbf{n} \cdot \mathbf{x}'}\)</span> 展开到一阶项（<span class="arithmatex">\(l=1\)</span>），矢势为：</p>
+<div class="arithmatex">\[
+\mathbf{A}^{(1)}_\omega(\mathbf{x}) = \frac{\mu_0}{4\pi} \frac{e^{ikr}}{r} (-ik) \int \mathbf{J}_\omega(\mathbf{x}') (\mathbf{n} \cdot \mathbf{x}') \, d^3x' \tag{4.1}
+\]</div>
+<p>该积分可分解为对称部分和反对称部分：</p>
+<div class="arithmatex">\[
+\int J_i (\mathbf{n} \cdot \mathbf{x}') \, d^3x' = \frac{1}{2} \int \left[ J_i (\mathbf{n} \cdot \mathbf{x}') - J_j (\mathbf{n} \cdot \mathbf{x}')_i \right] d^3x' + \frac{1}{2} \int \left[ J_i (\mathbf{n} \cdot \mathbf{x}') + J_j (\mathbf{n} \cdot \mathbf{x}')_i \right] d^3x'
+\]</div>
+<p>其中第一项（反对称部分）对应<strong>磁偶极辐射</strong> (magnetic dipole radiation)，第二项（对称部分）对应<strong>电四极辐射</strong> (electric quadrupole radiation)。</p>
+<p style="border-left: 4px solid #2196F3; padding: 8px 16px; background: #f9f9f9;">
+📅 05-26 & 教材 p.284-287
+</p>
+
+<h3 id="42">4.2 磁偶极辐射</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 磁偶极辐射与电偶极辐射的场结构有何对偶关系？</p>
+<details class="note">
+<summary>答案</summary>
+<p>将电偶极公式中的 <span class="arithmatex">\(\mathbf{E}\leftrightarrow\mathbf{B}\)</span> 互换，并作 <span class="arithmatex">\(\mathbf{p}\to\mathbf{m}/c\)</span> 替换即得磁偶极辐射场。</p>
+</details>
+</details>
+<p>磁偶极矩 (magnetic dipole moment) 定义为：</p>
+<div class="arithmatex">\[
+\mathbf{m} = \frac{1}{2} \int \mathbf{x}' \times \mathbf{J}(\mathbf{x}') \, d^3x' \tag{4.2}
+\]</div>
+<p>利用矢量恒等式可证，反对称部分贡献的矢势为：</p>
+<div class="arithmatex">\[
+\mathbf{A}_{\text{md}} = \frac{\mu_0}{4\pi} (ik) (\mathbf{n} \times \mathbf{m}) \frac{e^{ikr}}{r} \tag{4.3}
+\]</div>
+<p>对应的辐射场：</p>
+<div class="arithmatex">\[
+\mathbf{B}_{\text{md}} = \frac{\mu_0}{4\pi} k^2 (\mathbf{n} \times \mathbf{m}) \times \mathbf{n} \, \frac{e^{ikr}}{r}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{E}_{\text{md}} = -\frac{\mu_0 c}{4\pi} k^2 (\mathbf{n} \times \mathbf{m}) \frac{e^{ikr}}{r} \tag{4.4}
+\]</div>
+<p>磁偶极辐射的场结构与电偶极辐射<strong>对偶</strong>——只需将 <span class="arithmatex">\(\mathbf{E}\)</span> 与 <span class="arithmatex">\(\mathbf{B}\)</span> 互换并将 <span class="arithmatex">\(\mathbf{p}\)</span> 替换为 <span class="arithmatex">\(\mathbf{m}/c\)</span>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">辐射类型</th>
+<th style="text-align: left;">电场方向</th>
+<th style="text-align: left;">磁场方向</th>
+<th style="text-align: left;">角分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">电偶极 (<span class="arithmatex">\(\mathbf{p}\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\((\mathbf{n} \times \mathbf{p}) \times \mathbf{n}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{n} \times \mathbf{p}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sin^2\theta_{\mathbf{p}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">磁偶极 (<span class="arithmatex">\(\mathbf{m}\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(-\mathbf{n} \times \mathbf{m}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\((\mathbf{n} \times \mathbf{m}) \times \mathbf{n}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sin^2\theta_{\mathbf{m}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="43">4.3 电四极辐射</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 电四极矩张量 <span class="arithmatex">\(Q_{ij}\)</span> 的定义及无迹性是什么？</p>
+<details class="note">
+<summary>答案</summary>
+<p><span class="arithmatex">\(Q_{ij}=\int(3x_i'x_j'-r'^2\delta_{ij})\rho\,d^3x'\)</span>，满足无迹条件 <span class="arithmatex">\(\sum_i Q_{ii}=0\)</span>。</p>
+</details>
+</details>
+<p>电四极矩张量 (electric quadrupole tensor) 定义为：</p>
+<div class="arithmatex">\[
+Q_{ij} = \int (3x_i' x_j' - r'^2 \delta_{ij}) \rho(\mathbf{x}') \, d^3x' \tag{4.5}
+\]</div>
+<p>对称部分贡献的矢势为：</p>
+<div class="arithmatex">\[
+\mathbf{A}_{\text{eq}} = \frac{\mu_0}{4\pi} \frac{e^{ikr}}{r} \left(-\frac{ik}{6}\right) (\mathbf{n} \cdot \mathbf{Q}) \tag{4.6}
+\]</div>
+<p>其中 <span class="arithmatex">\((\mathbf{n} \cdot \mathbf{Q})_i = Q_{ij} n_j\)</span>。电四极辐射的角分布更为复杂，总辐射功率为：</p>
+<div class="arithmatex">\[
+P_{\text{eq}} = \frac{\mu_0 \omega^6}{1440\pi c} \sum_{i,j} |Q_{ij}|^2 \tag{4.7}
+\]</div>
+<h3 id="44">4.4 各阶辐射的典型能级</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 当 <span class="arithmatex">\(d\ll\lambda\)</span> 时，为什么电偶极辐射通常占主导？</p>
+<details class="note">
+<summary>答案</summary>
+<p>高阶多极项相对电偶极项被因子 <span class="arithmatex">\((kd)^2\sim(d/\lambda)^2\)</span> 压低，故电偶极辐射主导，除非系统对称性使 <span class="arithmatex">\(\mathbf{p}=0\)</span>。</p>
+</details>
+</details>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">多极阶数</th>
+<th style="text-align: center;"><span class="arithmatex">\(l\)</span></th>
+<th style="text-align: center;">辐射功率量级</th>
+<th style="text-align: center;">与 <span class="arithmatex">\(d/\lambda\)</span> 的关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">电偶极</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="arithmatex">\(\sim (d/\lambda)^0\)</span></td>
+<td style="text-align: center;">主导项</td>
+</tr>
+<tr>
+<td style="text-align: left;">磁偶极</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="arithmatex">\(\sim (d/\lambda)^2\)</span></td>
+<td style="text-align: center;">压低的</td>
+</tr>
+<tr>
+<td style="text-align: left;">电四极</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="arithmatex">\(\sim (d/\lambda)^2\)</span></td>
+<td style="text-align: center;">压低的</td>
+</tr>
+<tr>
+<td style="text-align: left;">电八极 / 磁四极</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="arithmatex">\(\sim (d/\lambda)^4\)</span></td>
+<td style="text-align: center;">更高压低</td>
+</tr>
+</tbody>
+</table>
+<p>当源区尺寸远小于波长 (<span class="arithmatex">\(d \ll \lambda\)</span>) 时，各高阶项相对于电偶极项被因子 <span class="arithmatex">\((kd)^2 \sim (d/\lambda)^2\)</span> 压低。因此，电偶极辐射通常占主导，除非系统具有特殊的对称性（如 <span class="arithmatex">\(\mathbf{p} = 0\)</span> 但 <span class="arithmatex">\(\mathbf{m} \neq 0\)</span> 或 <span class="arithmatex">\(Q_{ij} \neq 0\)</span>）。</p>
+<hr />
+<h2 id="5">5. 一般多极辐射</h2>
+<h3 id="51">5.1 多极级数展开</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 矢势的多极展开用哪类函数表示各阶模式？电型与磁型多极分别对应什么？</p>
+<details class="note">
+<summary>答案</summary>
+<p>用矢量球谐函数 <span class="arithmatex">\(\mathbf{X}_{lm}\)</span> 展开。电型多极（TM）磁场横向、电场含径向分量；磁型多极（TE）电场横向、磁场含径向分量。</p>
+</details>
+</details>
+<p>对于电动力学中的一般辐射问题，矢势的严格表达式可通过<strong>矢量球谐函数</strong> (vector spherical harmonics) 展开为各阶多极模的叠加：</p>
+<div class="arithmatex">\[
+\mathbf{A}_\omega(\mathbf{x}) = \frac{\mu_0}{4\pi} \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \left[ a_E(l,m) \mathbf{A}_{lm}^{(E)} + a_M(l,m) \mathbf{A}_{lm}^{(M)} \right] \tag{5.1}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{A}_{lm}^{(E)}\)</span> 和 <span class="arithmatex">\(\mathbf{A}_{lm}^{(M)}\)</span> 分别代表<strong>电型多极</strong> (electric multipole) 和<strong>磁型多极</strong> (magnetic multipole) 模式。在辐射区 (<span class="arithmatex">\(kr \gg 1\)</span>)，每一模式的场结构趋近于球面波：</p>
+<div class="arithmatex">\[
+\mathbf{A}_{lm}^{(E,M)} \sim h_l^{(1)}(kr) \mathbf{X}_{lm}(\theta, \phi) \tag{5.2}
+\]</div>
+<p>其中 <span class="arithmatex">\(h_l^{(1)}\)</span> 为第一类球汉克尔函数 (spherical Hankel function of the first kind)，<span class="arithmatex">\(\mathbf{X}_{lm}\)</span> 为矢量球谐函数。</p>
+<p style="border-left: 4px solid #9C27B0; padding: 8px 16px; background: #f9f9f9;">
+📅 05-26 & 教材 p.288-293
+</p>
+
+<h3 id="52">5.2 电多极与磁多极</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 给定 <span class="arithmatex">\((l,m)\)</span> 模的电多极与磁多极辐射功率公式是什么？</p>
+<details class="note">
+<summary>答案</summary>
+<p><span class="arithmatex">\(P_{lm}^{(E,M)}=\frac{\mu_0 c k^2}{2}|a_{E,M}(l,m)|^2\)</span>。</p>
+</details>
+</details>
+<p>对于给定的 <span class="arithmatex">\((l, m)\)</span> 模：</p>
+<ul>
+<li><strong>电多极</strong> (TM 模)：磁场为横向 (<span class="arithmatex">\(\mathbf{B} \propto \mathbf{n} \times \mathbf{X}_{lm}\)</span>)，电场含有径向分量</li>
+<li><strong>磁多极</strong> (TE 模)：电场为横向 (<span class="arithmatex">\(\mathbf{E} \propto \mathbf{n} \times \mathbf{X}_{lm}\)</span>)，磁场含有径向分量</li>
+</ul>
+<p>各模辐射功率：</p>
+<div class="arithmatex">\[
+P_{lm}^{(E,M)} = \frac{\mu_0 c k^2}{2} |a_{E,M}(l,m)|^2 \tag{5.3}
+\]</div>
+<h3 id="53">5.3 多极展开的意义</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 当 <span class="arithmatex">\(kd\ll1\)</span> 时多极展开的收敛性如何？</p>
+<details class="note">
+<summary>答案</summary>
+<p><span class="arithmatex">\(l\)</span> 阶多极矩贡献随 <span class="arithmatex">\(l\)</span> 增大急剧减小，只需计算前几项即获高精度结果。</p>
+</details>
+</details>
+<p>多极展开的价值在于：</p>
+<ol>
+<li><strong>分层重要性</strong> — 当 <span class="arithmatex">\(kd \ll 1\)</span> 时，<span class="arithmatex">\(l\)</span> 阶多极矩的贡献随 <span class="arithmatex">\(l\)</span> 增大急剧减小，只需计算前几项即可获得高精度结果</li>
+<li><strong>对称性分析</strong> — 不同多极模对系统的空间对称性敏感，可用于鉴别辐射源的内部结构</li>
+<li><strong>普适性</strong> — 该方法适用于任意局域电荷-电流分布，不管是经典电动力学还是量子辐射跃迁</li>
+</ol>
+<hr />
+<h2 id="6-">6. 李纳-维谢尔势</h2>
+<h3 id="61">6.1 单运动点电荷的推迟势</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 李纳-维谢尔势的分母为什么是 <span class="arithmatex">\(R-\boldsymbol{\beta}\cdot\mathbf{R}\)</span> 而非 <span class="arithmatex">\(R\)</span>？</p>
+<details class="note">
+<summary>答案</summary>
+<p>这是有限速度传播的修正：光信号传播期间电荷也在运动，需扣除追赶效应。静止时退化为 <span class="arithmatex">\(R\)</span>。</p>
+</details>
+</details>
+<p>处理一个任意运动的点电荷 <span class="arithmatex">\(q\)</span>，其世界线由 <span class="arithmatex">\(x'^\mu(\tau)\)</span> 描述（<span class="arithmatex">\(\tau\)</span> 为固有时）。四维电流密度为：</p>
+<div class="arithmatex">\[
+I^\mu(x) = qc \int u^\mu(\tau) \delta^{(4)}(x - x'(\tau)) \, d\tau \tag{6.1}
+\]</div>
+<p>代入推迟势表达式 (1.6) 并积分，得到<strong>李纳-维谢尔势</strong> (Liénard-Wiechert potentials)：</p>
+<div class="arithmatex">\[
+A^\mu(x) = \frac{q}{4\pi\epsilon_0} \frac{u^\mu}{u \cdot (x - x')} \Bigg|_{t_r = t - |\mathbf{x} - \mathbf{x}'(t_r)|/c} \tag{6.2}
+\]</div>
+<p>其中所有量均在<strong>推迟时间</strong> (retarded time) <span class="arithmatex">\(t_r\)</span> 处求值。<span class="arithmatex">\(u^\mu\)</span> 为四维速度，<span class="arithmatex">\(u^\mu = (\gamma c, \gamma \mathbf{v})\)</span>。</p>
+<p style="border-left: 4px solid #4CAF50; padding: 8px 16px; background: #f9f9f9;">
+📅 05-26 & 教材 p.294-296
+</p>
+
+<p>三维形式更为常用。定义 <span class="arithmatex">\(\mathbf{R}(t_r) = \mathbf{x} - \mathbf{x}'(t_r)\)</span> 和 <span class="arithmatex">\(R = |\mathbf{R}|\)</span>，以及 <span class="arithmatex">\(\boldsymbol{\beta} = \mathbf{v}/c\)</span>：</p>
+<div class="arithmatex">\[
+\phi(t, \mathbf{x}) = \frac{1}{4\pi\epsilon_0} \frac{q}{\left(R - \boldsymbol{\beta} \cdot \mathbf{R}\right)} \Bigg|_{t_r}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{A}(t, \mathbf{x}) = \frac{\mu_0}{4\pi} \frac{q c \boldsymbol{\beta}}{\left(R - \boldsymbol{\beta} \cdot \mathbf{R}\right)} \Bigg|_{t_r} = \frac{\mathbf{v}}{c^2} \phi \tag{6.3}
+\]</div>
+<p>注意分母并非 <span class="arithmatex">\(R\)</span> 而是 <span class="arithmatex">\(R - \boldsymbol{\beta} \cdot \mathbf{R}\)</span>，这是对有限速度传播效应的修正。</p>
+<h3 id="62-">6.2 李纳-维谢尔势的物理图像</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 当电荷以接近光速运动时，李纳-维谢尔势的分母会如何变化？产生什么效应？</p>
+<details class="note">
+<summary>答案</summary>
+<p>分母 <span class="arithmatex">\(R-\boldsymbol{\beta}\cdot\mathbf{R}\)</span> 可远小于 <span class="arithmatex">\(R\)</span>，导致场显著增强（相对论性束流效应）。</p>
+</details>
+</details>
+<details class="note">
+<summary>推迟时间和表观距离的几何意义</summary>
+<p>对于运动电荷，从观测点 <span class="arithmatex">\(\mathbf{x}\)</span> 到电荷轨迹的"表观距离"不是简单的空间距离 <span class="arithmatex">\(R\)</span>，而是要扣除电荷运动导致的追赶效应。分母 <span class="arithmatex">\(R - \boldsymbol{\beta} \cdot \mathbf{R}\)</span> 可理解为：光信号从电荷出发传播到观测点的同时，电荷也在运动。</p>
+<p>若电荷静止 (<span class="arithmatex">\(\mathbf{v} = 0\)</span>)，则 <span class="arithmatex">\(R - \boldsymbol{\beta} \cdot \mathbf{R} = R\)</span>，退化为静电场情形。若电荷以接近光速运动，分母可远小于 <span class="arithmatex">\(R\)</span>，导致场的显著增强。</p>
+</details>
+<hr />
+<h2 id="7">7. 加速电荷的辐射场</h2>
+<h3 id="71">7.1 场的一般结构</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 运动点电荷的电磁场可分解为哪两部分？哪部分携带辐射能量？</p>
+<details class="note">
+<summary>答案</summary>
+<p>分解为速度场（<span class="arithmatex">\(\propto1/R^2\)</span>，不辐射）和加速度场（<span class="arithmatex">\(\propto1/R\)</span>，贡献辐射）。</p>
+</details>
+</details>
+<p>由李纳-维谢尔势求梯度与旋度，可得到运动点电荷的电磁场。结果可分解为两项之和：</p>
+<div class="arithmatex">\[
+\mathbf{E} = \mathbf{E}_{\text{vel}} + \mathbf{E}_{\text{acc}}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{B} = \mathbf{B}_{\text{vel}} + \mathbf{B}_{\text{acc}} \tag{7.1}
+\]</div>
+<p style="border-left: 4px solid #FF9800; padding: 8px 16px; background: #f9f9f9;">
+📅 05-26 & 教材 p.296-300
+</p>
+
+<h3 id="72-velocity-fields">7.2 速度场 (Velocity Fields)</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 速度场随距离如何衰减？为什么不贡献辐射？</p>
+<details class="note">
+<summary>答案</summary>
+<p>速度场 <span class="arithmatex">\(\propto1/R^2\)</span> 衰减，能流 <span class="arithmatex">\(\propto1/R^4\)</span>，球面积分后为零净功率，故不携带能量到无穷远。</p>
+</details>
+</details>
+<p>速度场依赖于电荷的瞬时位置和速度，但<strong>不依赖于加速度</strong>。其形式为：</p>
+<div class="arithmatex">\[
+\mathbf{E}_{\text{vel}} = \frac{q}{4\pi\epsilon_0} \frac{\mathbf{n} - \boldsymbol{\beta}}{\gamma^2 (1 - \boldsymbol{\beta} \cdot \mathbf{n})^3 R^2} \Bigg|_{t_r}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{B}_{\text{vel}} = \frac{1}{c} \mathbf{n} \times \mathbf{E}_{\text{vel}} \Bigg|_{t_r} \tag{7.2}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{n} = \mathbf{R}/R\)</span>。速度场的特征：</p>
+<ul>
+<li><strong>随 <span class="arithmatex">\(1/R^2\)</span> 衰减</strong> — 不携带净能量到无穷远</li>
+<li><strong>行为类似静态场的"拖拽"变形版</strong> — 在低速下退化为库仑场和毕奥-萨伐尔场</li>
+<li><strong><span class="arithmatex">\(\boldsymbol{\beta} \to 1\)</span> 时场在垂直方向被压缩</strong> — 相对论性收缩效应</li>
+<li><strong>不贡献辐射</strong> — 能量随距离平方衰减，不能传输到无限远</li>
+</ul>
+<h3 id="73-acceleration-fields">7.3 加速度场 (Acceleration Fields)</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 加速度场随距离如何衰减？为什么它才是辐射的根源？</p>
+<details class="note">
+<summary>答案</summary>
+<p>加速度场 <span class="arithmatex">\(\propto1/R\)</span> 衰减，能流 <span class="arithmatex">\(\propto1/R^2\)</span>，球面积分得有限净功率，故携带辐射能量到无穷远。</p>
+</details>
+</details>
+<p>加速度场依赖于电荷的<strong>加速度</strong>，是辐射的根源：</p>
+<div class="arithmatex">\[
+\mathbf{E}_{\text{acc}} = \frac{q}{4\pi\epsilon_0} \frac{\mathbf{n} \times [(\mathbf{n} - \boldsymbol{\beta}) \times \dot{\boldsymbol{\beta}}]}{(1 - \boldsymbol{\beta} \cdot \mathbf{n})^3 R c} \Bigg|_{t_r}
+\]</div>
+<div class="arithmatex">\[
+\mathbf{B}_{\text{acc}} = \frac{1}{c} \mathbf{n} \times \mathbf{E}_{\text{acc}} \Bigg|_{t_r} \tag{7.3}
+\]</div>
+<p>加速度场的特征：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">特性</th>
+<th style="text-align: center;">速度场</th>
+<th style="text-align: center;">加速度场</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">衰减</td>
+<td style="text-align: center;"><span class="arithmatex">\(1/R^2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1/R\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">是否依赖加速度</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">是</td>
+</tr>
+<tr>
+<td style="text-align: left;">是否贡献辐射</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;"><strong>是</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">低速极限</td>
+<td style="text-align: center;">库仑场 + 静磁场</td>
+<td style="text-align: center;">辐射场</td>
+</tr>
+<tr>
+<td style="text-align: left;">方向关系</td>
+<td style="text-align: center;"><span class="arithmatex">\(\mathbf{B} = \frac{1}{c}\mathbf{n} \times \mathbf{E}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\mathbf{B} = \frac{1}{c}\mathbf{n} \times \mathbf{E}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="74">7.4 低速近似：拉莫尔公式</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 拉莫尔公式给出非相对论点电荷的辐射功率是多少？</p>
+<details class="note">
+<summary>答案</summary>
+<p><span class="arithmatex">\(P=\frac{q^2 a^2}{6\pi\epsilon_0 c^3}=\frac{\mu_0 q^2 a^2}{6\pi c}\)</span>，辐射功率正比于加速度的平方。</p>
+</details>
+</details>
+<p>对于非相对论运动 (<span class="arithmatex">\(v \ll c\)</span>)，<span class="arithmatex">\(|\boldsymbol{\beta}| \ll 1\)</span>，加速度场简化为：</p>
+<div class="arithmatex">\[
+\mathbf{E}_{\text{acc}} \approx \frac{q}{4\pi\epsilon_0} \frac{\mathbf{n} \times (\mathbf{n} \times \mathbf{a})}{R c^2} \Bigg|_{t_r}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{a} = \dot{\mathbf{v}}\)</span>。这一形式与电偶极辐射的电场结构完全一致——<span class="arithmatex">\(\mathbf{p}\)</span> 被替换为 <span class="arithmatex">\(q\mathbf{a}\)</span> 的等效偶极矩。</p>
+<p>坡印廷矢量的角分布与时间平均：</p>
+<div class="arithmatex">\[
+\frac{dP}{d\Omega} = \frac{q^2 a^2}{16\pi^2\epsilon_0 c^3} \sin^2\theta \tag{7.4}
+\]</div>
+<p>其中 <span class="arithmatex">\(\theta\)</span> 为 <span class="arithmatex">\(\mathbf{n}\)</span> 与 <span class="arithmatex">\(\mathbf{a}\)</span> 的夹角。对全空间积分得到<strong>拉莫尔公式</strong> (Larmor formula)：</p>
+<div class="arithmatex">\[
+P = \frac{q^2 a^2}{6\pi\epsilon_0 c^3} = \frac{\mu_0 q^2 a^2}{6\pi c} \tag{7.5}
+\]</div>
+<details class="note">
+<summary>拉莫尔公式的推导要点</summary>
+<p>由 <span class="arithmatex">\(\mathbf{E}_{\text{acc}}\)</span> 的表达式计算坡印廷矢量：</p>
+<div class="arithmatex">\[
+\mathbf{S} = \frac{1}{\mu_0} \mathbf{E} \times \mathbf{B} = \frac{1}{\mu_0 c} |\mathbf{E}|^2 \mathbf{n}
+\]</div>
+<p>代入低速加速场，得到 <span class="arithmatex">\(|\mathbf{E}|^2 = \left(\frac{q}{4\pi\epsilon_0}\right)^2 \frac{a^2 \sin^2\theta}{R^2 c^4}\)</span>，进而：</p>
+<div class="arithmatex">\[
+P = \int \mathbf{S} \cdot \mathbf{n} \, R^2 d\Omega = \frac{q^2 a^2}{16\pi^2\epsilon_0 c^3} \int_0^{2\pi} \int_0^\pi \sin^3\theta \, d\theta d\phi = \frac{q^2 a^2}{6\pi\epsilon_0 c^3}
+\]</div>
+</details>
+<p>拉莫尔公式是经典电动力学中最重要的结论之一：<strong>任何加速的带电粒子都会辐射能量，辐射功率正比于加速度的平方</strong>。这一公式在天体物理（同步辐射）、粒子物理（轫致辐射）、等离子体物理等领域有广泛的应用。</p>
+<h3 id="75">7.5 相对论推广：李纳公式</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 李纳公式相对拉莫尔公式多了什么因子？体现了什么性质？</p>
+<details class="note">
+<summary>答案</summary>
+<p>引入 <span class="arithmatex">\(\gamma^6\)</span> 因子及 <span class="arithmatex">\(-(\mathbf{v}\times\mathbf{a})^2/c^2\)</span> 修正，体现洛伦兹协变性，适用于相对论性运动电荷。</p>
+</details>
+</details>
+<p>对于相对论性运动的电荷，拉莫尔公式需推广为<strong>李纳公式</strong> (Liénard formula) 或协变形式。四维加速度下的协变辐射功率为：</p>
+<div class="arithmatex">\[
+P = \frac{q^2}{6\pi\epsilon_0 c^3} \gamma^6 \left[ a^2 - (\mathbf{v} \times \mathbf{a})^2 / c^2 \right] \tag{7.6}
+\]</div>
+<p>或写为四维形式：</p>
+<div class="arithmatex">\[
+P = \frac{q^2}{6\pi\epsilon_0 c} \dot{u}^\mu \dot{u}_\mu \tag{7.7}
+\]</div>
+<p>其中 <span class="arithmatex">\(\dot{u}^\mu = du^\mu/d\tau\)</span> 为四维加速度。该式在任意惯性系中成立，体现了洛伦兹协变性。</p>
+<hr />
+<h2 id="8">8. 能量输运与辐射阻尼</h2>
+<h3 id="81">8.1 辐射能量输运的物理图像</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 辐射场与静电场在能流衰减和球面积分上有何关键区别？</p>
+<details class="note">
+<summary>答案</summary>
+<p>辐射场场强 <span class="arithmatex">\(\propto1/r\)</span>、能流 <span class="arithmatex">\(\propto1/r^2\)</span>，球面积分为有限净功率；静电场场强 <span class="arithmatex">\(\propto1/r^2\)</span>、能流 <span class="arithmatex">\(\propto1/r^4\)</span>，球面积分零净功率。</p>
+</details>
+</details>
+<p>电磁辐射的物理过程可总结为：</p>
+<ol>
+<li><strong>源</strong> — 加速运动的电荷或时变电流系统</li>
+<li><strong>场</strong> — 电磁场携带能量以光速传播</li>
+<li><strong>检测</strong> — 在辐射区，能流以 <span class="arithmatex">\(1/r^2\)</span> 衰减，确保总辐射功率有限</li>
+</ol>
+<p>辐射场与静电场的关键区别在于：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">特性</th>
+<th style="text-align: left;">静电场</th>
+<th style="text-align: left;">辐射场</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">场强衰减</td>
+<td style="text-align: left;"><span class="arithmatex">\(1/r^2\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1/r\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">能流衰减</td>
+<td style="text-align: left;"><span class="arithmatex">\(1/r^4\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1/r^2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">球面积分</td>
+<td style="text-align: left;">零净辐射功率</td>
+<td style="text-align: left;"><strong>有限净辐射功率</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">与源的关系</td>
+<td style="text-align: left;">瞬时关联</td>
+<td style="text-align: left;">推迟关联</td>
+</tr>
+</tbody>
+</table>
+<p style="border-left: 4px solid #9C27B0; padding: 8px 16px; background: #f9f9f9;">
+📅 05-26 & 教材 p.301-305
+</p>
+
+<h3 id="82">8.2 辐射阻尼</h3>
+<details class="note">
+<summary>自测</summary>
+<p><strong>Q</strong>: 阿布拉罕-洛伦兹辐射阻尼力正比于什么物理量？为什么它带来悖论？</p>
+<details class="note">
+<summary>答案</summary>
+<p>正比于急动度 <span class="arithmatex">\(\dot{\mathbf{a}}\)</span>（加速度的时间导数）。这使运动方程成为三阶微分方程，引入"自加速解"等非物理困难。</p>
+</details>
+</details>
+<p>辐射系统因不断向外发射能量而损失能量，这一能量损失等效于一个阻尼力<strong>辐射阻尼力</strong> (radiation reaction force)。对于非相对论性点电荷，辐射阻尼力为（<strong>阿布拉罕-洛伦兹力</strong>，Abraham-Lorentz force）：</p>
+<div class="arithmatex">\[
+\mathbf{F}_{\text{rad}} = \frac{q^2}{6\pi\epsilon_0 c^3} \dot{\mathbf{a}} = \frac{\mu_0 q^2}{6\pi c} \dot{\mathbf{a}} \tag{8.1}
+\]</div>
+<p>辐射阻尼力正比于加速度的时间导数（即<strong>急动度</strong>，jerk），方向与运动方向相反。这一力保证了系统的总能量守恒——辐射带走的能量恰好等于带电粒子动能的减少。</p>
+<details class="note">
+<summary>辐射阻尼的悖论问题</summary>
+<p>辐射阻尼力涉及 <span class="arithmatex">\(\dot{\mathbf{a}}\)</span>，导致运动方程为三阶微分方程，引入了"自加速解"等非物理解。这些困难的解决需要更完整的理论框架（如推迟自相互作用、量子电动力学）。</p>
+</details>
+<hr />
+<h2 id="_1">总结</h2>
+<p>本章围绕"加速电荷产生辐射"这一核心主题，建立了从推迟势到多极展开、再到运动点电荷辐射的完整理论框架。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">概念</th>
+<th style="text-align: left;">核心公式</th>
+<th style="text-align: left;">应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">推迟势</td>
+<td style="text-align: left;">$A^\mu(x) = \frac{1}{4\pi} \int \frac{I^\mu(t -</td>
+<td style="text-align: left;">\mathbf{x} - \mathbf{x}'</td>
+</tr>
+<tr>
+<td style="text-align: left;">电偶极辐射</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{A}^{(0)} = \frac{\mu_0}{4\pi} \frac{-i\omega \mathbf{p}}{r} e^{-i\omega t + ikr}\)</span></td>
+<td style="text-align: left;">主导辐射机制</td>
+</tr>
+<tr>
+<td style="text-align: left;">辐射功率</td>
+<td style="text-align: left;">$P = \frac{\mu_0 \omega^4</td>
+<td style="text-align: left;">\mathbf{p}</td>
+</tr>
+<tr>
+<td style="text-align: left;">拉莫尔公式</td>
+<td style="text-align: left;"><span class="arithmatex">\(P = \frac{\mu_0 q^2 a^2}{6\pi c}\)</span></td>
+<td style="text-align: left;">非相对论点电荷辐射</td>
+</tr>
+<tr>
+<td style="text-align: left;">李纳-维谢尔势</td>
+<td style="text-align: left;">$A^\mu(x) = \frac{q}{4\pi\epsilon_0} \frac{u^\mu}{u \cdot (x - x')}\big</td>
+<td style="text-align: left;">_{t_r}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">加速度场</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{E}_{\text{acc}} \propto \frac{\mathbf{n} \times [(\mathbf{n} - \boldsymbol{\beta}) \times \dot{\boldsymbol{\beta}}]}{(1 - \boldsymbol{\beta} \cdot \mathbf{n})^3 R}\)</span></td>
+<td style="text-align: left;">辐射场的来源</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>本讲参考</strong>: p.275-305 教材第九章, 📅 05-21, 05-26 课堂笔记</p>
+</blockquote>
+<hr />
+<h2 id="9">9. 典型例题（来自课堂与作业）</h2>
+<h3 id="91-hw13-2">9.1 例题（HW13-2，必考）：匀速圆周运动点电荷的多极矩与辐射</h3>
+<p><strong>题目</strong>：理想点电荷 <span class="arithmatex">\(Q\)</span> 在 <span class="arithmatex">\(x_1\)</span>-<span class="arithmatex">\(x_2\)</span> 平面做匀速圆周运动，<span class="arithmatex">\(x_1=\delta\cos\omega t,\ x_2=\delta\sin\omega t,\ x_3=0\)</span>。(a) 给四电流 <span class="arithmatex">\(J^\mu(t,\mathbf{x})\)</span>；(b) 求电偶极矩、电四极矩、磁偶极矩。</p>
+<details class="note">
+<summary>答案要点</summary>
+<p><strong>(a) 四电流</strong>：点电荷世界线 <span class="arithmatex">\(\mathbf{x}_q(t)=\delta(\cos\omega t,\sin\omega t,0)\)</span>，速度 <span class="arithmatex">\(\mathbf{v}=\delta\omega(-\sin\omega t,\cos\omega t,0)\)</span>。四电流</p>
+<div class="arithmatex">\[
+J^\mu(t,\mathbf{x})=Q\,u^\mu\,\delta^{(3)}(\mathbf{x}-\mathbf{x}_q(t))/\gamma_v
+\]</div>
+<p>非相对论（<span class="arithmatex">\(\delta\omega\ll c\)</span>）下 <span class="arithmatex">\(\gamma_v\to1\)</span>，<span class="arithmatex">\(J^\mu=(cQ\delta^{(3)},\,Q\mathbf{v}\delta^{(3)})\)</span>。</p>
+<p><strong>(b) 多极矩</strong>：</p>
+<ul>
+<li><strong>电偶极矩</strong> <span class="arithmatex">\(\mathbf{p}=\int\rho\mathbf{x}\,dV=Q\mathbf{x}_q(t)=Q\delta(\cos\omega t,\sin\omega t,0)\)</span>，随时间以 <span class="arithmatex">\(\omega\)</span> 旋转——这是一个旋转偶极子，<strong>辐射频率为 <span class="arithmatex">\(\omega\)</span></strong>。</li>
+<li><strong>磁偶极矩</strong> <span class="arithmatex">\(\mathbf{m}=\frac12\int\mathbf{x}\times\mathbf{J}\,dV=\frac12 Q\mathbf{x}_q\times\mathbf{v}=\frac12 Q\delta^2\omega\,\hat{z}\)</span>（沿转轴，<strong>常矢量</strong>——故磁偶极辐射为零，因 <span class="arithmatex">\(\ddot{\mathbf{m}}=0\)</span>）。</li>
+<li><strong>电四极矩</strong> <span class="arithmatex">\(p_{ij}=Q(3x_ix_j-r^2\delta_{ij})\)</span>，含 <span class="arithmatex">\(\cos^2\omega t,\sin^2\omega t,\cos\omega t\sin\omega t\)</span> 项，即 <span class="arithmatex">\(\cos 2\omega t,\sin 2\omega t\)</span> 振荡——<strong>电四极辐射频率为 <span class="arithmatex">\(2\omega\)</span></strong>。</li>
+</ul>
+<p><strong>物理结论</strong>：圆周运动电荷的电偶极矩以 <span class="arithmatex">\(\omega\)</span> 旋转（产生 <span class="arithmatex">\(\omega\)</span> 的偶极辐射），电四极矩以 <span class="arithmatex">\(2\omega\)</span> 振荡（产生 <span class="arithmatex">\(2\omega\)</span> 的四极辐射），磁偶极矩为常数（无磁偶极辐射）。这与同步辐射的频谱结构直接相关。</p>
+</details>
+<h3 id="92-hw12-3l0">9.2 例题（HW12-3）：<span class="arithmatex">\(l=0\)</span> 球面电磁波的能量守恒验证</h3>
+<p><strong>题目</strong>：<span class="arithmatex">\(l=0\)</span> 阶球面电磁波矢势 <span class="arithmatex">\(A_i(t,\mathbf{x})=\text{Re}\,\tilde p_i\,\frac{1}{r}e^{-i\omega t+ikr}\)</span>。验证任意 <span class="arithmatex">\(\mathbf{x}\neq0\)</span> 处能量守恒；并算半径 <span class="arithmatex">\(R\)</span> 球面单位时间通过能量，看是否依赖 <span class="arithmatex">\(R\)</span>。</p>
+<details class="note">
+<summary>答案要点</summary>
+<p><strong>能量守恒</strong>：由 Poynting 定理 <span class="arithmatex">\(\nabla\cdot\mathbf{S}+\partial_t u=-\mathbf{J}\cdot\mathbf{E}\)</span>。在 <span class="arithmatex">\(\mathbf{x}\neq0\)</span>（源外）<span class="arithmatex">\(\mathbf{J}=0\)</span>，需验证 <span class="arithmatex">\(\nabla\cdot\mathbf{S}+\partial_t u=0\)</span>。</p>
+<p>由 <span class="arithmatex">\(\mathbf{E}=-\partial_t\mathbf{A}-\nabla\phi\)</span>、<span class="arithmatex">\(\mathbf{B}=\nabla\times\mathbf{A}\)</span>（洛伦茨规范下 <span class="arithmatex">\(\phi\)</span> 由 <span class="arithmatex">\(\nabla\cdot\mathbf{A}=0\)</span> 配合），算出 <span class="arithmatex">\(\mathbf{S}=\frac{1}{\mu_0}\mathbf{E}\times\mathbf{B}\)</span>，对 <span class="arithmatex">\(l=0\)</span> 球面波 <span class="arithmatex">\(\mathbf{E},\mathbf{B}\propto\frac{1}{r}e^{-i\omega t+ikr}\)</span>，径向传播。代入验证能量守恒成立（<span class="arithmatex">\(\nabla\cdot\mathbf{S}=-\partial_t u\)</span>，时间平均为零）。</p>
+<p><strong>球面能流</strong>：<span class="arithmatex">\(\mathbf{S}\propto1/r^2\)</span>（因 <span class="arithmatex">\(\mathbf{E},\mathbf{B}\propto1/r\)</span>），故半径 <span class="arithmatex">\(R\)</span> 球面通量 <span class="arithmatex">\(\Phi=\oint\mathbf{S}\cdot d\mathbf{A}\propto R^2\cdot\frac{1}{R^2}=\)</span> 常数，<strong>不依赖 <span class="arithmatex">\(R\)</span></strong>——这正是辐射的标志：能量流过任何半径的球面都相等，没有累积或衰减，全部流向无穷远。</p>
+<p><strong>对比</strong>：若通量依赖 <span class="arithmatex">\(R\)</span> 则说明有能量在空间中沉积或被吸收，不是纯辐射。<span class="arithmatex">\(l=0\)</span> 球面波是辐射场的典型代表。</p>
+</details>
+<h3 id="93-hw13-1eperp-b">9.3 例题（HW13-1）：<span class="arithmatex">\(E\perp B\)</span> 的球面电磁波构形</h3>
+<p><strong>题目</strong>：对球面电磁波，在 <span class="arithmatex">\(l=0\)</span> 与 <span class="arithmatex">\(l=1\)</span> 阶上探讨：若要求 <span class="arithmatex">\(\mathbf{E}\)</span> 与 <span class="arithmatex">\(\mathbf{B}\)</span> 始终互相垂直，相应的球面电磁波构形是怎样的。</p>
+<details class="note">
+<summary>答案要点</summary>
+<p>球面电磁波按角动量量子数 <span class="arithmatex">\(l\)</span> 分类（与多极辐射的 <span class="arithmatex">\(l\)</span> 对应）。</p>
+<ul>
+<li><strong><span class="arithmatex">\(l=0\)</span></strong>：球对称，<span class="arithmatex">\(\mathbf{A}\propto\frac{1}{r}\tilde{\mathbf{p}}\,e^{-i\omega t+ikr}\)</span>，<span class="arithmatex">\(\tilde{\mathbf{p}}\)</span> 是常矢量。算出 <span class="arithmatex">\(\mathbf{E}\propto\frac{1}{r}\tilde{\mathbf{p}}\)</span>、<span class="arithmatex">\(\mathbf{B}=\nabla\times\mathbf{A}\propto\frac{1}{r}\hat{\mathbf{r}}\times\tilde{\mathbf{p}}\)</span>，显然 <span class="arithmatex">\(\mathbf{E}\perp\mathbf{B}\)</span>（因 <span class="arithmatex">\(\mathbf{B}\perp\tilde{\mathbf{p}}=\mathbf{E}\)</span> 方向）。<strong><span class="arithmatex">\(l=0\)</span> 自动满足 <span class="arithmatex">\(E\perp B\)</span></strong>。</li>
+<li><strong><span class="arithmatex">\(l=1\)</span></strong>：矢势 <span class="arithmatex">\(\mathbf{A}\propto\frac{1}{r^3}(1-ikr)\tilde p_{ji}x_j\)</span> 形式（见 HW12-2），<span class="arithmatex">\(\mathbf{E},\mathbf{B}\)</span> 一般不自动正交。要求 <span class="arithmatex">\(E\perp B\)</span> 需对 <span class="arithmatex">\(\tilde p_{ji}\)</span> 加约束（如要求 <span class="arithmatex">\(\tilde p_{ji}\)</span> 是特定对称无迹张量），等价于选取特定的物理极化模式（电多极 vs 磁多极辐射）。</li>
+</ul>
+<p><strong>物理意义</strong>：平面波总满足 <span class="arithmatex">\(E\perp B\perp\mathbf{k}\)</span>（横波性），但球面波的横波性需分阶讨论——<span class="arithmatex">\(l=0\)</span> 自动横，<span class="arithmatex">\(l\ge1\)</span> 需规范/约束保证。这与辐射场的多极分解（电多极 TM、磁多极 TE）对应。</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "navigation.indexes", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

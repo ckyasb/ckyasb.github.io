@@ -1,0 +1,6948 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ckyasb.github.io/CS/%E4%BF%A1%E6%81%AF%E7%90%86%E8%AE%BA/01%E4%BF%A1%E6%81%AF%E5%BA%A6%E9%87%8F/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02%E6%97%A0%E6%8D%9F%E5%8E%8B%E7%BC%A9%E4%B8%8E%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>01 信息度量 🔴 考试核心（~40%） - ckyasb's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#01-40" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ckyasb&#39;s notes" class="md-header__button md-logo" aria-label="ckyasb's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ckyasb's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 信息度量 🔴 考试核心（~40%）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Physics/%E5%85%89%E5%AD%A6/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Physics
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人文
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%80%9D%E6%94%BF/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  思政
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  控制
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E6%8A%80%E5%B7%A7/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  英语
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ckyasb&#39;s notes" class="md-nav__button md-logo" aria-label="ckyasb's notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ckyasb's notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能前沿
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能前沿
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/01%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 人工智能前沿综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/02%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 大模型与基础模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/03%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 计算机视觉前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/04%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 自然语言处理前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/05%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%86%B3%E7%AD%96%E6%99%BA%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 强化学习与决策智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/06AI%20for%20Science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 AI for Science
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF/07%E5%89%8D%E6%B2%BF%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 前沿总结与展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    信息理论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 信息度量 🔴 考试核心（~40%）
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 信息度量 🔴 考试核心（~40%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 知识框架
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心概念与定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心概念与定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-self-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 自信息 (Self-information) 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 熵 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 联合熵与条件熵 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 相对熵 (KL 散度) 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 互信息 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 熵与互信息关系图 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 数据处理不等式 (DPI) 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-fano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Fano 不等式 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 微分熵与熵功率（教材 §2.2） 🟢了解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 微分熵与熵功率（教材 §2.2） 🟢了解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微分熵定义 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最大熵定理（教材定理 2.2.2） 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        熵功率（教材式 2.2.24） 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 熵率与平稳随机过程 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 典型例题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 典型例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 1：二元信源熵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 2：联合熵与条件熵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 3：条件熵与独立性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 4：DPI 的应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 5：英文熵率计算（课堂讨论）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 常见题型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 常见题型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：计算题（熵/互信息/KL散度）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：性质证明题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：Fano 不等式应用题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型四：马尔可夫链+DPI综合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型五：微分熵与熵功率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markov" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型六：熵率计算（平稳 Markov 信源）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 📖 教材例题精选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 📖 教材例题精选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#217" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [例 2.1.7] 化验问题的互信息计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#218" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [例 2.1.8] 硬币识别问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2146" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互信息的基本性质（教材式 2.1.46）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-2224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微分熵与熵功率（教材定理 2.2.2、式 2.2.24）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 📝 按题型精选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 📝 按题型精选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：计算题 — 给定分布求熵/互信息/KL散度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：性质证明题 — 不等式证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fano_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：Fano 不等式应用题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型四：马尔可夫链 + DPI 综合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型五：微分熵与熵功率
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 公式速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 信息论的核心问题（老师课堂总结）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 信息论的重要理念（课堂散记）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 考试与作业信息
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%E6%97%A0%E6%8D%9F%E5%8E%8B%E7%BC%A9%E4%B8%8E%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 无损压缩与信源编码（Lossless Compression &amp; Source Coding） 🔴 考试核心（~30%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%E4%BF%A1%E9%81%93%E5%AE%B9%E9%87%8F%E4%B8%8E%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 信道容量与信道编码（Channel Capacity &amp; Channel Coding） 🔴 考试核心（~30%）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%E7%8E%87%E5%A4%B1%E7%9C%9F%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 率失真理论（Rate-Distortion Theory） 🟢 非考试范围
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%E4%BF%A1%E6%81%AF%E7%93%B6%E9%A2%88%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 信息瓶颈理论（Information Bottleneck） 🟢 非考试范围
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论 — 作业汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信息理论 — 课程笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/01%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 算法分析（Algorithm Analysis）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/02%E7%BA%BF%E6%80%A7%E8%A1%A8%E6%A0%88%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 线性表、栈与队列（Lists, Stacks, Queues）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/03%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 树与搜索树（Trees &amp; Search Trees）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/04%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%A0%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 优先队列与堆（Priority Queues &amp; Heaps）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/05%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 排序（Sorting）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/06%E6%95%A3%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 散列（Hashing）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/07%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 并查集（Union-Find / Disjoint Set）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/08%E5%9B%BE%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 图算法（Graph Algorithms）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%A2%98%E5%BA%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构基础 (FDS) 历年卷题库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E9%A2%98%E5%BA%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDS 题库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDS 高频考点与历年卷分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E5%85%89%E5%AD%A6/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    光学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%85%89%E5%AD%A6/01%20%E5%85%89%E4%B8%8E%E5%85%89%E7%9A%84%E4%BC%A0%E6%92%AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01光与光的传播
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%85%89%E5%AD%A6/06%20%E5%81%8F%E6%8C%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 偏振
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原子物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原子物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/01%E5%8E%9F%E5%AD%90%E5%8F%8A%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01原子及结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/02%E6%B3%A2%E5%B0%94-%E7%B4%A2%E6%9C%AB%E8%8F%B2%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02玻尔-索末菲模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/03%E7%94%B5%E5%AD%90%E8%87%AA%E6%97%8B%E5%8F%8A%E5%8E%9F%E5%AD%90%E7%A3%81%E7%9F%A9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03电子自旋及原子磁矩
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/04%E5%85%83%E7%B4%A0%E5%91%A8%E6%9C%9F%E5%BE%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04多电子原子及元素周期律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/05X%E5%B0%84%E7%BA%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05X射线
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/06%E5%8E%9F%E5%AD%90%E6%A0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06原子核物理概论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实验
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%AE%9E%E9%AA%8C/%E5%AE%9E%E9%AA%8C%E4%B8%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验三
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%AE%9E%E9%AA%8C/%E7%89%A9%E7%90%86%E7%8E%B0%E8%B1%A1%E4%B8%8E%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理现象与
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    广义相对论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    广义相对论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/01%E7%BB%AA%E8%AE%BA-%E5%BC%95%E5%8A%9B%E4%B8%8E%E6%97%B6%E7%A9%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 绪论：引力与时空
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/02%E5%BC%A0%E9%87%8F%E5%88%86%E6%9E%90%E4%B8%8E%E5%BE%AE%E5%88%86%E5%87%A0%E4%BD%95%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 张量分析与微分几何基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/03%E6%B5%8B%E5%9C%B0%E7%BA%BF%E4%B8%8E%E5%BC%AF%E6%9B%B2%E6%97%B6%E7%A9%BA%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 测地线与弯曲时空中的物理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/04Einstein%E5%9C%BA%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Einstein 场方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/05Schwarzschild%E8%A7%A3%E4%B8%8E%E7%BB%8F%E5%85%B8%E6%A3%80%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Schwarzschild 解与经典检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/06%E9%BB%91%E6%B4%9E%E7%89%A9%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 黑洞物理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/07%E5%BC%95%E5%8A%9B%E6%B3%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 引力波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/08%E5%AE%87%E5%AE%99%E5%AD%A6%E5%88%9D%E6%AD%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 宇宙学初步
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/%E6%95%B0%E5%AD%A6%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学补充：作业用到的数学工具索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/%E8%80%83%E8%AF%95%E9%87%8D%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期末考试重点汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理方法Ⅱ
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理方法Ⅱ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/01%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E5%9B%9E%E9%A1%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 复变函数回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/02Fourier%E7%BA%A7%E6%95%B0%E4%B8%8E%E7%A7%AF%E5%88%86%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 Fourier 级数与积分变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/03Legendre%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 Legendre 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/04%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 球谐函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/05%E6%9F%B1%E5%9D%90%E6%A0%87%E4%B8%8EBessel%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 柱坐标与 Bessel 函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/06%E5%85%B6%E4%BB%96%E7%89%B9%E6%AE%8A%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 其他特殊函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E7%90%86%E6%96%B9%E6%B3%95%E2%85%A1/07Bessel%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Bessel 函数应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电动力学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电动力学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/01%E7%BB%AA%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/02%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E5%85%A8%E5%B1%80%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 静电场的全局性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/03%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E5%B1%80%E5%9F%9F%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 静电场的局域性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/04%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%88%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电场的模式分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/05%E7%82%B9%E6%BA%90%E4%B8%8E%E5%A4%9A%E6%9E%81%E5%B1%95%E5%BC%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 点源与静电场的多极展开
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/06%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E8%BE%B9%E7%95%8C%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 静电场的边界问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/07%E9%9D%99%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 静磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/08%E9%9D%99%E7%94%B5%E4%B8%8E%E9%9D%99%E7%A3%81%E8%A7%84%E5%BE%8B%E6%AF%94%E8%BE%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 静电与静磁规律的比较
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/09%E4%BB%8E%E9%9D%99%E7%94%B5%E7%A3%81%E5%9C%BA%E5%88%B0%E4%B8%80%E8%88%AC%E7%94%B5%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 从静电磁场到一般电磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/10%E7%94%B5%E7%A3%81%E5%9C%BA%E7%9A%84%E4%B8%80%E8%88%AC%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 电磁场的一般动力学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/11%E7%9C%9F%E7%A9%BA%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E6%B3%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 真空中的电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/12%E7%94%B5%E7%A3%81%E8%BE%90%E5%B0%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电磁辐射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/13%E5%AE%8F%E8%A7%82%E7%89%A9%E8%B4%A8%E4%B8%AD%E7%9A%84%E9%9D%99%E7%94%B5%E5%92%8C%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 宏观物质中的静电/磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/14%E5%AE%8F%E8%A7%82%E7%89%A9%E8%B4%A8%E4%B8%AD%E7%9A%84%E7%94%B5%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 宏观物质中的电磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/15%E7%94%B5%E7%A3%81%E5%9C%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%BE%B9%E7%95%8C%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15 电磁场动力学的边界问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/16%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E6%95%A3%E5%B0%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16 电磁波的散射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/17%E5%8A%A8%E4%BD%93%E7%9A%84%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17 动体的电动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/18%E7%94%B5%E7%A3%81%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18 电磁系统的拉格朗日力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E6%95%B0%E5%AD%A6%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学补充：作业用到的数学工具索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E8%80%83%E8%AF%95%E9%87%8D%E7%82%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期末考试重点汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%87%8D%E8%A6%81%E5%85%AC%E5%BC%8F%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电动力学重要公式汇总
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    选修
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    选修
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E9%80%89%E4%BF%AE/%E6%A0%B8%E5%8F%8D%E5%BA%94%E5%A0%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    反应堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人文
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人文
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文学与人生
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    文学与人生
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/01%E7%8E%B0%E4%BB%A3%E5%B0%8F%E8%AF%B4%E9%80%89%E8%AF%BB%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 现代小说选读（一）：文学与爱情
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/02%E7%8E%B0%E4%BB%A3%E5%B0%8F%E8%AF%B4%E9%80%89%E8%AF%BB%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 现代小说选读（二）：文学与亲情·文学与羞耻
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/03%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E6%96%87%E5%AD%A6%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 中国现代文学（一）：文学与羞耻·文学与现实
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/04%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E6%96%87%E5%AD%A6%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 中国现代文学（二）：文学与现实（续）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/05%E4%B8%96%E7%95%8C%E6%96%87%E5%AD%A6%E7%BB%8F%E5%85%B8%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 世界文学经典（一）：文学与美食
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/06%E4%B8%96%E7%95%8C%E6%96%87%E5%AD%A6%E7%BB%8F%E5%85%B8%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 世界文学经典（二）：革命·战争·伤痕
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/07%E6%96%87%E5%AD%A6%E6%89%B9%E8%AF%84%E4%B8%8E%E4%BA%BA%E7%94%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 文学批评与人生：声音·良知·在路上
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E6%96%87/%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F/08%E6%96%87%E5%AD%A6%E4%B8%8E%E4%BA%BA%E7%94%9F%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 文学与人生总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%80%9D%E6%94%BF/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    思政
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    思政
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    毛泽东思想和中国特色社会主义理论体系概论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    毛泽东思想和中国特色社会主义理论体系概论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%80-%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E4%B8%AD%E5%9B%BD%E5%8C%96%E7%9A%84%E5%8E%86%E5%8F%B2%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%90%86%E8%AE%BA%E6%88%90%E6%9E%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题一：马克思主义中国化的历史进程与理论成果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%83-%E4%B8%89%E4%B8%AA%E4%BB%A3%E8%A1%A8%E9%87%8D%E8%A6%81%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题七："三个代表"重要思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%B8%89-%E6%96%B0%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E9%9D%A9%E5%91%BD%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题三：新民主主义革命理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%BA%8C-%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E5%8E%86%E5%8F%B2%E5%9C%B0%E4%BD%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题二：毛泽东思想及其历史地位
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E4%BA%94-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E5%BB%BA%E8%AE%BE%E9%81%93%E8%B7%AF%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A2%E7%9A%84%E7%90%86%E8%AE%BA%E6%88%90%E6%9E%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题五：社会主义建设道路初步探索的理论成果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%85%AB-%E7%A7%91%E5%AD%A6%E5%8F%91%E5%B1%95%E8%A7%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题八：科学发展观
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%85%AD-%E9%82%93%E5%B0%8F%E5%B9%B3%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题六：邓小平理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E4%B8%93%E9%A2%98%E5%9B%9B-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%94%B9%E9%80%A0%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    专题四：社会主义改造理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9%E4%B8%8E%E5%8E%86%E5%B9%B4%E5%8D%B7%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    毛概高频考点与历年卷分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    马原
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    马原
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E9%A9%AC%E5%8E%9F/01%20%E5%AF%BC%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%9D%E6%94%BF/%E9%A9%AC%E5%8E%9F/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    马原选择
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制的哲学与方法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制的哲学与方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/01%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%80%9D%E7%BB%B4%E5%AF%BC%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 控制论与系统思维导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/02%E5%9B%A0%E6%9E%9C%E5%8F%8D%E9%A6%88%E4%B8%8E%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 因果反馈与闭环控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/03%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 经典控制系统分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/04%E6%8E%A7%E5%88%B6%E8%AE%BA%E6%80%9D%E6%83%B3%E5%8F%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 控制论思想史
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/05%E6%8E%A7%E5%88%B6%E8%AE%BA%E4%B8%8E%E7%A4%BE%E4%BC%9A%E6%B2%BB%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 控制论与社会治理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/06%E5%AD%A6%E7%A7%91%E4%BA%A4%E5%8F%89%E4%B8%8E%E5%B7%A5%E4%B8%9A%E6%8E%A7%E5%88%B6%E5%89%8D%E6%B2%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 学科交叉与工业控制前沿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6/%E6%8E%A7%E5%88%B6%E7%9A%84%E5%93%B2%E5%AD%A6%E4%B8%8E%E6%96%B9%E6%B3%95/07%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B0%83%E6%8E%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 不确定性与动态调控
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    英语
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    英语
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    口译
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    口译
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    口译技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%8B%B1%E8%AF%AD/%E5%8F%A3%E8%AF%91/%E8%AF%BE%E7%A8%8B%E8%AF%AD%E6%96%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    语料
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 知识框架
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心概念与定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心概念与定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-self-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 自信息 (Self-information) 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 熵 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 联合熵与条件熵 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 相对熵 (KL 散度) 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 互信息 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 熵与互信息关系图 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 数据处理不等式 (DPI) 🟡重点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-fano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Fano 不等式 🔴必考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 微分熵与熵功率（教材 §2.2） 🟢了解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 微分熵与熵功率（教材 §2.2） 🟢了解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微分熵定义 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最大熵定理（教材定理 2.2.2） 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        熵功率（教材式 2.2.24） 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 熵率与平稳随机过程 🟢了解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 典型例题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 典型例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 1：二元信源熵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 2：联合熵与条件熵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 3：条件熵与独立性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 4：DPI 的应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题 5：英文熵率计算（课堂讨论）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 常见题型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 常见题型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：计算题（熵/互信息/KL散度）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：性质证明题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：Fano 不等式应用题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型四：马尔可夫链+DPI综合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型五：微分熵与熵功率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markov" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型六：熵率计算（平稳 Markov 信源）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 📖 教材例题精选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 📖 教材例题精选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#217" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [例 2.1.7] 化验问题的互信息计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#218" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [例 2.1.8] 硬币识别问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2146" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互信息的基本性质（教材式 2.1.46）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-2224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微分熵与熵功率（教材定理 2.2.2、式 2.2.24）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 📝 按题型精选
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 📝 按题型精选">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型一：计算题 — 给定分布求熵/互信息/KL散度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型二：性质证明题 — 不等式证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fano_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型三：Fano 不等式应用题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型四：马尔可夫链 + DPI 综合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        题型五：微分熵与熵功率
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 公式速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 信息论的核心问题（老师课堂总结）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 信息论的重要理念（课堂散记）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 考试与作业信息
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="01-40">01 信息度量 🔴 考试核心（~40%）</h1>
+<p><strong>余官定 | 2026-03-08 ~ 04-12 (4 讲) | 考试占比 ~40%</strong></p>
+<hr />
+<h2 id="1">1. 知识框架</h2>
+<p>信息度量的核心问题：<strong>如何量化一个随机事件或随机变量含有的"信息量"？</strong></p>
+<p>度量体系的层次：</p>
+<div class="highlight"><pre><span></span><code>自信息 I(x) = -log p(x)      （单个事件的不确定性）
+  ↓ 取期望
+熵 H(X) = E[-log p(X)]       （随机变量的平均不确定性）
+  ↓ 两个变量
+联合熵 H(X,Y), 条件熵 H(X|Y)    （多变量扩展）
+  ↓ 比较分布 / 互信息
+KL散度 D(P||Q), 互信息 I(X;Y)   （分布差异 / 共享信息）
+  ↓ 随机过程
+熵率 H∞, 数据处理不等式, Fano不等式 （信息处理的约束）
+</code></pre></div>
+<p>老师强调："整个第一章讲了这么多概念，本质上来讲就是两个概念——自信息和互信息。自信息就是负的 log，互信息就是自信息减条件自信息（一个差值）。其他都是倒腾来倒腾去，要么加要么减。"（03-15 课堂原话）</p>
+<hr />
+<h2 id="2">2. 核心概念与定理</h2>
+<h3 id="21-self-information">2.1 自信息 (Self-information) 🟡重点</h3>
+<p><strong>定义</strong>：事件 <span class="arithmatex">\(\{X=x\}\)</span> 的自信息</p>
+<div class="arithmatex">\[I(x) = -\log p(x)\]</div>
+<p><strong>含义</strong>：自信息度量一个具体事件发生时所携带的"信息量"——事件越罕见，信息量越大。"明天太阳东升"概率接近 1，信息量几乎为 0（你早知如此）；"六月杭州下雪"概率极低，若真发生就是爆炸性新闻。用对数是为了满足可加性：两件独立事件同时告诉你，总信息量等于各自信息量之和——对数恰好把概率的乘法变成信息的加法。自信息是信息度量体系的基石：对自信息求期望就得到熵，比较两个概率分布的自信息差就得到 KL 散度。</p>
+<table>
+<thead>
+<tr>
+<th>底</th>
+<th>单位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>bit</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e\)</span></td>
+<td>nat</td>
+</tr>
+<tr>
+<td>10</td>
+<td>hartley</td>
+</tr>
+</tbody>
+</table>
+<p><strong>性质</strong>：
+- <span class="arithmatex">\(p(x)=1 \Rightarrow I(x)=0\)</span>（必然事件无信息）
+- <span class="arithmatex">\(p(x) \to 0 \Rightarrow I(x) \to \infty\)</span>
+- <span class="arithmatex">\(I(x) \geq 0\)</span></p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>老师用大量生活例子解释自信息：
+  - <strong>男足夺冠</strong>：概率趋近于 0，若真发生则信息量无穷大，是"爆炸性新闻"
+  - <strong>明天下雨</strong>：概率 0.25 时，"明天会下雨"这句话的信息量是 <span class="arithmatex">\(-\log_2 0.25 = 2\)</span> bit
+  - <strong>概率 1/2 vs 1/20</strong>：前者 1 bit，后者约 4.32 bit——概率越小信息量越大
+  - <strong>成都 vs 北京</strong>：成都多雨，告诉成都人"明天要下雨"信息量小；北京冬天下雨概率极低，告诉北京人"明天要下雨"信息量大</p>
+<p>两种理解角度（老师用能量类比）：
+  1. <strong>事件发生后</strong>对外界提供的信息量（类比物体落下释放的势能）
+  2. <strong>让该事件发生</strong>需要外界提供的信息量（类比把物体提升到一定高度需要的能量）</p>
+<p>老师在黑板上特别强调："事件的自信息并不代表事件的不确定性——事件本身没有不确定性，只有随机变量才有不确定性。"</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目 1</strong>：设某地明天下雨的概率为 0.125，晴天概率为 0.875。计算"明天会下雨"这句话的自信息。</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(I = -\log_2 0.125 = 3\)</span> bit</p>
+<p><strong>题目 2</strong>：证明自信息的可加性：对两个独立事件 <span class="arithmatex">\(A,B\)</span>，有 <span class="arithmatex">\(I(A \cap B) = I(A) + I(B)\)</span>。</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(A,B\)</span> 独立 <span class="arithmatex">\(\Rightarrow p(A \cap B) = p(A)p(B)\)</span>，则 <span class="arithmatex">\(I(A \cap B) = -\log p(A)p(B) = -\log p(A) - \log p(B) = I(A) + I(B)\)</span>。这正是老师讲的"独立事件的信息量是比特加比特，不是比特乘比特"。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>自信息是<strong>事件</strong>的函数，不是<strong>随机变量</strong>的函数——<span class="arithmatex">\(I(x)\)</span> 取决于具体取值，不是平均量</li>
+<li>不要混淆"概率"和"信息量"：概率大的事件信息量小，概率小的事件信息量大</li>
+<li>单位问题：以 2 为底是 bit，以 <span class="arithmatex">\(e\)</span> 为底是 nat，相差常数因子 <span class="arithmatex">\(\ln 2\)</span></li>
+</ul>
+<hr />
+<h3 id="22">2.2 熵 🔴必考</h3>
+<p><strong>定义</strong>：</p>
+<div class="arithmatex">\[H(X) = -\sum_{x} p(x) \log p(x) = \mathbb{E}[-\log p(X)]\]</div>
+<p><strong>含义</strong>：熵是一个随机变量整体不确定性的度量——是自信息的期望。如果说自信息回答"这个具体值有多意外"，熵回答的是"这个变量平均有多难猜"。熵越大，你对结果越没把握。公平硬币熵为 1 bit（完全无法预测），两面相同的硬币熵为 0（100% 确定）。熵解决了信息论最根本的问题：如何用一个数来量化"不确定性"的大小。注意熵只依赖于概率分布，与变量的具体取值含义无关——不管你关心的是"猫"还是"狗"，概率分布相同，熵就相同。</p>
+<p><strong>性质</strong>：</p>
+<ol>
+<li><strong>非负性</strong>：<span class="arithmatex">\(H(X) \geq 0\)</span>，等号当且仅当 <span class="arithmatex">\(X\)</span> 是确定型变量。</li>
+<li><strong>上界</strong>：<span class="arithmatex">\(H(X) \leq \log |\mathcal{X}|\)</span>，等号当且仅当 <span class="arithmatex">\(X \sim \text{Uniform}\)</span>。</li>
+<li><strong>凹性</strong>：<span class="arithmatex">\(H(p)\)</span> 是概率分布 <span class="arithmatex">\(p\)</span> 的凹函数。</li>
+</ol>
+<p><strong>二元熵</strong>（Bernoulli）：</p>
+<div class="arithmatex">\[H_2(p) = -p\log p - (1-p)\log(1-p)\]</div>
+<p><span class="arithmatex">\(p=0.5\)</span> 时最大（1 bit），<span class="arithmatex">\(p=0\)</span> 或 <span class="arithmatex">\(1\)</span> 时为 0。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p><strong>熵的物理意义</strong>（老师重点讲解）：</p>
+<ul>
+<li>英文单词 entropy 直接借用热力学术语，代表"系统的混乱程度"</li>
+<li>越混乱的分布熵越大——均匀分布时系统最混乱，熵最大</li>
+<li>老师用<strong>莫斯科、北京、香港冬天下雪</strong>作类比：</li>
+<li>莫斯科冬天大概率下雪 <span class="arithmatex">\(p=0.8\)</span>，熵较小（比较确定会下雪）</li>
+<li>北京冬天一半一半 <span class="arithmatex">\(p=0.5\)</span>，熵最大（最不确定）</li>
+<li>香港几乎不下雪 <span class="arithmatex">\(p\approx 0.0001\)</span>，熵接近 0（基本确定不会下雪）</li>
+</ul>
+<p><strong>熵与自信息的区别</strong>（老师反复强调）：</p>
+<ul>
+<li>自信息是<strong>单个事件</strong>的信息量；熵是<strong>随机变量</strong>的平均信息量（自信息的期望）</li>
+<li>老师举保研的例子：一个年级第一的同学"保不了研"这件事自信息无穷大（极不可能发生），但整个年级能不能保研这个<strong>随机变量</strong>的熵取决于保研率</li>
+</ul>
+<p><strong>为什么用对数</strong>（老师总结）：
+  1. 概率越小 → 信息量越大（直觉合理）
+  2. 对数可加性：独立事件的信息可叠加（比特加比特，不是比特乘比特）
+  3. 数学简单：好求导、好积分</p>
+<p>老师说："如果你穿越回 80 年前，你能不能想到负的 log？"</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目 1</strong>：三元信源 <span class="arithmatex">\(p = \{0.5, 0.3, 0.2\}\)</span>，计算 <span class="arithmatex">\(H(X)\)</span>。</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(H(X) = -0.5\log_2 0.5 - 0.3\log_2 0.3 - 0.2\log_2 0.2 = 0.5 + 0.521 + 0.464 = 1.485\)</span> bit</p>
+<p><strong>题目 2</strong>：证明 <span class="arithmatex">\(H(X) \leq \log |\mathcal{X}|\)</span>（用 Jensen 不等式）。</p>
+<p>??? note "答案"
+    由 Jensen 不等式：<span class="arithmatex">\(H(X) = \mathbb{E}[-\log p(X)] \leq -\log\mathbb{E}[p(X)]\)</span>? 更准确的做法：令 <span class="arithmatex">\(q(x) = 1/|\mathcal{X}|\)</span> 为均匀分布，则 <span class="arithmatex">\(D(p\|q) = \sum p\log\frac{p}{q} = \sum p\log p - \sum p\log(1/|\mathcal{X}|) = -H(X) + \log|\mathcal{X}| \geq 0\)</span>，得 <span class="arithmatex">\(H(X) \leq \log|\mathcal{X}|\)</span>。</p>
+<p><strong>题目 3</strong>：当 <span class="arithmatex">\(p=0.3\)</span> 时计算二元熵 <span class="arithmatex">\(H_2(0.3)\)</span>。<span class="arithmatex">\(p\)</span> 为何值时 <span class="arithmatex">\(H_2(p)\)</span> 最大？何时最小？</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(H_2(0.3) = -0.3\log_2 0.3 - 0.7\log_2 0.7 \approx 0.881\)</span> bit。最大值在 <span class="arithmatex">\(p=0.5\)</span> 时取 1 bit，最小值在 <span class="arithmatex">\(p=0\)</span> 或 <span class="arithmatex">\(p=1\)</span> 时取 0。</p>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>熵只依赖于概率分布，不依赖于随机变量的具体取值（老师强调："猫和狗在香农看来是一样的，都只是一个概率分布"）</li>
+<li>二元熵是 <span class="arithmatex">\(p\)</span> 的凹函数（上凸），极大值在 <span class="arithmatex">\(p=0.5\)</span></li>
+<li>熵的单位取决于对数的底，bit 对应以 2 为底</li>
+</ul>
+<hr />
+<h3 id="23">2.3 联合熵与条件熵 🔴必考</h3>
+<p><strong>联合熵</strong>：<span class="arithmatex">\(H(X,Y) = -\sum_{x,y} p(x,y) \log p(x,y)\)</span></p>
+<p><strong>含义</strong>：联合熵 <span class="arithmatex">\(H(X,Y)\)</span> 是同时观测两个变量所需的总信息量；条件熵 <span class="arithmatex">\(H(X|Y)\)</span> 是已知 <span class="arithmatex">\(Y\)</span> 后 <span class="arithmatex">\(X\)</span> 的剩余不确定性。两者的链式关系 <span class="arithmatex">\(H(X,Y)=H(X)+H(Y|X)\)</span> 很容易理解：总不确定性 = 先搞懂 <span class="arithmatex">\(X\)</span> 所需信息 + 搞懂 <span class="arithmatex">\(X\)</span> 后再搞懂 <span class="arithmatex">\(Y\)</span> 还需多少额外信息。关系 <span class="arithmatex">\(I(X;Y)=H(X)-H(X|Y)\)</span> 则回答了"知道 <span class="arithmatex">\(Y\)</span> 让 <span class="arithmatex">\(X\)</span> 的不确定性减少了多少"——减少的量就是两个变量共享的信息。这就像一个拼图：联合熵是整幅图的信息量，条件熵是已知一部分后对剩下部分的不确定性。</p>
+<p><strong>条件熵</strong>（两种定义，老师重点区分）：</p>
+<details class="note">
+<summary>两种条件熵的区别</summary>
+</details>
+<p>老师花了大量时间区分两种条件熵：</p>
+<ol>
+<li>
+<p><strong>给定具体事件 <span class="arithmatex">\(Y=y\)</span> 的条件熵</strong>：
+    $<span class="arithmatex">\(H(X|Y=y) = -\sum_x p(x|y) \log p(x|y)\)</span>$
+    这是单个 <span class="arithmatex">\(Y=y\)</span> 条件下的熵，与 <span class="arithmatex">\(H(X)\)</span> 没有必然的大小关系（可大可小可相等）</p>
+</li>
+<li>
+<p><strong>给定随机变量 <span class="arithmatex">\(Y\)</span> 的条件熵</strong>（常用）：
+    $<span class="arithmatex">\(H(X|Y) = \sum_y p(y) H(X|Y=y) = -\sum_{x,y} p(x,y) \log p(x|y)\)</span>$
+    对 <span class="arithmatex">\(Y\)</span> 的所有可能取统计平均，<strong>一定满足</strong> <span class="arithmatex">\(H(X|Y) \leq H(X)\)</span></p>
+</li>
+</ol>
+<p><strong>链式法则</strong>：</p>
+<div class="arithmatex">\[H(X_1, \ldots, X_n) = \sum_{i=1}^{n} H(X_i \mid X_1, \ldots, X_{i-1})\]</div>
+<p><strong>含义</strong>：链式法则说明联合不确定性可以一步步拆解：先确定 <span class="arithmatex">\(X_1\)</span> 花 <span class="arithmatex">\(H(X_1)\)</span> 的信息量，已知 <span class="arithmatex">\(X_1\)</span> 后再确定 <span class="arithmatex">\(X_2\)</span> 只需 <span class="arithmatex">\(H(X_2|X_1)\)</span>，以此类推。这就像一个猜谜游戏：你可以先猜第一个字母，再根据第一个猜第二个，每一步都利用已猜到的信息减少后续的不确定性。链式法则也是许多更复杂证明的基础工具。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p><strong>条件熵的物理意义</strong>（老师用杭州-上海下雨例子）：</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span>：杭州是否下雨（概率 0.5/0.5，<span class="arithmatex">\(H(X)=1\)</span> bit）</li>
+<li><span class="arithmatex">\(Y\)</span>：上海是否下雨</li>
+<li>若上海下雨了，杭州下雨概率升到 0.75，则 <span class="arithmatex">\(H(X|Y=\text{下雨}) &lt; 1\)</span> bit（不确定降低）</li>
+<li>若上海晴天，杭州下雨概率降到 0.25，则 <span class="arithmatex">\(H(X|Y=\text{晴天}) &gt; 1\)</span> bit（不确定反而升高）</li>
+<li>但 <span class="arithmatex">\(H(X|Y)\)</span>（对 <span class="arithmatex">\(Y\)</span> 的所有可能平均后）一定 ≤ <span class="arithmatex">\(H(X)\)</span>，即<strong>平均而言，条件不会增加不确定性</strong></li>
+</ul>
+<p>老师用高考志愿选择类比：找不同人聊建议（<span class="arithmatex">\(Y\)</span>），综合所有人意见后你的不确定性应该下降。"如果你综合了所有人的意见还是更不确定了，那大不了不听他的。"</p>
+<p><strong>条件熵与热力学的类比</strong>：外界的一个输入会使一个开放系统的熵减少——这是信息论熵与热力学熵的又一呼应。</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目</strong>：已知联合分布 <span class="arithmatex">\(p(x,y)\)</span> 如下表，求 <span class="arithmatex">\(H(X,Y)\)</span>, <span class="arithmatex">\(H(X|Y)\)</span>, <span class="arithmatex">\(H(Y|X)\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(p(x,y)\)</span></th>
+<th><span class="arithmatex">\(y=0\)</span></th>
+<th><span class="arithmatex">\(y=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(x=0\)</span></td>
+<td>0.4</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(x=1\)</span></td>
+<td>0.2</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
+<p>??? note "答案"
+    边缘分布：<span class="arithmatex">\(p_X=(0.5,0.5)\)</span>，<span class="arithmatex">\(p_Y=(0.6,0.4)\)</span></p>
+<pre><code>$H(X,Y) = -(0.4\log 0.4 + 0.1\log 0.1 + 0.2\log 0.2 + 0.3\log 0.3) \approx 1.846$ bit
+
+$H(X) = 1$ bit，$H(Y) \approx 0.971$ bit
+
+$H(X|Y) = H(X,Y) - H(Y) = 1.846 - 0.971 = 0.875$ bit
+
+$H(Y|X) = H(X,Y) - H(X) = 1.846 - 1 = 0.846$ bit
+</code></pre>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li><span class="arithmatex">\(H(X|Y=y)\)</span> 与 <span class="arithmatex">\(H(X|Y)\)</span> 是不同概念！前者是事件条件，后者对 <span class="arithmatex">\(Y\)</span> 取平均</li>
+<li><span class="arithmatex">\(H(X|Y=y)\)</span> 可以大于、小于或等于 <span class="arithmatex">\(H(X)\)</span>，但 <span class="arithmatex">\(H(X|Y) \leq H(X)\)</span> 恒成立</li>
+<li>链式法则的物理意义：联合不确定性 = 先确定第一个 + 已知第一个后确定第二个 + ...</li>
+</ul>
+<hr />
+<h3 id="24-kl">2.4 相对熵 (KL 散度) 🟡重点</h3>
+<p><strong>含义</strong>：KL 散度衡量用分布 <span class="arithmatex">\(Q\)</span> 近似真实分布 <span class="arithmatex">\(P\)</span> 时代价多大——或者说把 <span class="arithmatex">\(Q\)</span> 误当成 <span class="arithmatex">\(P\)</span> 来用，平均多花多少"信息费"。它不是数学上的距离（不对称），而是"额外代价"或"惊讶增量"。比如你把公平骰子（<span class="arithmatex">\(P\)</span>）当成作弊骰子（<span class="arithmatex">\(Q\)</span>）来预测，KL 散度就是这种误判导致的信息损失。在机器学习中，最小化 KL 散度就是让模型分布逼近真实数据分布——这正是交叉熵损失函数的本质：模型训练就是不断减少"用模型代替真实分布"的额外代价。</p>
+<p><strong>定义</strong>：</p>
+<div class="arithmatex">\[D(P \Vert Q) = \sum_x p(x) \log \frac{p(x)}{q(x)}\]</div>
+<p><strong>性质</strong>：
+- <span class="arithmatex">\(D(P \Vert Q) \geq 0\)</span>（Gibbs 不等式），等号当且仅当 <span class="arithmatex">\(P=Q\)</span>
+- <strong>不对称</strong>：一般 <span class="arithmatex">\(D(P \Vert Q) \neq D(Q \Vert P)\)</span>
+- <strong>联合凸性</strong></p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>老师用 <strong>公平骰子 vs 作弊骰子</strong> 的例子引入 KL 散度：</p>
+<ul>
+<li><span class="arithmatex">\(P\)</span>：公平骰子（每个面概率 1/6）</li>
+<li><span class="arithmatex">\(Q\)</span>：被做过手脚的骰子（"比如 3 点的概率是 1/2，其他 5 个面各 1/10"）</li>
+<li>KL 散度衡量这两个概率分布之间的"距离"</li>
+</ul>
+<p>老师特别提到 KL 散度与<strong>机器学习中的交叉熵</strong>的紧密联系：
+  - 交叉熵 = <span class="arithmatex">\(H(P) + D(P\|Q)\)</span>
+  - 机器学习训练的本质：让模型分布 <span class="arithmatex">\(Q\)</span> 逼近真实分布 <span class="arithmatex">\(P\)</span>，即最小化 <span class="arithmatex">\(D(P\|Q)\)</span>
+  - 老师强调："损失函数就是用交叉熵，为什么？因为我们要最小化两个分布之间的差异"</p>
+<p><strong>不对称性</strong>：老师现场演示——<span class="arithmatex">\(D(P\|Q)\)</span> 和 <span class="arithmatex">\(D(Q\|P)\)</span> 一般不同，这不满足数学上"距离"的定义。解决方法：定义对称 KL 散度 <span class="arithmatex">\(D_{\text{sym}} = D(P\|Q) + D(Q\|P)\)</span>。</p>
+<p><strong>统一性</strong>（老师重点讲解）：三个核心概念可以用 KL 散度统一：
+  - 互信息：<span class="arithmatex">\(I(X;Y) = D(p(x,y) \| p(x)p(y))\)</span>
+  - 熵：<span class="arithmatex">\(H(X) = \log|\mathcal{X}| - D(p(x) \| \text{Uniform})\)</span>
+  - 老师总结："H 和 I 都可以用 D 来表示，所以本质上只有一个概念"</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目</strong>：设 <span class="arithmatex">\(P=(0.5,0.5)\)</span>, <span class="arithmatex">\(Q=(0.9,0.1)\)</span>，求 <span class="arithmatex">\(D(P\|Q)\)</span> 和 <span class="arithmatex">\(D(Q\|P)\)</span>。</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(D(P\|Q) = 0.5\log\frac{0.5}{0.9} + 0.5\log\frac{0.5}{0.1} \approx 0.5 \times (-0.848) + 0.5 \times 2.322 = 0.737\)</span> bit</p>
+<pre><code>$D(Q\|P) = 0.9\log\frac{0.9}{0.5} + 0.1\log\frac{0.1}{0.5} \approx 0.9 \times 0.848 + 0.1 \times (-2.322) = 0.530$ bit
+
+可见 $D(P\|Q) \neq D(Q\|P)$。
+</code></pre>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>定义中 <span class="arithmatex">\(q(x)=0\)</span> 时必须要求 <span class="arithmatex">\(p(x)=0\)</span>，否则 KL 散度无穷大——即 <span class="arithmatex">\(Q\)</span> 的支撑集必须包含 <span class="arithmatex">\(P\)</span> 的支撑集</li>
+<li>KL 散度不是真正的"距离"（不满足对称性和三角不等式）</li>
+</ul>
+<hr />
+<h3 id="25">2.5 互信息 🔴必考</h3>
+<p><strong>含义</strong>：互信息度量两个随机变量之间"共享"的信息量——知道 <span class="arithmatex">\(Y\)</span> 后，<span class="arithmatex">\(X\)</span> 的不确定性降低多少。公式 <span class="arithmatex">\(I(X;Y)=H(X)-H(X|Y)\)</span> 的意义非常直观：<span class="arithmatex">\(H(X)\)</span> 是你对 <span class="arithmatex">\(X\)</span> 的原始不确定度，<span class="arithmatex">\(H(X|Y)\)</span> 是已知 <span class="arithmatex">\(Y\)</span> 后还剩的不确定度，差值就是 <span class="arithmatex">\(Y\)</span> 告诉你的信息量。举例来说，你想知道明天是否下雨（<span class="arithmatex">\(X\)</span>），看到夜空多云（<span class="arithmatex">\(Y\)</span>）后你的不确定度从 1 bit 降到 0.4 bit——差值 0.6 bit 就是互信息。如果 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 独立，互信息为 0（知道 <span class="arithmatex">\(Y\)</span> 对 <span class="arithmatex">\(X\)</span> 毫无帮助）；如果 <span class="arithmatex">\(Y\)</span> 完全确定 <span class="arithmatex">\(X\)</span>，互信息等于 <span class="arithmatex">\(H(X)\)</span>（知道 <span class="arithmatex">\(Y\)</span> 就知道 <span class="arithmatex">\(X\)</span> 的一切）。</p>
+<p><strong>定义</strong>：</p>
+<div class="arithmatex">\[I(X;Y) = \sum_{x,y} p(x,y) \log \frac{p(x,y)}{p(x)p(y)} = D(p(x,y) \Vert p(x)p(y))\]</div>
+<p><strong>与熵的关系</strong>（教材式 2.1.46）：</p>
+<div class="arithmatex">\[I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) = H(X) + H(Y) - H(X,Y)\]</div>
+<p><strong>性质</strong>（教材式 2.1.47）：
+- 对称：<span class="arithmatex">\(I(X;Y) = I(Y;X)\)</span>
+- <span class="arithmatex">\(0 \leq I(X;Y) \leq \min\{H(X), H(Y)\}\)</span></p>
+<p><strong>条件互信息</strong>：</p>
+<div class="arithmatex">\[I(X;Y|Z) = \sum_{x,y,z} p(x,y,z) \log \frac{p(x,y|z)}{p(x|z)p(y|z)}\]</div>
+<p><strong>联合互信息链式法则</strong>：</p>
+<div class="arithmatex">\[I(X;Y,Z) = I(X;Z) + I(X;Y|Z) = I(X;Y) + I(X;Z|Y)\]</div>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p><strong>互信息的物理意义</strong>（老师重点讲解）：</p>
+<p>互信息 = 自信息 - 条件自信息 = <span class="arithmatex">\(Y\)</span> 发生后 <span class="arithmatex">\(X\)</span> 不确定性的<strong>降低量</strong></p>
+<p>用<strong>杭州-上海下雨</strong>例子：
+  - 杭州下雨的不确定性（自信息）= 1 bit
+  - 已知上海下雨后，杭州下雨的条件自信息 = <span class="arithmatex">\(-\log_2(0.75) \approx 0.415\)</span> bit
+  - 所以上海下雨给杭州下雨提供的互信息 = <span class="arithmatex">\(1 - 0.415 = 0.585\)</span> bit</p>
+<p>老师用维恩图解释互信息与熵的关系：
+  <div class="highlight"><pre><span></span><code>    H(X,Y)
+    /   \
+  H(X)   H(Y)
+   \    /
+  H(X|Y) I(X;Y) H(Y|X)
+</code></pre></div>
+  其中 <span class="arithmatex">\(I(X;Y)\)</span> 是两个圆的交集，<span class="arithmatex">\(H(X|Y)\)</span> 是 <span class="arithmatex">\(X\)</span> 中不与 <span class="arithmatex">\(Y\)</span> 重叠的部分。</p>
+<p><strong>极端情况</strong>：
+  - <span class="arithmatex">\(X \perp Y\)</span> 时：<span class="arithmatex">\(I(X;Y)=0\)</span>，两圆无交集
+  - <span class="arithmatex">\(Y=f(X)\)</span> 时：<span class="arithmatex">\(I(X;Y)=H(X)\)</span>，<span class="arithmatex">\(Y\)</span> 完全确定了 <span class="arithmatex">\(X\)</span>，两圆重合</p>
+<p>老师举<strong>掷骰子</strong>的例子：
+  - <span class="arithmatex">\(X\)</span>：骰子点数（1-6），<span class="arithmatex">\(H(X)=\log_2 6\)</span>
+  - <span class="arithmatex">\(Y\)</span>：奇偶性，<span class="arithmatex">\(H(Y)=1\)</span> bit
+  - <span class="arithmatex">\(I(X;Y)=H(Y)-H(Y|X)=1-0=1\)</span> bit（知道点数就知道奇偶）
+  - 但反过来 <span class="arithmatex">\(I(Y;X)=H(X)-H(X|Y)=\log_2 6 - \log_2 3 = 1\)</span> bit（知道奇偶只把点数范围缩到 3 种）</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目</strong>：证明 <span class="arithmatex">\(I(X;Y) = H(X) - H(X|Y)\)</span>。</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(I(X;Y) = \sum p(x,y)\log\frac{p(x,y)}{p(x)p(y)} = \sum p(x,y)\log\frac{p(x|y)}{p(x)}\)</span></p>
+<pre><code>$= -\sum p(x,y)\log p(x) + \sum p(x,y)\log p(x|y) = H(X) - H(X|Y)$
+</code></pre>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>互信息符号是分号 <span class="arithmatex">\(I(X;Y)\)</span>，不是逗号——逗号表示联合</li>
+<li>互信息总是非负的（<span class="arithmatex">\(I(X;Y) \geq 0\)</span>），等号当且仅当 <span class="arithmatex">\(X \perp Y\)</span></li>
+<li>互信息对称但不具有三角不等式</li>
+</ul>
+<hr />
+<h3 id="26">2.6 熵与互信息关系图 🟡重点</h3>
+<p><strong>含义</strong>：该维恩图直观展示了熵、联合熵、条件熵和互信息之间的数量关系。<span class="arithmatex">\(H(X)\)</span> 和 <span class="arithmatex">\(H(Y)\)</span> 两个圆的总面积是联合熵 <span class="arithmatex">\(H(X,Y)\)</span>；两圆交叠的部分是互信息 <span class="arithmatex">\(I(X;Y)\)</span>——两个变量共享的信息；<span class="arithmatex">\(X\)</span> 圆中不与 <span class="arithmatex">\(Y\)</span> 重叠的部分是 <span class="arithmatex">\(H(X|Y)\)</span>——<span class="arithmatex">\(Y\)</span> 无法告诉你的那部分 <span class="arithmatex">\(X\)</span> 的不确定性。整个图的核心等式 <span class="arithmatex">\(H(X) = H(X|Y) + I(X;Y)\)</span> 说明：<span class="arithmatex">\(X\)</span> 的总不确定性 = <span class="arithmatex">\(Y\)</span> 无法消除的部分 + <span class="arithmatex">\(Y\)</span> 能消除的部分。这个可视化是理解整套信息度量关系的钥匙。</p>
+<div class="highlight"><pre><span></span><code>    H(X,Y)
+    /   \
+  H(X)   H(Y)
+   \    /
+  H(X|Y) I(X;Y) H(Y|X)
+</code></pre></div>
+<ul>
+<li><span class="arithmatex">\(H(X,Y) = H(X) + H(Y|X) = H(Y) + H(X|Y)\)</span></li>
+<li><span class="arithmatex">\(H(X) = H(X|Y) + I(X;Y)\)</span></li>
+<li><span class="arithmatex">\(H(Y) = H(Y|X) + I(X;Y)\)</span></li>
+</ul>
+<hr />
+<h3 id="27-dpi">2.7 数据处理不等式 (DPI) 🟡重点</h3>
+<p>马尔可夫链 <span class="arithmatex">\(X \to Y \to Z\)</span>（条件独立 <span class="arithmatex">\(X \perp Z \mid Y\)</span>）：</p>
+<div class="arithmatex">\[I(X;Z) \leq I(X;Y)\]</div>
+<p><strong>含义</strong>：数据处理不等式（DPI）揭示了一个根本性的限制：你不可能通过对数据做任何后处理来凭空创造更多信息。一旦原始观测（<span class="arithmatex">\(Y\)</span>）被采集，后续的所有加工——滤波降噪、PCA 降维、特征提取、甚至深度神经网络——都只能在信息不增加的前提下进行。你可能去掉噪声（让信息更容易提取），但信息总量只会保持或减少，绝不会增加。DPI 是信息论中最重要的基础定理之一：它划出了机器学习和信号处理的终极天花板——信息只能被提取和压缩，不能被制造。</p>
+<p><strong>证明</strong>：由链式法则 <span class="arithmatex">\(I(X;Y,Z) = I(X;Y) + I(X;Z|Y) = I(X;Z) + I(X;Y|Z)\)</span>，利用条件独立性 <span class="arithmatex">\(I(X;Z|Y) = 0\)</span>，得 <span class="arithmatex">\(I(X;Y) = I(X;Z) + I(X;Y|Z) \geq I(X;Z)\)</span>。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>DPI 的直观理解：老师用<strong>通信系统</strong>类比：
+  - <span class="arithmatex">\(X\)</span>：发送的信号
+  - <span class="arithmatex">\(Y\)</span>：接收到的信号（经过信道可能有噪声）
+  - <span class="arithmatex">\(Z\)</span>：对 <span class="arithmatex">\(Y\)</span> 做任何后处理（如去噪、特征提取）
+  - DPI 告诉我们：<span class="arithmatex">\(Z\)</span> 中包含的关于 <span class="arithmatex">\(X\)</span> 的信息不可能超过 <span class="arithmatex">\(Y\)</span> 中的
+  - 这就像一个"信息不可能无中生有"</p>
+<p>老师特别强调："任何数据处理、任何特征提取、任何机器学习模型，都<strong>不可能</strong>创造出比原始数据更多的信息——这是信息论的一个根本限制。"</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目</strong>：已知 <span class="arithmatex">\(X \to Y \to Z\)</span> 是 Markov 链，且 <span class="arithmatex">\(Z = f(Y)\)</span> 是确定性函数。证明 <span class="arithmatex">\(I(X;Z) \leq I(X;Y)\)</span> 并给出取等条件。</p>
+<p>??? note "答案"
+    DPI 直接给出 <span class="arithmatex">\(I(X;Z) \leq I(X;Y)\)</span>。取等条件：<span class="arithmatex">\(X \to Z \to Y\)</span> 也成立（Z 是 Y 的充分统计量）。</p>
+<pre><code>典型反例：$Z = \text{sign}(Y)$ 丢失了 $Y$ 的幅度信息。
+</code></pre>
+<details class="note">
+<summary>易错点</summary>
+</details>
+<ul>
+<li>DPI 要求<strong>严格</strong>的 Markov 链 <span class="arithmatex">\(X \to Y \to Z\)</span>，即 <span class="arithmatex">\(p(x,y,z) = p(x)p(y|x)p(z|y)\)</span></li>
+<li>如果 <span class="arithmatex">\(Z\)</span> 依赖 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span>（不止 <span class="arithmatex">\(Y\)</span>），DPI 不一定成立</li>
+</ul>
+<hr />
+<h3 id="28-fano">2.8 Fano 不等式 🔴必考</h3>
+<p><strong>含义</strong>：Fano 不等式为任何基于 <span class="arithmatex">\(Y\)</span> 猜测 <span class="arithmatex">\(X\)</span> 的估计器设定了一个无法突破的错误率下界。简单来说：如果观测到 <span class="arithmatex">\(Y\)</span> 后你对 <span class="arithmatex">\(X\)</span> 仍然很不确定（<span class="arithmatex">\(H(X|Y)\)</span> 很大），那么无论你用多聪明的算法来推断 <span class="arithmatex">\(X\)</span>，都必然频繁出错。这就像考试时如果试卷信息严重不足（条件熵大），再厉害的学生也考不好——你没法靠"更好的处理"来弥补信息本身的亏空。Fano 不等式把这个直觉公式化，成为信息论与估计理论之间的重要桥梁。</p>
+<div class="arithmatex">\[\boxed{H(P_e) + P_e \log(|\mathcal{X} |-1) \geq H(X|Y)}\]</div>
+<p>其中 <span class="arithmatex">\(P_e = P(\hat{X} \neq X)\)</span>，<span class="arithmatex">\(\hat{X}\)</span> 是基于 <span class="arithmatex">\(Y\)</span> 的估计。等价于：</p>
+<div class="arithmatex">\[\boxed{P_e \geq \frac{H(X|Y) - 1} {\log(|\mathcal{X}|-1)}}\]</div>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>Fano 不等式给出了<strong>任何估计器</strong>（不论多复杂）的错误概率下界。老师说这是"信息论给估计理论的一个 fundamental limit"。</p>
+<p>物理意义：如果 <span class="arithmatex">\(H(X|Y)\)</span> 很大（即看了 <span class="arithmatex">\(Y\)</span> 后仍然对 <span class="arithmatex">\(X\)</span> 很不确定），那么任何基于 <span class="arithmatex">\(Y\)</span> 的估计都会有很大错误率。这直观上很好理解——给定 <span class="arithmatex">\(Y\)</span> 后不确定性越大，估计越容易错。</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目</strong>：设 <span class="arithmatex">\(|\mathcal{X}| = 4\)</span>，<span class="arithmatex">\(H(X|Y) = 1.2\)</span> bit，求 <span class="arithmatex">\(P_e\)</span> 的下界。</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(P_e \geq \frac{H(X|Y)-1}{\log(|\mathcal{X}|-1)} = \frac{1.2-1}{\log_2 3} = \frac{0.2}{1.585} \approx 0.126\)</span></p>
+<hr />
+<h3 id="29-22">2.9 微分熵与熵功率（教材 §2.2） 🟢了解</h3>
+<p><strong>含义</strong>：微分熵是离散熵到连续变量的推广——它衡量一个连续概率分布的"分散程度"。分布越平缓、越不确定，微分熵越大。与离散熵不同，微分熵可以是负数（概率密度可以大于 1），这意味着单个微分熵的绝对值没有意义，不同分布间的微分熵差才有意义。给定方差时正态分布微分熵最大——这说明在自然界的许多现象中，正态分布是最"随机"的分布，这也解释了为什么中心极限定理下误差会趋向正态分布。</p>
+<h4 id="_1">微分熵定义 🟢了解</h4>
+<p>对于连续随机变量 <span class="arithmatex">\(X\)</span>，概率密度为 <span class="arithmatex">\(f(x)\)</span>：</p>
+<div class="arithmatex">\[h(X) = -\int f(x) \log f(x) \, dx\]</div>
+<h4 id="222">最大熵定理（教材定理 2.2.2） 🟢了解</h4>
+<p>给定方差 <span class="arithmatex">\(\sigma^2\)</span>，正态分布 <span class="arithmatex">\(\mathcal{N}(0, \sigma^2)\)</span> 达到最大微分熵：</p>
+<div class="arithmatex">\[h(X) \leq \frac{1}{2} \log(2\pi e \sigma^2)\]</div>
+<p>等号当且仅当 <span class="arithmatex">\(X \sim \mathcal{N}(0, \sigma^2)\)</span>。</p>
+<h4 id="2224">熵功率（教材式 2.2.24） 🟢了解</h4>
+<p>定义熵功率为：</p>
+<div class="arithmatex">\[\bar{\sigma}^2 = \frac{1}{2\pi e} 2^{2h(X)}\]</div>
+<p>由最大熵定理可知，<span class="arithmatex">\(\bar{\sigma}^2 \leq \sigma^2\)</span>，当 <span class="arithmatex">\(X\)</span> 服从正态分布时等号成立。</p>
+<details class="note">
+<summary>课堂补充细节</summary>
+</details>
+<p>老师提到：<strong>连续随机变量和离散随机变量的熵有本质区别</strong>：
+  - 离散熵 <span class="arithmatex">\(H(X) \geq 0\)</span>，有明确的上界
+  - 微分熵 <span class="arithmatex">\(h(X)\)</span> 可以是负数（因为概率密度可以大于 1）
+  - 微分熵的对数底数也决定单位（bit/nat）</p>
+<p>对于<strong>连续分布的最大熵</strong>，老师指出：给定方差时正态分布最大；给定取值范围时均匀分布最大（这与离散情况不同——老师特别指出这个区别）。</p>
+<hr />
+<h3 id="210">2.10 熵率与平稳随机过程 🟢了解</h3>
+<p><strong>含义</strong>：熵率回答一个基本问题：一个平稳随机过程平均每个符号携带多少信息？以英文为例，单个字母的熵（考虑频率）约 4.0 bit，但相邻字母之间存在大量依赖——"q"后面几乎总是"u"——所以每新增一个字母实际提供的信息远小于 4 bit。随着考虑的序列越来越长，这种依赖累积起来，平均每字母的信息量最终收敛到熵率 <span class="arithmatex">\(H_\infty\)</span>。英文的熵率约 1.4 bit/字母，意味着 27 个字母中有 71% 是冗余的——这正是我们能在拼写错误时仍能读懂文章、能有效压缩文本的原因。</p>
+<details class="note">
+<summary>课堂补充细节（04-12 讲重点内容）</summary>
+</details>
+<p>老师用一整节课讲信源的熵率，这是第一章最"高级"的内容。</p>
+<p><strong>核心问题</strong>：一本书（如莎士比亚全集）到底有多少信息量？每个字母平均多少比特？</p>
+<p><strong>定义</strong>：
+  - 平均每个符号的熵：<span class="arithmatex">\(H_n(X) = \frac{1}{n} H(X_1, X_2, \ldots, X_n)\)</span>
+  - 熵率：<span class="arithmatex">\(H_\infty(X) = \lim_{n\to\infty} H_n(X)\)</span>
+  - 平均条件熵：<span class="arithmatex">\(H'_n(X) = H(X_n | X_1, \ldots, X_{n-1})\)</span></p>
+<p><strong>四个重要定理</strong>（老师逐一证明）：
+  1. <span class="arithmatex">\(H'_n(X)\)</span> 随 <span class="arithmatex">\(n\)</span> 单调不增（条件越多，不确定性越少）
+  2. <span class="arithmatex">\(H_n(X)\)</span> 随 <span class="arithmatex">\(n\)</span> 单调不增
+  3. <span class="arithmatex">\(H_n(X) \geq H'_n(X)\)</span>
+  4. <span class="arithmatex">\(\lim_{n\to\infty} H_n(X) = \lim_{n\to\infty} H'_n(X)\)</span>（两极限相等）</p>
+<p><strong>实际应用</strong>：英文的熵率约 1.4 bit/字母，而 27 个字母（26+空格）若均匀分布最大熵为 <span class="arithmatex">\(\log_2 27 \approx 4.766\)</span> bit。这意味着英文约有 71% 的冗余（由语法结构造成）。</p>
+<p><strong>马尔可夫信源</strong>：
+  - 一阶 Markov：下一字母只与当前字母有关
+  - M 阶 Markov：下一字母与前面 M 个字母有关，状态空间 <span class="arithmatex">\(K^M\)</span>
+  - 熵率计算：<span class="arithmatex">\(H_\infty = \sum_{s} \pi(s) H(X|S=s)\)</span>，其中 <span class="arithmatex">\(\pi(s)\)</span> 是稳态分布</p>
+<p>老师以<strong>二元一阶 Markov 信源</strong>为例：
+  - 状态 0→0 概率 <span class="arithmatex">\(1-\alpha\)</span>，0→1 概率 <span class="arithmatex">\(\alpha\)</span>
+  - 状态 1→0 概率 <span class="arithmatex">\(\beta\)</span>，1→1 概率 <span class="arithmatex">\(1-\beta\)</span>
+  - 稳态概率：<span class="arithmatex">\(\pi_0 = \frac{\beta}{\alpha+\beta}\)</span>, <span class="arithmatex">\(\pi_1 = \frac{\alpha}{\alpha+\beta}\)</span>
+  - 熵率：<span class="arithmatex">\(H_\infty = \pi_0 H_2(\alpha) + \pi_1 H_2(\beta)\)</span></p>
+<p>老师还举了<strong>教材习题 2.23</strong>的二元二阶 Markov 例子：
+  - 条件概率：<span class="arithmatex">\(p(0|00) = p(1|11) = 0.8\)</span>, <span class="arithmatex">\(p(0|01) = p(0|10) = p(1|01) = p(1|10) = 0.5\)</span>
+  - 稳态分布：<span class="arithmatex">\(\pi(00)=\pi(11)=5/14\)</span>, <span class="arithmatex">\(\pi(01)=\pi(10)=1/7\)</span>
+  - 熵率：<span class="arithmatex">\(H_\infty \approx 0.802\)</span> bit</p>
+<details class="note">
+<summary>配套练习</summary>
+</details>
+<p><strong>题目</strong>：设二元一阶 Markov 信源，<span class="arithmatex">\(\alpha=0.2, \beta=0.3\)</span>，求熵率。</p>
+<p>??? note "答案"
+    <span class="arithmatex">\(\pi_0 = \frac{0.3}{0.2+0.3} = 0.6\)</span>, <span class="arithmatex">\(\pi_1 = 0.4\)</span></p>
+<pre><code>$H_2(0.2) \approx 0.722$, $H_2(0.3) \approx 0.881$
+
+$H_\infty = 0.6 \times 0.722 + 0.4 \times 0.881 \approx 0.786$ bit
+</code></pre>
+<hr />
+<h2 id="3">3. 典型例题</h2>
+<h3 id="1_1">例题 1：二元信源熵</h3>
+<p><strong>问题</strong>：随机变量 <span class="arithmatex">\(X \sim \text{Bernoulli}(0.3)\)</span>，求 <span class="arithmatex">\(H(X)\)</span>，以及当 <span class="arithmatex">\(p\)</span> 为何值时 <span class="arithmatex">\(H(X)\)</span> 最大？</p>
+<p><strong>解</strong>：</p>
+<div class="arithmatex">\[H(X) = -0.3 \log_2 0.3 - 0.7 \log_2 0.7 \approx 0.881 \text{ bit}\]</div>
+<p><span class="arithmatex">\(H_2(p)\)</span> 是 <span class="arithmatex">\(p\)</span> 的凹函数，在 <span class="arithmatex">\(p = 0.5\)</span> 时取最大值 <span class="arithmatex">\(H_2(0.5) = 1\)</span> bit。<span class="arithmatex">\(p=0.3\)</span> 时 <span class="arithmatex">\(X\)</span> 并非"最大不确定性"——0 比 1 更可能，降低了平均信息量。</p>
+<h3 id="2_1">例题 2：联合熵与条件熵</h3>
+<p><strong>问题</strong>：<span class="arithmatex">\(X\)</span> 与 <span class="arithmatex">\(Y\)</span> 的联合分布如下：</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(p(x,y)\)</span></th>
+<th><span class="arithmatex">\(Y=0\)</span></th>
+<th><span class="arithmatex">\(Y=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(X=0\)</span></td>
+<td>0.4</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(X=1\)</span></td>
+<td>0.2</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
+<p>求 <span class="arithmatex">\(H(X)\)</span>、<span class="arithmatex">\(H(Y)\)</span>、<span class="arithmatex">\(H(X,Y)\)</span>、<span class="arithmatex">\(H(X|Y)\)</span>、<span class="arithmatex">\(H(Y|X)\)</span>、<span class="arithmatex">\(I(X;Y)\)</span>。</p>
+<p><strong>解</strong>：</p>
+<p>边缘分布：<span class="arithmatex">\(p_X = (0.5, 0.5)\)</span>，<span class="arithmatex">\(p_Y = (0.6, 0.4)\)</span></p>
+<div class="arithmatex">\[H(X) = H_2(0.5) = 1 \text{ bit}$$
+$$H(Y) = -0.6\log_2 0.6 - 0.4\log_2 0.4 \approx 0.971 \text{ bit}$$
+$$H(X,Y) = -(0.4\log_2 0.4 + 0.1\log_2 0.1 + 0.2\log_2 0.2 + 0.3\log_2 0.3) \approx 1.846 \text{ bit}\]</div>
+<p>条件熵：</p>
+<div class="arithmatex">\[H(X|Y=0) = H_2(0.4/0.6) = H_2(2/3) \approx 0.918$$
+$$H(X|Y=1) = H_2(0.1/0.4) = H_2(0.25) \approx 0.811$$
+$$H(X|Y) = 0.6 \times 0.918 + 0.4 \times 0.811 \approx 0.875 \text{ bit}$$
+$$H(Y|X) = H(X,Y) - H(X) \approx 0.846 \text{ bit}\]</div>
+<p>互信息：</p>
+<p>$<span class="arithmatex">\(I(X;Y) = H(X) - H(X|Y) = 1 - 0.875 = 0.125 \text{ bit}\)</span>$
+或 <span class="arithmatex">\(I(X;Y) = H(X) + H(Y) - H(X,Y) = 1 + 0.971 - 1.846 = 0.125 \text{ bit}\)</span></p>
+<h3 id="3_1">例题 3：条件熵与独立性</h3>
+<p><strong>问题</strong>：证明 <span class="arithmatex">\(H(X|Y) \leq H(X)\)</span>，并举例说明等号何时成立。</p>
+<p><strong>解（Gibbs 不等式法）</strong>：</p>
+<div class="arithmatex">\[H(X|Y) - H(X) = -\sum_{x,y} p(x,y) \log \frac{p(x|y)}{p(x)} = -\sum_{x,y} p(x,y) \log \frac{p(x,y)}{p(x)p(y)}\]</div>
+<p>令 <span class="arithmatex">\(Q = p(x)p(y)\)</span>（独立），<span class="arithmatex">\(P = p(x,y)\)</span>，则：</p>
+<div class="arithmatex">\[H(X|Y) - H(X) = -D(P \Vert Q) \leq 0\]</div>
+<p>由 Gibbs 不等式 <span class="arithmatex">\(D(P\Vert Q) \geq 0\)</span>，得 <span class="arithmatex">\(H(X|Y) \leq H(X)\)</span>。<strong>等号当且仅当 <span class="arithmatex">\(X \perp Y\)</span></strong>（即 <span class="arithmatex">\(p(x,y) = p(x)p(y)\)</span>）。</p>
+<h3 id="4dpi">例题 4：DPI 的应用</h3>
+<p><strong>问题</strong>：已知 <span class="arithmatex">\(X \to Y \to Z\)</span> 是 Markov 链，且 <span class="arithmatex">\(Z = f(Y)\)</span> 是确定性函数。证明 <span class="arithmatex">\(I(X;Z) \leq I(X;Y)\)</span> 并给出取等的条件。</p>
+<p><strong>解</strong>：</p>
+<p>由 DPI，<span class="arithmatex">\(I(X;Z) \leq I(X;Y)\)</span> 直接成立。取等条件：<span class="arithmatex">\(X \to Z \to Y\)</span> 也成立，即 <span class="arithmatex">\(Z\)</span> 是 <span class="arithmatex">\(Y\)</span> 的一个<strong>充分统计量</strong>——<span class="arithmatex">\(Z = f(Y)\)</span> 保留了 <span class="arithmatex">\(Y\)</span> 中关于 <span class="arithmatex">\(X\)</span> 的全部信息。</p>
+<p>典型反例：<span class="arithmatex">\(Z = \text{sign}(Y)\)</span> 丢失了 <span class="arithmatex">\(Y\)</span> 的幅度信息。</p>
+<h3 id="5">例题 5：英文熵率计算（课堂讨论）</h3>
+<p><strong>问题</strong>：假设英文字母共 27 个（26 字母 + 空格），计算：(1) 均匀分布时最大熵 (2) 计入各字母概率分布后的一阶熵 (3) 熵率的实际值。</p>
+<p><strong>解</strong>（老师课堂上给出的数据）：</p>
+<ol>
+<li><span class="arithmatex">\(H_0 = \log_2 27 \approx 4.766\)</span> bit（均匀分布最大熵）</li>
+<li><span class="arithmatex">\(H_1 \approx 4.036\)</span> bit（考虑字母出现频率不等，但假设独立）</li>
+<li><span class="arithmatex">\(H_2 \approx 3.326\)</span> bit（考虑相邻字母相关性）</li>
+<li><span class="arithmatex">\(H_\infty \approx 1.4\)</span> bit（考虑全部语言结构后的熵率）</li>
+</ol>
+<p><strong>意义</strong>：熵的相对率 <span class="arithmatex">\(\eta = H_\infty / \log_2 27 \approx 0.29\)</span>，冗余度 <span class="arithmatex">\(R = 1 - \eta \approx 71\%\)</span>。这意味着英文中 71% 的内容是由语法结构决定的，只有 29% 是作者的"自由发挥"。</p>
+<hr />
+<h2 id="4">4. 常见题型</h2>
+<h3 id="kl">题型一：计算题（熵/互信息/KL散度）</h3>
+<div class="arithmatex">\[
+\begin{array}{|l|l|l|}
+\hline
+\textbf{题型} &amp; \textbf{解法} &amp; \textbf{教材参考} \\
+\hline
+\text{给定分布 $p(x)$ 求 $H(X)$} &amp; 直接代入 $H(X) = -\sum p(x)\log p(x)$ &amp; 教材 §2.1.3 \\
+\text{给定联合分布求 $H(X,Y)$} &amp; 同上，用联合概率 &amp; 教材 §2.1.4 \\
+\text{求 $H(X|Y)$} &amp; 先算边缘 $p(y)$，再算 $H(X|Y=y)$，加权平均 &amp; 教材例 2.1.7 \\
+\text{求 $I(X;Y)$} &amp; 可用 $I = H(X)+H(Y)-H(X,Y)$ 或 $I = H(X)-H(X|Y)$ &amp; 教材式 2.1.46 \\
+\text{求 $D(P\Vert Q)$} &amp; 直接代入定义，注意检查 $Q(x)=0 \Rightarrow P(x)=0$ &amp; 教材 §2.1.7 \\
+\hline
+\end{array}
+\]</div>
+<h3 id="_2">题型二：性质证明题</h3>
+<table>
+<thead>
+<tr>
+<th>要证明的命题</th>
+<th>常用方法</th>
+<th>教材参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$H(X</td>
+<td>Y) \leq H(X)$</td>
+<td>Gibbs 不等式 <span class="arithmatex">\(D(P\Vert Q) \geq 0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(I(X;Y) \geq 0\)</span></td>
+<td><span class="arithmatex">\(I = D(p(x,y) \Vert p(x)p(y)) \geq 0\)</span></td>
+<td>教材式 2.1.46</td>
+</tr>
+<tr>
+<td>DPI: <span class="arithmatex">\(I(X;Z) \leq I(X;Y)\)</span></td>
+<td>链式法则 + 条件独立性</td>
+<td>教材 §2.1.9</td>
+</tr>
+<tr>
+<td>熵的上界</td>
+<td>Jensen 不等式</td>
+<td>教材 §2.1.5</td>
+</tr>
+<tr>
+<td>KL 散度的联合凸性</td>
+<td>log-sum 不等式</td>
+<td>教材 §2.1.7</td>
+</tr>
+<tr>
+<td>互信息对称性 <span class="arithmatex">\(I(X;Y)=I(Y;X)\)</span></td>
+<td>代入定义直接验证</td>
+<td>教材式 2.1.46</td>
+</tr>
+<tr>
+<td>$I(X;Y,Z)=I(X;Y)+I(X;Z</td>
+<td>Y)$</td>
+<td>链式法则展开</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fano">题型三：Fano 不等式应用题</h3>
+<p>给 <span class="arithmatex">\(|\mathcal{X}|\)</span> 和 <span class="arithmatex">\(H(X|Y)\)</span>，求 <span class="arithmatex">\(P_e\)</span> 下界：</p>
+<div class="arithmatex">\[P_e \geq \frac{H(X|Y) - 1}{\log(|\mathcal{X}| - 1)}\]</div>
+<h3 id="dpi">题型四：马尔可夫链+DPI综合</h3>
+<p>给 Markov 链结构，判断 <span class="arithmatex">\(I\)</span> 的大小关系。关键：找出谁在"中间"，DPI 告诉你在中间的变量拥有关于起点最多的信息。</p>
+<h3 id="_3">题型五：微分熵与熵功率</h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>解法</th>
+<th>教材参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>给定方差求最大微分熵</td>
+<td>正态分布 <span class="arithmatex">\(h = \frac12\log(2\pi e\sigma^2)\)</span></td>
+<td>教材定理 2.2.2</td>
+</tr>
+<tr>
+<td>计算熵功率</td>
+<td><span class="arithmatex">\(\bar{\sigma}^2 = 2^{2h}/(2\pi e)\)</span></td>
+<td>教材式 2.2.24</td>
+</tr>
+<tr>
+<td>熵功率与功率比较</td>
+<td><span class="arithmatex">\(\bar{\sigma}^2 \leq \sigma^2\)</span>，正态时取等</td>
+<td>教材式 2.2.25</td>
+</tr>
+</tbody>
+</table>
+<h3 id="markov">题型六：熵率计算（平稳 Markov 信源）</h3>
+<p>给 Markov 转移概率，求稳态分布和熵率。</p>
+<hr />
+<h2 id="5_1">5. 📖 教材例题精选</h2>
+<h3 id="217">[例 2.1.7] 化验问题的互信息计算</h3>
+<p><strong>问题</strong>：已知平均每 100 人中有 2 人患有某种病。为了查明病情，必须进行某项指标的化验。这种化验的结果对于有病的人总是阳性的，对于健康人来说有一半可能为阳性、一半可能为阴性。试问这项化验对于查明病情提供多少信息？如果先验分布变为等概率，化验又提供多少信息？</p>
+<p><strong>解</strong>：</p>
+<p>用随机变量 <span class="arithmatex">\(X\)</span> 取值 0,1 分别表示被抽查人是健康或有病，则
+$<span class="arithmatex">\(p(X=0) = 0.98,\quad p(X=1) = 0.02\)</span>$</p>
+<p>用随机变量 <span class="arithmatex">\(Y\)</span> 取值 0,1 分别表示化验结果为阴性或阳性，条件概率为：
+$<span class="arithmatex">\(p(Y=0|X=0) = 0.5,\quad p(Y=1|X=0) = 0.5\)</span>$
+$<span class="arithmatex">\(p(Y=0|X=1) = 0,\quad p(Y=1|X=1) = 1\)</span>$</p>
+<p><strong>情形一：先验 <span class="arithmatex">\(p(X=0)=0.98, p(X=1)=0.02\)</span></strong></p>
+<p>计算边缘分布：
+$<span class="arithmatex">\(p(Y=0) = 0.98 \times 0.5 + 0.02 \times 0 = 0.49\)</span>$
+$<span class="arithmatex">\(p(Y=1) = 0.98 \times 0.5 + 0.02 \times 1 = 0.51\)</span>$</p>
+<p>源熵：
+$<span class="arithmatex">\(H(X) = -0.98\log_2 0.98 - 0.02\log_2 0.02 \approx 0.1414 \text{ bit}\)</span>$</p>
+<p>后验概率：
+$<span class="arithmatex">\(p(X=0|Y=0) = \frac{0.5 \times 0.98}{0.49} = 1,\quad p(X=1|Y=0) = 0\)</span>$
+$<span class="arithmatex">\(p(X=0|Y=1) = \frac{0.5 \times 0.98}{0.51} \approx 0.9608,\quad p(X=1|Y=1) \approx 0.0392\)</span>$</p>
+<p>条件熵：
+$<span class="arithmatex">\(H(X|Y=0) = 0\)</span>$
+$<span class="arithmatex">\(H(X|Y=1) = -0.9608\log_2 0.9608 - 0.0392\log_2 0.0392 \approx 0.2423 \text{ bit}\)</span>$
+$<span class="arithmatex">\(H(X|Y) = 0.49 \times 0 + 0.51 \times 0.2423 \approx 0.1236 \text{ bit}\)</span>$</p>
+<p>互信息：
+$<span class="arithmatex">\(I(X;Y) = H(X) - H(X|Y) = 0.1414 - 0.1236 \approx 0.0178 \text{ bit}\)</span>$</p>
+<p><strong>情形二：先验 <span class="arithmatex">\(p(X=0)=0.5, p(X=1)=0.5\)</span></strong></p>
+<p>此时 <span class="arithmatex">\(H(X) = 1\)</span> bit。</p>
+<p>边缘分布：
+$<span class="arithmatex">\(p(Y=0) = 0.5 \times 0.5 + 0.5 \times 0 = 0.25\)</span>$
+$<span class="arithmatex">\(p(Y=1) = 0.5 \times 0.5 + 0.5 \times 1 = 0.75\)</span>$</p>
+<p>后验概率：
+$<span class="arithmatex">\(p(X=0|Y=0) = 1,\quad p(X=1|Y=0) = 0\)</span>$
+$<span class="arithmatex">\(p(X=0|Y=1) = \frac{1}{3},\quad p(X=1|Y=1) = \frac{2}{3}\)</span>$</p>
+<p>条件熵：
+$<span class="arithmatex">\(H(X|Y=1) = -\frac{1}{3}\log_2\frac{1}{3} - \frac{2}{3}\log_2\frac{2}{3} \approx 0.918 \text{ bit}\)</span>$
+$<span class="arithmatex">\(H(X|Y) = 0.25 \times 0 + 0.75 \times 0.918 \approx 0.6885 \text{ bit}\)</span>$</p>
+<p>互信息：
+$<span class="arithmatex">\(I(X;Y) = 1 - 0.6885 \approx 0.3115 \text{ bit}\)</span>$</p>
+<p><strong>结论</strong>：同样的化验对于不同的先验分布，提供不同的信息量。发病率低时（1/50），化验只提供 0.0178 bit 信息；发病率高时（1/2），化验提供 0.3115 bit 信息。</p>
+<details class="note">
+<summary>老师的补充讨论</summary>
+</details>
+<p>老师在课堂上特别提到核酸检测的例子："疫情防控的人应该学点信息论——检测不可能 100% 准确，总有假阳性假阴性。" 即使检测结果都是 0.5/0.5（完全随机），互信息为 0，检测毫无价值。</p>
+<hr />
+<h3 id="218">[例 2.1.8] 硬币识别问题</h3>
+<p><strong>问题</strong>：有两个硬币，一个是正常的硬币（一面国徽，一面面值），另一个是不正常的硬币（两面都是面值）。现随机地抽取一个硬币，抛掷 2 次。问出现面值的次数对于硬币的识别提供多少信息？</p>
+<p><strong>解</strong>：</p>
+<p>用 <span class="arithmatex">\(X\)</span> 表示硬币类型：<span class="arithmatex">\(X=0\)</span> 表示正常硬币，<span class="arithmatex">\(X=1\)</span> 表示不正常硬币。</p>
+<p>随机抽取，<span class="arithmatex">\(p(X=0) = p(X=1) = 0.5\)</span>，<span class="arithmatex">\(H(X) = 1\)</span> bit。</p>
+<p>用 <span class="arithmatex">\(Y\)</span> 表示抛掷两次中出现面值的次数，<span class="arithmatex">\(Y \in \{0,1,2\}\)</span>。</p>
+<p>条件概率（正常硬币每抛一次出现面值概率为 0.5）：
+$<span class="arithmatex">\(p(Y=0|X=0) = 0.25,\; p(Y=1|X=0) = 0.5,\; p(Y=2|X=0) = 0.25\)</span>$
+$<span class="arithmatex">\(p(Y=0|X=1) = 0,\; p(Y=1|X=1) = 0,\; p(Y=2|X=1) = 1\)</span>$</p>
+<p>计算边缘分布：
+$<span class="arithmatex">\(p(Y=0) = 0.5 \times 0.25 + 0.5 \times 0 = 0.125\)</span>$
+$<span class="arithmatex">\(p(Y=1) = 0.5 \times 0.5 + 0.5 \times 0 = 0.25\)</span>$
+$<span class="arithmatex">\(p(Y=2) = 0.5 \times 0.25 + 0.5 \times 1 = 0.625\)</span>$</p>
+<p>后验概率（以 <span class="arithmatex">\(Y=2\)</span> 为例）：
+$<span class="arithmatex">\(p(X=0|Y=2) = \frac{0.5 \times 0.25}{0.625} = 0.2,\quad p(X=1|Y=2) = \frac{0.5 \times 1}{0.625} = 0.8\)</span>$</p>
+<p>条件熵：
+$<span class="arithmatex">\(H(X|Y=0) = H(X|Y=1) = 0 \text{（完全确定）}\)</span>$
+$<span class="arithmatex">\(H(X|Y=2) = -0.2\log_2 0.2 - 0.8\log_2 0.8 \approx 0.722 \text{ bit}\)</span>$
+$<span class="arithmatex">\(H(X|Y) = 0.125 \times 0 + 0.25 \times 0 + 0.625 \times 0.722 \approx 0.4513 \text{ bit}\)</span>$</p>
+<p>互信息：
+$<span class="arithmatex">\(I(X;Y) = H(X) - H(X|Y) = 1 - 0.4513 \approx 0.5487 \text{ bit}\)</span>$</p>
+<p><strong>结论</strong>：抛掷两次出现面值的次数提供了约 0.55 bit 的信息，使我们对硬币类型的不确定性从 1 bit 降到了 0.45 bit。注意 <span class="arithmatex">\(Y=0\)</span> 或 <span class="arithmatex">\(Y=1\)</span> 时能完全确定是正常硬币，但 <span class="arithmatex">\(Y=2\)</span> 时仍然有歧义（可能是正常硬币抛出了两个面值，也可能是不正常硬币）。</p>
+<details class="note">
+<summary>老师的进一步讨论</summary>
+</details>
+<p>老师在课堂上追问："如果把硬币抛无穷多次，会怎样？" 100 次全是面值，能确定是假币吗？还不能完全确定——真币也有可能（虽然概率极小）。这就是香农后来研究的问题：当 <span class="arithmatex">\(N \to \infty\)</span>，收敛性如何？</p>
+<hr />
+<h3 id="2146">互信息的基本性质（教材式 2.1.46）</h3>
+<p><strong>问题</strong>：证明互信息的三种等价表达式：
+$<span class="arithmatex">\(I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) = H(X) + H(Y) - H(X,Y)\)</span>$</p>
+<p><strong>证明</strong>：</p>
+<p>由互信息定义：
+$<span class="arithmatex">\(I(X;Y) = \sum_{x,y} p(x,y) \log \frac{p(x,y)}{p(x)p(y)}\)</span>$</p>
+<p>展开为三项：
+$$
+\begin{aligned}
+I(X;Y) &amp;= \sum_{x,y} p(x,y) \log \frac{p(x|y)}{p(x)} \
+&amp;= -\sum_{x,y} p(x,y) \log p(x) + \sum_{x,y} p(x,y) \log p(x|y) \
+&amp;= H(X) - H(X|Y)
+\end{aligned}
+$$</p>
+<p>同理可得 <span class="arithmatex">\(I(X;Y) = H(Y) - H(Y|X)\)</span>。又：
+$$
+\begin{aligned}
+I(X;Y) &amp;= \sum_{x,y} p(x,y) \log \frac{p(x,y)}{p(x)p(y)} \
+&amp;= \sum_{x,y} p(x,y) [-\log p(x) - \log p(y) + \log p(x,y)] \
+&amp;= H(X) + H(Y) - H(X,Y)
+\end{aligned}
+$$</p>
+<p>三种形式等价，在不同计算场景中灵活选用。</p>
+<hr />
+<h3 id="222-2224">微分熵与熵功率（教材定理 2.2.2、式 2.2.24）</h3>
+<p><strong>问题</strong>：设连续随机变量 <span class="arithmatex">\(X\)</span> 的方差为 <span class="arithmatex">\(\sigma^2\)</span>，证明其微分熵满足 <span class="arithmatex">\(h(X) \leq \frac{1}{2}\log(2\pi e\sigma^2)\)</span>，并定义熵功率。</p>
+<p><strong>解</strong>：</p>
+<p><strong>最大熵定理</strong>：在给定方差 <span class="arithmatex">\(\sigma^2\)</span> 的条件下，正态分布 <span class="arithmatex">\(\mathcal{N}(0,\sigma^2)\)</span> 达到最大微分熵：
+$<span class="arithmatex">\(h(X) \leq \frac{1}{2}\log(2\pi e\sigma^2)\)</span>$
+等号当且仅当 <span class="arithmatex">\(X \sim \mathcal{N}(0,\sigma^2)\)</span> 时成立。</p>
+<p><strong>证明思想</strong>：设 <span class="arithmatex">\(g(x)\)</span> 为正态分布密度，<span class="arithmatex">\(p(x)\)</span> 为任意满足方差约束的密度。由 KL 散度非负：
+$<span class="arithmatex">\(0 \leq D(p \| g) = -h(p) - \int p(x) \log g(x) dx\)</span>$
+代入 <span class="arithmatex">\(\log g(x) = -\frac{1}{2}\log(2\pi\sigma^2) - \frac{x^2}{2\sigma^2}\)</span>，化简即得。</p>
+<p><strong>熵功率定义</strong>：
+$<span class="arithmatex">\(\bar{\sigma}^2 \triangleq \frac{1}{2\pi e} 2^{2h(X)}\)</span>$
+由最大熵定理可知 <span class="arithmatex">\(\bar{\sigma}^2 \leq \sigma^2\)</span>，当 <span class="arithmatex">\(X\)</span> 服从正态分布时等号成立。熵功率可以理解为"随机变量的有效功率"——在相同熵值下等效的正态分布方差。</p>
+<hr />
+<h2 id="6">6. 📝 按题型精选</h2>
+<h3 id="kl_1">题型一：计算题 — 给定分布求熵/互信息/KL散度</h3>
+<p><strong>题目 1</strong>：设离散信源分布为 <span class="arithmatex">\(p = \{0.5, 0.3, 0.2\}\)</span>，求 <span class="arithmatex">\(H(X)\)</span>。</p>
+<p><strong>解答要点</strong>：<span class="arithmatex">\(H(X) = -0.5\log_2 0.5 - 0.3\log_2 0.3 - 0.2\log_2 0.2 = 0.5 + 0.521 + 0.464 = 1.485\)</span> bit。直接代入熵的定义即可，注意 log 底数决定单位。</p>
+<p><strong>题目 2</strong>（补充练习）：<span class="arithmatex">\(X\)</span> 与 <span class="arithmatex">\(Y\)</span> 联合分布为 <span class="arithmatex">\(p(0,0)=0.4,\;p(0,1)=0.1,\;p(1,0)=0.2,\;p(1,1)=0.3\)</span>。求 <span class="arithmatex">\(H(X)\)</span>, <span class="arithmatex">\(H(Y)\)</span>, <span class="arithmatex">\(H(X,Y)\)</span>, <span class="arithmatex">\(H(X|Y)\)</span>, <span class="arithmatex">\(I(X;Y)\)</span>。</p>
+<p><strong>解答要点</strong>：①边缘分布 <span class="arithmatex">\(p_X=(0.5,0.5)\)</span>，<span class="arithmatex">\(p_Y=(0.6,0.4)\)</span> ②<span class="arithmatex">\(H(X)=1\)</span>，<span class="arithmatex">\(H(Y)=0.971\)</span>，<span class="arithmatex">\(H(X,Y)=1.846\)</span> bit ③<span class="arithmatex">\(H(X|Y)=H(X,Y)-H(Y)=0.875\)</span>，<span class="arithmatex">\(I=H(X)-H(X|Y)=0.125\)</span> bit。</p>
+<p><strong>题目 3</strong>：设 <span class="arithmatex">\(P=(0.4,0.3,0.2,0.1)\)</span>，<span class="arithmatex">\(Q=(0.25,0.25,0.25,0.25)\)</span>，求 <span class="arithmatex">\(D(P\|Q)\)</span>。</p>
+<p><strong>解答要点</strong>：
+<span class="arithmatex">\(D(P\|Q) = 0.4\log_2\frac{0.4}{0.25} + 0.3\log_2\frac{0.3}{0.25} + 0.2\log_2\frac{0.2}{0.25} + 0.1\log_2\frac{0.1}{0.25}\)</span>
+<span class="arithmatex">\(= 0.4 \times 0.678 + 0.3 \times 0.263 + 0.2 \times (-0.322) + 0.1 \times (-1.322) = 0.271 + 0.079 - 0.064 - 0.132 = 0.154\)</span> bit</p>
+<h3 id="_4">题型二：性质证明题 — 不等式证明</h3>
+<p><strong>题目</strong>：证明 <span class="arithmatex">\(I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) = H(X) + H(Y) - H(X,Y)\)</span>（教材式 2.1.46）。</p>
+<p><strong>解答要点</strong>：<span class="arithmatex">\(I(X;Y) = \sum p(x,y)\log\frac{p(x|y)}{p(x)} = -\sum p(x,y)\log p(x) + \sum p(x,y)\log p(x|y) = H(X) - H(X|Y)\)</span>；同理可得其他等价形式。关键在于将 <span class="arithmatex">\(\log\frac{p(x,y)}{p(x)p(y)}\)</span> 拆分为三项。</p>
+<h3 id="fano_1">题型三：Fano 不等式应用题</h3>
+<p><strong>题目</strong>：设 <span class="arithmatex">\(|\mathcal{X}| = 4\)</span>，<span class="arithmatex">\(H(X|Y) = 1.2\)</span> bit，求 <span class="arithmatex">\(P_e\)</span> 的下界。</p>
+<p><strong>解答要点</strong>：<span class="arithmatex">\(P_e \geq \frac{H(X|Y)-1}{\log(|\mathcal{X}|-1)} = \frac{1.2-1}{\log_2 3} = \frac{0.2}{1.585} \approx 0.126\)</span>。条件熵 <span class="arithmatex">\(1.2\)</span> bit 时，任何基于 <span class="arithmatex">\(Y\)</span> 的估计错误率至少为 <span class="arithmatex">\(12.6\%\)</span>。</p>
+<h3 id="dpi_1">题型四：马尔可夫链 + DPI 综合</h3>
+<p><strong>题目</strong>（教材习题 2.23）：二阶二元马尔科夫信源，条件概率 <span class="arithmatex">\(p(0|00)=p(1|11)=0.8\)</span>，<span class="arithmatex">\(p(0|01)=p(0|10)=p(1|01)=p(1|10)=0.5\)</span>。求熵率 <span class="arithmatex">\(H_\infty(X)\)</span>。</p>
+<p><strong>解答要点</strong>：①将二阶 Markov 转化为一阶状态 Markov（4 个状态：00,01,10,11）②列稳态方程求解：<span class="arithmatex">\(\pi(00)=\pi(11)=5/14\)</span>，<span class="arithmatex">\(\pi(01)=\pi(10)=1/7\)</span> ③<span class="arithmatex">\(H_\infty = \sum_s \pi(s)H(X|S=s)\)</span> ④<span class="arithmatex">\(H_\infty = \frac{5}{14}H_2(0.8)+\frac{1}{7}H_2(0.5)+\frac{1}{7}H_2(0.5)+\frac{5}{14}H_2(0.8) \approx 0.802\)</span> bit。</p>
+<h3 id="_5">题型五：微分熵与熵功率</h3>
+<p><strong>题目</strong>：设连续随机变量 <span class="arithmatex">\(X\)</span> 方差 <span class="arithmatex">\(\sigma^2 = 4\)</span>，求最大微分熵和熵功率。</p>
+<p><strong>解答要点</strong>：①正态分布达到最大微分熵：<span class="arithmatex">\(h(X) = \frac12\log_2(2\pi e\sigma^2) = \frac12\log_2(2\pi e \times 4) \approx \frac12 \times 4.094 = 2.047\)</span> bit ②熵功率 <span class="arithmatex">\(\bar{\sigma}^2 = \frac{1}{2\pi e}2^{2h(X)} = \sigma^2 = 4\)</span>（正态时熵功率等于实际方差）。</p>
+<hr />
+<h2 id="7">7. 公式速查</h2>
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>定义</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(H(X)\)</span></td>
+<td><span class="arithmatex">\(-\sum p(x)\log p(x)\)</span></td>
+<td><span class="arithmatex">\([0, \log\|\mathcal{X}\|]\)</span></td>
+</tr>
+<tr>
+<td>$H(X</td>
+<td>Y)$</td>
+<td>$-\sum p(x,y)\log p(x</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(I(X;Y)\)</span></td>
+<td><span class="arithmatex">\(\sum p(x,y)\log\frac{p(x,y)}{p(x)p(y)}\)</span></td>
+<td><span class="arithmatex">\([0, \min(H_X,H_Y)]\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(D(P\Vert Q)\)</span></td>
+<td><span class="arithmatex">\(\sum p(x)\log\frac{p(x)}{q(x)}\)</span></td>
+<td><span class="arithmatex">\([0, \infty)\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(H_2(p)\)</span></td>
+<td><span class="arithmatex">\(-p\log p-(1-p)\log(1-p)\)</span></td>
+<td><span class="arithmatex">\([0, 1]\)</span></td>
+</tr>
+<tr>
+<td>Fano</td>
+<td>$H(P_e)+P_e\log(|\mathcal{X}|-1) \geq H(X</td>
+<td>Y)$</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(h(X)\)</span> 微分熵</td>
+<td><span class="arithmatex">\(-\int f(x)\log f(x)dx\)</span></td>
+<td><span class="arithmatex">\((-\infty, \infty)\)</span></td>
+</tr>
+<tr>
+<td>熵功率 <span class="arithmatex">\(\bar{\sigma}^2\)</span></td>
+<td><span class="arithmatex">\(2^{2h(X)}/(2\pi e)\)</span></td>
+<td><span class="arithmatex">\(\bar{\sigma}^2 \leq \sigma^2\)</span></td>
+</tr>
+<tr>
+<td>正态微分熵</td>
+<td><span class="arithmatex">\(h(\mathcal{N}(\mu,\sigma^2)) = \frac12\log(2\pi e\sigma^2)\)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>熵率 <span class="arithmatex">\(H_\infty\)</span></td>
+<td><span class="arithmatex">\(\lim_{n\to\infty} \frac1n H(X_1,\ldots,X_n)\)</span></td>
+<td><span class="arithmatex">\([0, \log\|\mathcal{X}\|]\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8">8. 信息论的核心问题（老师课堂总结）</h2>
+<p>老师在第一节课（03-08）和第二节（03-15）反复强调信息论的三个核心问题：</p>
+<ol>
+<li><strong>无损压缩</strong>（信源编码第一定理）：给定一个信源，最少需要多少个比特来存储？（"一本书需要多少比特？"）</li>
+<li><strong>有噪信道传输</strong>（信道编码第二定理）：在有噪声的信道上，最大可靠传输速率是多少？（"传这本书需要多少信道容量？"）</li>
+<li><strong>有损压缩</strong>（率失真理论）：允许一定失真的前提下，最少需要多少个比特？（"微信发图片，如何用几十 K 传一张基本可辨认的图片？"）</li>
+</ol>
+<p>这三个问题都建立在<strong>信息度量</strong>的基础之上——这就是第一章的全部内容。</p>
+<hr />
+<h2 id="9">9. 信息论的重要理念（课堂散记）</h2>
+<details class="note">
+<summary>老师关于信息论本质的讨论</summary>
+</details>
+<p><strong>信息论是数学课</strong>（反复强调）：
+  - "信息论是一门应用数学课，你可以理解成高级概率论"
+  - 不需要通信背景，任何理工科学生都可学
+  - 与机器学习底层相通："机器学习的底层是统计，信息论的底层也是概率"</p>
+<p><strong>香农信息论的 Bug</strong>（03-08 和 03-22 都提到）：
+  - 把所有事件的重要性等同对待——猫和狗、正面和反面在香农看来都一样
+  - 在通信领域没问题（传猫传狗都一样），但在机器学习中有问题（样本重要性不同）
+  - 老师鼓励大家思考："如果你想推翻香农，先把 <span class="arithmatex">\(-\log p(x)\)</span> 干掉"</p>
+<p><strong>信息论的未解问题</strong>：
+  - 信息是否守恒？一条信息可以无限复制扩散，不像物质（守恒）和能量（守恒）
+  - 语义信息如何处理？香农明确说"不考虑语义"，但这在 AI 时代越来越重要</p>
+<hr />
+<h2 id="10">10. 考试与作业信息</h2>
+<ul>
+<li><strong>考试占比</strong>：约 40%（整个第一章）</li>
+<li><strong>考试形式</strong>：随堂考（本学期最后一次课）</li>
+<li><strong>题型</strong>：计算题 + 证明题（老师强调"数学课一定会有证明题"）</li>
+<li><strong>作业</strong>：第一章所有习题，一个月后（约 5 月 13 日）在学在浙大上提交</li>
+<li><strong>难度</strong>：老师提到以前 20% 挂科率，但本学期会适当降低难度</li>
+</ul>
+<details class="note">
+<summary>老师关于学习的建议</summary>
+</details>
+<ul>
+<li>"信息论不学不做作业是肯定学不会的，因为本质上是数学课"</li>
+<li>"建议大家去学凸优化——神经网络里的梯度下降、正则化等都离不开凸优化"</li>
+<li>"想想信息论在你们自己专业有什么用？这是课程论文要写的"</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "navigation.indexes", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
