@@ -1,22 +1,29 @@
 site_name: ckyasb's notes
 site_url: https://ckyasb.github.io/
+site_description: ckyasb 的课程笔记与学习记录，关于物理、计算机、人文，以及沿途的好奇心。
 
 # 启用 Material 主题
 theme:
   name: material
   language: zh # 设为中文
+  font: false
   palette: 
     # 切换日间/夜间模式的按钮
     - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
-        name: Switch to dark mode
+        name: 切换至深色模式
     - scheme: slate # 这就是那个炫酷的深色模式
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode
+        name: 切换至浅色模式
   features:
     - navigation.tabs        # 顶部导航栏
+    - navigation.tabs.sticky
     - navigation.top         # 返回顶部按钮
     - content.code.copy      # 代码块复制按钮
     - navigation.indexes     # 【左侧导航】显示所有页面的索引
@@ -24,6 +31,7 @@ theme:
 
 markdown_extensions:
   - attr_list             # 允许给图片加属性（大小、对齐）
+  - md_in_html            # 首页布局中的 Markdown 链接仍由 MkDocs 解析
   - admonition            # 开启提示块 (!!! note)
   - pymdownx.details      # 开启折叠 (???)
   - pymdownx.superfences  # 允许代码块/列表嵌套
@@ -35,6 +43,20 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/butterfly-swarm.js
+  - javascripts/seele-companion.js
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
+  - search
   - awesome-pages  # 启用插件
+  - git-revision-date-localized:
+      type: date
+      locale: zh
+      timezone: Asia/Shanghai
+      fallback_to_build_date: false
+      exclude:
+        - index.md
+        - about.md
